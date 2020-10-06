@@ -2,17 +2,21 @@
   "name": "vfast",
   "version": "1.0.0",
   "description": "A fast and modern mobro theme",
-  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html"
+    "build": "parcel build public/index.html --out-dir ./",
+    "start": "parcel public/index.html --open --out-dir ./.www"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/react": "^16.9.51",
+    "@types/styled-components": "^5.1.3",
+    "husky": "^4.3.0",
     "jest": "^26.5.2",
-    "parcel": "^2.0.0-beta.1",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-custom-dist-structure": "^1.1.16",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.0.2",
     "typescript": "^4.0.3"
   },
   "dependencies": {
@@ -20,9 +24,20 @@
     "preact-compat": "^3.19.0",
     "styled-components": "^5.2.0"
   },
+  "customDistStructure": {
+    "config": {
+      ".js": "js",
+      ".js.map": "js"
+    }
+  },
   "alias": {
     "react": "preact/compat",
     "react-dom/test-utils": "preact/test-utils",
     "react-dom": "preact/compat"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
