@@ -4,8 +4,8 @@
   "description": "A fast and modern mobro theme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build public/index.html --out-dir ./",
-    "start": "parcel public/index.html --open --out-dir ./.www"
+    "build": "parcel build public/index.pug --out-dir ./",
+    "start": "parcel public/index.pug --open --out-dir ./.www"
   },
   "author": "",
   "license": "ISC",
@@ -15,8 +15,10 @@
     "jest": "^26.5.2",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-custom-dist-structure": "^1.1.16",
+    "parcel-plugin-html-externals": "^0.2.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.0.2",
+    "pug": "^3.0.0",
     "typescript": "^4.0.3"
   },
   "dependencies": {
@@ -29,6 +31,9 @@
       ".js": "js",
       ".js.map": "js"
     }
+  },
+  "externals": {
+    "*/**/sdk.js": false
   },
   "alias": {
     "react": "preact/compat",
