@@ -6,5 +6,5 @@ const H1 = styled.h1`
 `;
 
 export const App = () => {
-  return <H1>Hello from Preact and Typescript ya!</H1>;
+  return <H1>Hello from Preact and Typescript ya!yes!</H1>;
 };

@@ -1,0 +1,9 @@
+doctype html
+html(lang='en')
+  head
+    title vfast
+  body
+    div#root
+    if process.env.NODE_ENV === 'production'
+      | #SDK_SCRIPT#
+  script(src="../src/Index.tsx")

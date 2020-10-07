@@ -3,11 +3,13 @@
     "outDir": "./dist",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "es2020",
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "esModuleInterop": true,
+    "allowJs": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "scripts"]
 }
