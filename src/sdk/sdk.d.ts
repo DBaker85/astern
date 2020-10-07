@@ -45,8 +45,14 @@ interface Window {
     init: () => Promise<any>;
     getSocket: () => WebSocket;
     isConnected: () => Boolean;
-    addChannelListener: () => void;
-    removeChannelListener: () => void;
-    emit: () => Promise<any>;
+    addChannelListener: (
+      channel: string,
+      listener: (data: any) => void
+    ) => void;
+    removeChannelListener: (
+      channel: string,
+      listener: (data: any) => void
+    ) => void;
+    emit: (event: string, data?: string) => Promise<any>;
   };
 }
