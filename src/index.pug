@@ -4,6 +4,6 @@ html(lang='en')
     title vfast
   body
     div#root
-    if process.env.NODE_ENV === 'production'
-      | #SDK_SCRIPT#
+  if process.env.NODE_ENV === 'production'
+    | #SDK_SCRIPT#
   script(src="../src/Index.tsx")

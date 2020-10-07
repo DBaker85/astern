@@ -4,8 +4,9 @@
   "description": "A fast and modern mobro theme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && parcel build src/index.pug --out-dir ./theme && ts-node buildScripts/addSdk.ts",
+    "build": "npm run clean && parcel build src/index.pug --out-dir ./theme && npm run sdk:path",
     "start": "parcel src/index.pug --open --out-dir ./.www",
+    "sdk:path": "ts-node --skip-project buildScripts/addSdk.ts",
     "clean": "del-cli theme/js"
   },
   "author": "",
