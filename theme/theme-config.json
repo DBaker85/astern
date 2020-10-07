@@ -1,7 +1,7 @@
 {
   "channels": [
     {
-      "name": "theme_clock_cpu",
+      "name": "theme_cpu_clock",
       "sources": "all",
       "hardwaretype": "Processor",
       "sensortype": "Clock",
