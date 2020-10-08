@@ -3862,7 +3862,7 @@ parcelRequire = (function (e, r, t, n) {
               (e.theme !== n.theme && e.theme) || t || n.theme
             );
           },
-          _e = /[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~-]+/g,
+          _e = /[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~-]+/g,
           Oe = /(^-|-$)/g;
         function Ne(e) {
           return e.replace(_e, "-").replace(Oe, "");
@@ -4397,78 +4397,94 @@ parcelRequire = (function (e, r, t, n) {
         process: "pBGv",
       },
     ],
+    ohRQ: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.Loader = void 0);
+        var e = require("preact"),
+          r = function () {
+            return (0, e.h)("div", null, "Loading...");
+          };
+        exports.Loader = r;
+      },
+      { preact: "aSor" },
+    ],
     ZFDU: [
       function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: !0 }),
           (exports.Cpu = void 0);
         var e = require("preact"),
-          t = require("preact/hooks");
-        function r(e, t) {
-          return u(e) || i(e, t) || o(e, t) || n();
+          r = require("preact/hooks");
+        function t(e, r) {
+          return i(e) || u(e, r) || o(e, r) || n();
         }
         function n() {
           throw new TypeError(
             "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        function o(e, t) {
+        function o(e, r) {
           if (e) {
-            if ("string" == typeof e) return a(e, t);
-            var r = Object.prototype.toString.call(e).slice(8, -1);
+            if ("string" == typeof e) return a(e, r);
+            var t = Object.prototype.toString.call(e).slice(8, -1);
             return (
-              "Object" === r && e.constructor && (r = e.constructor.name),
-              "Map" === r || "Set" === r
+              "Object" === t && e.constructor && (t = e.constructor.name),
+              "Map" === t || "Set" === t
                 ? Array.from(e)
-                : "Arguments" === r ||
-                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
-                ? a(e, t)
+                : "Arguments" === t ||
+                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)
+                ? a(e, r)
                 : void 0
             );
           }
         }
-        function a(e, t) {
-          (null == t || t > e.length) && (t = e.length);
-          for (var r = 0, n = new Array(t); r < t; r++) n[r] = e[r];
+        function a(e, r) {
+          (null == r || r > e.length) && (r = e.length);
+          for (var t = 0, n = new Array(r); t < r; t++) n[t] = e[t];
           return n;
         }
-        function i(e, t) {
+        function u(e, r) {
           if ("undefined" != typeof Symbol && Symbol.iterator in Object(e)) {
-            var r = [],
+            var t = [],
               n = !0,
               o = !1,
               a = void 0;
             try {
               for (
-                var i, u = e[Symbol.iterator]();
-                !(n = (i = u.next()).done) &&
-                (r.push(i.value), !t || r.length !== t);
+                var u, i = e[Symbol.iterator]();
+                !(n = (u = i.next()).done) &&
+                (t.push(u.value), !r || t.length !== r);
                 n = !0
               );
             } catch (l) {
               (o = !0), (a = l);
             } finally {
               try {
-                n || null == u.return || u.return();
+                n || null == i.return || i.return();
               } finally {
                 if (o) throw a;
               }
             }
-            return r;
+            return t;
           }
         }
-        function u(e) {
+        function i(e) {
           if (Array.isArray(e)) return e;
         }
         var l = function () {
-          var n = r((0, t.useState)(0), 2),
+          var n = t((0, r.useState)(0), 2),
             o = n[0],
             a = n[1],
-            i = r((0, t.useState)(0), 2),
-            u = i[0],
-            l = i[1];
+            u = t((0, r.useState)(0), 2),
+            i = u[0],
+            l = u[1],
+            c = t((0, r.useState)(0), 2),
+            s = c[0],
+            d = c[1];
           return (
-            (0, t.useEffect)(function () {
+            (0, r.useEffect)(function () {
               window.MobroSDK.addChannelListener(
                 window.MobroSDK.generalChannels.PROCESSOR.USAGE,
                 function (e) {
@@ -4484,13 +4500,20 @@ parcelRequire = (function (e, r, t, n) {
                 window.MobroSDK.addChannelListener("theme_clock_cpu", function (
                   e
                 ) {
-                  a(e.payload.value);
-                }),
-                window.MobroSDK.emit("monitor:data").then(function (e) {
-                  console.log("data", e);
+                  d(e.payload.value / 1e3);
                 });
             }, []),
-            (0, e.h)("div", null, "cpu temp : ", o, " | cpu usage : ", u, "%")
+            (0, e.h)(
+              "div",
+              null,
+              "cpu temp : ",
+              o,
+              " | cpu usage : ",
+              i,
+              "% | ",
+              s,
+              "ghz"
+            )
           );
         };
         exports.Cpu = l;
@@ -4504,22 +4527,23 @@ parcelRequire = (function (e, r, t, n) {
           (exports.App = void 0);
         var e = require("preact"),
           t = require("preact/hooks"),
-          r = o(require("styled-components")),
-          n = require("./components/cpu/Cpu");
-        function o(e) {
+          r = u(require("styled-components")),
+          n = require("./components/loader/Loader"),
+          o = require("./components/cpu/Cpu");
+        function u(e) {
           return e && e.__esModule ? e : { default: e };
         }
-        function u(e, t) {
-          return l(e) || f(e, t) || a(e, t) || i();
+        function i(e, t) {
+          return s(e) || l(e, t) || c(e, t) || a();
         }
-        function i() {
+        function a() {
           throw new TypeError(
             "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        function a(e, t) {
+        function c(e, t) {
           if (e) {
-            if ("string" == typeof e) return c(e, t);
+            if ("string" == typeof e) return f(e, t);
             var r = Object.prototype.toString.call(e).slice(8, -1);
             return (
               "Object" === r && e.constructor && (r = e.constructor.name),
@@ -4527,17 +4551,17 @@ parcelRequire = (function (e, r, t, n) {
                 ? Array.from(e)
                 : "Arguments" === r ||
                   /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
-                ? c(e, t)
+                ? f(e, t)
                 : void 0
             );
           }
         }
-        function c(e, t) {
+        function f(e, t) {
           (null == t || t > e.length) && (t = e.length);
           for (var r = 0, n = new Array(t); r < t; r++) n[r] = e[r];
           return n;
         }
-        function f(e, t) {
+        function l(e, t) {
           if ("undefined" != typeof Symbol && Symbol.iterator in Object(e)) {
             var r = [],
               n = !0,
@@ -4562,19 +4586,19 @@ parcelRequire = (function (e, r, t, n) {
             return r;
           }
         }
-        function l(e) {
+        function s(e) {
           if (Array.isArray(e)) return e;
         }
-        function s() {
-          var e = p(["\n  font-weight: 600;\n"]);
+        function p() {
+          var e = d(["\n  font-weight: 600;\n"]);
           return (
-            (s = function () {
+            (p = function () {
               return e;
             }),
             e
           );
         }
-        function p(e, t) {
+        function d(e, t) {
           return (
             t || (t = e.slice(0)),
             Object.freeze(
@@ -4582,7 +4606,7 @@ parcelRequire = (function (e, r, t, n) {
             )
           );
         }
-        var d = function (e, t, r, n) {
+        var v = function (e, t, r, n) {
             return new (r || (r = Promise))(function (o, u) {
               function i(e) {
                 try {
@@ -4612,14 +4636,14 @@ parcelRequire = (function (e, r, t, n) {
               c((n = n.apply(e, t || [])).next());
             });
           },
-          v = r.default.h1(s()),
-          y = function () {
-            var r = u((0, t.useState)(!1), 2),
-              o = r[0],
-              i = r[1];
+          y = r.default.h1(p()),
+          m = function () {
+            var r = i((0, t.useState)(!1), 2),
+              u = r[0],
+              a = r[1];
             return (
               (0, t.useEffect)(function () {
-                d(
+                v(
                   void 0,
                   void 0,
                   void 0,
@@ -4630,8 +4654,12 @@ parcelRequire = (function (e, r, t, n) {
                           case 0:
                             return (e.next = 2), window.MobroSDK.init();
                           case 2:
-                            i(!0);
-                          case 3:
+                            return (
+                              (e.next = 4), window.MobroSDK.emit("monitor:data")
+                            );
+                          case 4:
+                            e.sent, a(!0);
+                          case 6:
                           case "end":
                             return e.stop();
                         }
@@ -4639,15 +4667,16 @@ parcelRequire = (function (e, r, t, n) {
                   })
                 );
               }, []),
-              o ? (0, e.h)(n.Cpu, null) : (0, e.h)("div", null, "Pack em")
+              u ? (0, e.h)(o.Cpu, null) : (0, e.h)(n.Loader, null)
             );
           };
-        exports.App = y;
+        exports.App = m;
       },
       {
         preact: "aSor",
         "preact/hooks": "MwGB",
         "styled-components": "tFSs",
+        "./components/loader/Loader": "ohRQ",
         "./components/cpu/Cpu": "ZFDU",
       },
     ],
@@ -4670,4 +4699,4 @@ parcelRequire = (function (e, r, t, n) {
   ["ZiyK"],
   null
 );
-//# sourceMappingURL=/js/Index.3fca9b86.js.map
+//# sourceMappingURL=/assets/Index.ff0438a7.js.map

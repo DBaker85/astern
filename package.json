@@ -7,7 +7,7 @@
     "build": "npm run clean && parcel build src/index.pug --out-dir ./theme && npm run sdk:path",
     "start": "parcel src/index.pug --open --out-dir ./.www",
     "sdk:path": "ts-node --skip-project buildScripts/addSdk.ts",
-    "clean": "del-cli theme/js"
+    "clean": "del-cli theme/assets"
   },
   "author": "",
   "license": "ISC",
@@ -35,8 +35,9 @@
   },
   "customDistStructure": {
     "config": {
-      ".js": "js",
-      ".js.map": "js"
+      ".js": "assets",
+      ".js.map": "assets",
+      ".woff2": "assets"
     }
   },
   "alias": {

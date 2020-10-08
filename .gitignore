@@ -2,3 +2,6 @@ node_modules
 .parcel-cache
 .cache
 .www
+
+# Mac stuff
+.DS_Store
