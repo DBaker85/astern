@@ -1,21 +1,18 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 // import { useEffect, useState } from "preact/hooks";
+import { useDispatch } from "react-redux";
 
-import { HardwareList } from "../../sdk/types";
+import { fetchHardwarelist } from "../../store/hardware/hardwareSlice";
 import { Loader } from "../loader/Loader";
 import { Cpu } from "../cpu/Cpu";
 
 export const Main: FunctionComponent = () => {
+  const dispatch = useDispatch();
   const [mobroInit, setMobroInit] = useState(false);
-  const [hardwareList, setHardwareList] = useState(true);
 
   useEffect(() => {
     const start = async () => {
-      await window.MobroSDK.init();
-      const hardware = (await window.MobroSDK.emit(
-        "monitor:data"
-      )) as HardwareList;
-      console.log(JSON.stringify(hardware));
+      dispatch(fetchHardwarelist());
       setMobroInit(true);
     };
     start();
