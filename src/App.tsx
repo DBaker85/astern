@@ -1,16 +1,11 @@
 import { h, FunctionComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import styled from "styled-components";
 
 import { Loader } from "./components/loader/Loader";
 import { Cpu } from "./components/cpu/Cpu";
 
-const H1 = styled.h1`
-  font-weight: 600;
-`;
-
 export const App: FunctionComponent = () => {
-  const [mobroInit, setMobroInit] = useState(false);
+  const [mobroInit, setMobroInit] = useState(true);
 
   useEffect(() => {
     const start = async () => {

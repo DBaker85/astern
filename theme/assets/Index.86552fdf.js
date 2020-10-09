@@ -1136,210 +1136,6 @@ parcelRequire = (function (e, r, t, n) {
       },
       {},
     ],
-    MwGB: [
-      function (require, module, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: !0 }),
-          (exports.useState = a),
-          (exports.useReducer = p),
-          (exports.useEffect = h),
-          (exports.useLayoutEffect = m),
-          (exports.useRef = v),
-          (exports.useImperativeHandle = l),
-          (exports.useMemo = H),
-          (exports.useCallback = x),
-          (exports.useContext = d),
-          (exports.useDebugValue = y),
-          (exports.useErrorBoundary = E);
-        var _,
-          n,
-          t,
-          o = require("preact"),
-          e = 0,
-          u = [],
-          r = o.options.__r,
-          i = o.options.diffed,
-          c = o.options.__c,
-          s = o.options.unmount;
-        function f(_, t) {
-          o.options.__h && o.options.__h(n, _, e || t), (e = 0);
-          var u = n.__H || (n.__H = { __: [], __h: [] });
-          return _ >= u.__.length && u.__.push({}), u.__[_];
-        }
-        function a(_) {
-          return (e = 1), p(F, _);
-        }
-        function p(t, o, e) {
-          var u = f(_++, 2);
-          return (
-            (u.t = t),
-            u.__c ||
-              ((u.__ = [
-                e ? e(o) : F(void 0, o),
-                function (_) {
-                  var n = u.t(u.__[0], _);
-                  u.__[0] !== n && ((u.__ = [n, u.__[1]]), u.__c.setState({}));
-                },
-              ]),
-              (u.__c = n)),
-            u.__
-          );
-        }
-        function h(t, e) {
-          var u = f(_++, 3);
-          !o.options.__s &&
-            D(u.__H, e) &&
-            ((u.__ = t), (u.__H = e), n.__H.__h.push(u));
-        }
-        function m(t, e) {
-          var u = f(_++, 4);
-          !o.options.__s &&
-            D(u.__H, e) &&
-            ((u.__ = t), (u.__H = e), n.__h.push(u));
-        }
-        function v(_) {
-          return (
-            (e = 5),
-            H(function () {
-              return { current: _ };
-            }, [])
-          );
-        }
-        function l(_, n, t) {
-          (e = 6),
-            m(
-              function () {
-                "function" == typeof _ ? _(n()) : _ && (_.current = n());
-              },
-              null == t ? t : t.concat(_)
-            );
-        }
-        function H(n, t) {
-          var o = f(_++, 7);
-          return D(o.__H, t) && ((o.__ = n()), (o.__H = t), (o.__h = n)), o.__;
-        }
-        function x(_, n) {
-          return (
-            (e = 8),
-            H(function () {
-              return _;
-            }, n)
-          );
-        }
-        function d(t) {
-          var o = n.context[t.__c],
-            e = f(_++, 9);
-          return (
-            (e.__c = t),
-            o ? (null == e.__ && ((e.__ = !0), o.sub(n)), o.props.value) : t.__
-          );
-        }
-        function y(_, n) {
-          o.options.useDebugValue && o.options.useDebugValue(n ? n(_) : _);
-        }
-        function E(t) {
-          var o = f(_++, 10),
-            e = a();
-          return (
-            (o.__ = t),
-            n.componentDidCatch ||
-              (n.componentDidCatch = function (_) {
-                o.__ && o.__(_), e[1](_);
-              }),
-            [
-              e[0],
-              function () {
-                e[1](void 0);
-              },
-            ]
-          );
-        }
-        function g() {
-          u.some(function (_) {
-            if (_.__P)
-              try {
-                _.__H.__h.forEach(q), _.__H.__h.forEach(A), (_.__H.__h = []);
-              } catch (n) {
-                return (_.__H.__h = []), o.options.__e(n, _.__v), !0;
-              }
-          }),
-            (u = []);
-        }
-        (o.options.__r = function (t) {
-          r && r(t), (_ = 0);
-          var o = (n = t.__c).__H;
-          o && (o.__h.forEach(q), o.__h.forEach(A), (o.__h = []));
-        }),
-          (o.options.diffed = function (_) {
-            i && i(_);
-            var n = _.__c;
-            n &&
-              n.__H &&
-              n.__H.__h.length &&
-              ((1 !== u.push(n) && t === o.options.requestAnimationFrame) ||
-                (
-                  (t = o.options.requestAnimationFrame) ||
-                  function (_) {
-                    var n,
-                      t = function () {
-                        clearTimeout(o),
-                          b && cancelAnimationFrame(n),
-                          setTimeout(_);
-                      },
-                      o = setTimeout(t, 100);
-                    b && (n = requestAnimationFrame(t));
-                  }
-                )(g));
-          }),
-          (o.options.__c = function (_, n) {
-            n.some(function (_) {
-              try {
-                _.__h.forEach(q),
-                  (_.__h = _.__h.filter(function (_) {
-                    return !_.__ || A(_);
-                  }));
-              } catch (t) {
-                n.some(function (_) {
-                  _.__h && (_.__h = []);
-                }),
-                  (n = []),
-                  o.options.__e(t, _.__v);
-              }
-            }),
-              c && c(_, n);
-          }),
-          (o.options.unmount = function (_) {
-            s && s(_);
-            var n = _.__c;
-            if (n && n.__H)
-              try {
-                n.__H.__.forEach(q);
-              } catch (_) {
-                o.options.__e(_, n.__v);
-              }
-          });
-        var b = "function" == typeof requestAnimationFrame;
-        function q(_) {
-          "function" == typeof _.u && _.u();
-        }
-        function A(_) {
-          _.u = _.__();
-        }
-        function D(_, n) {
-          return (
-            !_ ||
-            _.length !== n.length ||
-            n.some(function (n, t) {
-              return n !== _[t];
-            })
-          );
-        }
-        function F(_, n) {
-          return "function" == typeof n ? n(_) : n;
-        }
-      },
-      { preact: "aSor" },
-    ],
     RsE0: [
       function (require, module, exports) {
         "use strict";
@@ -1478,539 +1274,6 @@ parcelRequire = (function (e, r, t, n) {
         module.exports = require("./cjs/react-is.production.min.js");
       },
       { "./cjs/react-is.production.min.js": "RsE0" },
-    ],
-    AQ6k: [
-      function (require, module, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: !0 });
-        var e = {
-          version: !0,
-          Children: !0,
-          render: !0,
-          hydrate: !0,
-          unmountComponentAtNode: !0,
-          createPortal: !0,
-          createFactory: !0,
-          cloneElement: !0,
-          isValidElement: !0,
-          findDOMNode: !0,
-          PureComponent: !0,
-          memo: !0,
-          forwardRef: !0,
-          unstable_batchedUpdates: !0,
-          StrictMode: !0,
-          Suspense: !0,
-          SuspenseList: !0,
-          lazy: !0,
-          __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: !0,
-          createElement: !0,
-          createContext: !0,
-          createRef: !0,
-          Fragment: !0,
-          Component: !0,
-        };
-        (exports.render = k),
-          (exports.hydrate = S),
-          (exports.unmountComponentAtNode = $),
-          (exports.createPortal = x),
-          (exports.createFactory = M),
-          (exports.cloneElement = j),
-          (exports.isValidElement = W),
-          (exports.findDOMNode = z),
-          (exports.PureComponent = u),
-          (exports.memo = i),
-          (exports.forwardRef = _),
-          (exports.Suspense = m),
-          (exports.SuspenseList = y),
-          (exports.lazy = v),
-          Object.defineProperty(exports, "createElement", {
-            enumerable: !0,
-            get: function () {
-              return n.createElement;
-            },
-          }),
-          Object.defineProperty(exports, "createContext", {
-            enumerable: !0,
-            get: function () {
-              return n.createContext;
-            },
-          }),
-          Object.defineProperty(exports, "createRef", {
-            enumerable: !0,
-            get: function () {
-              return n.createRef;
-            },
-          }),
-          Object.defineProperty(exports, "Fragment", {
-            enumerable: !0,
-            get: function () {
-              return n.Fragment;
-            },
-          }),
-          Object.defineProperty(exports, "Component", {
-            enumerable: !0,
-            get: function () {
-              return n.Component;
-            },
-          }),
-          (exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = exports.StrictMode = exports.unstable_batchedUpdates = exports.Children = exports.version = exports.default = void 0);
-        var t = require("preact/hooks");
-        Object.keys(t).forEach(function (n) {
-          "default" !== n &&
-            "__esModule" !== n &&
-            (Object.prototype.hasOwnProperty.call(e, n) ||
-              Object.defineProperty(exports, n, {
-                enumerable: !0,
-                get: function () {
-                  return t[n];
-                },
-              }));
-        });
-        var n = require("preact");
-        function r(e, t) {
-          for (var n in t) e[n] = t[n];
-          return e;
-        }
-        function o(e, t) {
-          for (var n in e) if ("__source" !== n && !(n in t)) return !0;
-          for (var r in t) if ("__source" !== r && e[r] !== t[r]) return !0;
-          return !1;
-        }
-        function u(e) {
-          this.props = e;
-        }
-        function i(e, t) {
-          function r(e) {
-            var n = this.props.ref,
-              r = n == e.ref;
-            return (
-              !r && n && (n.call ? n(null) : (n.current = null)),
-              t ? !t(this.props, e) || !r : o(this.props, e)
-            );
-          }
-          function u(t) {
-            return (this.shouldComponentUpdate = r), (0, n.createElement)(e, t);
-          }
-          return (
-            (u.displayName = "Memo(" + (e.displayName || e.name) + ")"),
-            (u.prototype.isReactComponent = !0),
-            (u.__f = !0),
-            u
-          );
-        }
-        ((u.prototype = new n.Component()).isPureReactComponent = !0),
-          (u.prototype.shouldComponentUpdate = function (e, t) {
-            return o(this.props, e) || o(this.state, t);
-          });
-        var a = n.options.__b;
-        n.options.__b = function (e) {
-          e.type &&
-            e.type.__f &&
-            e.ref &&
-            ((e.props.ref = e.ref), (e.ref = null)),
-            a && a(e);
-        };
-        var l =
-          ("undefined" != typeof Symbol &&
-            Symbol.for &&
-            Symbol.for("react.forward_ref")) ||
-          3911;
-        function _(e) {
-          function t(t, n) {
-            var o = r({}, t);
-            return (
-              delete o.ref,
-              e(
-                o,
-                (n = t.ref || n) && ("object" != typeof n || "current" in n)
-                  ? n
-                  : null
-              )
-            );
-          }
-          return (
-            (t.$$typeof = l),
-            (t.render = t),
-            (t.prototype.isReactComponent = t.__f = !0),
-            (t.displayName = "ForwardRef(" + (e.displayName || e.name) + ")"),
-            t
-          );
-        }
-        var c = function (e, t) {
-            return null == e
-              ? null
-              : (0, n.toChildArray)((0, n.toChildArray)(e).map(t));
-          },
-          p = {
-            map: c,
-            forEach: c,
-            count: function (e) {
-              return e ? (0, n.toChildArray)(e).length : 0;
-            },
-            only: function (e) {
-              var t = (0, n.toChildArray)(e);
-              if (1 !== t.length) throw "Children.only";
-              return t[0];
-            },
-            toArray: n.toChildArray,
-          },
-          s = n.options.__e;
-        function f(e) {
-          return (
-            e && (((e = r({}, e)).__c = null), (e.__k = e.__k && e.__k.map(f))),
-            e
-          );
-        }
-        function d(e) {
-          return e && ((e.__v = null), (e.__k = e.__k && e.__k.map(d))), e;
-        }
-        function m() {
-          (this.__u = 0), (this.t = null), (this.__b = null);
-        }
-        function h(e) {
-          var t = e.__.__c;
-          return t && t.__e && t.__e(e);
-        }
-        function v(e) {
-          var t, r, o;
-          function u(u) {
-            if (
-              (t ||
-                (t = e()).then(
-                  function (e) {
-                    r = e.default || e;
-                  },
-                  function (e) {
-                    o = e;
-                  }
-                ),
-              o)
-            )
-              throw o;
-            if (!r) throw t;
-            return (0, n.createElement)(r, u);
-          }
-          return (u.displayName = "Lazy"), (u.__f = !0), u;
-        }
-        function y() {
-          (this.u = null), (this.o = null);
-        }
-        (exports.Children = p),
-          (n.options.__e = function (e, t, n) {
-            if (e.then)
-              for (var r, o = t; (o = o.__); )
-                if ((r = o.__c) && r.__c)
-                  return (
-                    null == t.__e && ((t.__e = n.__e), (t.__k = n.__k)),
-                    r.__c(e, t.__c)
-                  );
-            s(e, t, n);
-          }),
-          ((m.prototype = new n.Component()).__c = function (e, t) {
-            var n = this;
-            null == n.t && (n.t = []), n.t.push(t);
-            var r = h(n.__v),
-              o = !1,
-              u = function () {
-                o ||
-                  ((o = !0), (t.componentWillUnmount = t.__c), r ? r(i) : i());
-              };
-            (t.__c = t.componentWillUnmount),
-              (t.componentWillUnmount = function () {
-                u(), t.__c && t.__c();
-              });
-            var i = function () {
-                var e;
-                if (!--n.__u)
-                  for (
-                    n.__v.__k[0] = d(n.state.__e),
-                      n.setState({ __e: (n.__b = null) });
-                    (e = n.t.pop());
-
-                  )
-                    e.forceUpdate();
-              },
-              a = n.__v;
-            (a && !0 === a.__h) ||
-              n.__u++ ||
-              n.setState({ __e: (n.__b = n.__v.__k[0]) }),
-              e.then(u, u);
-          }),
-          (m.prototype.componentWillUnmount = function () {
-            this.t = [];
-          }),
-          (m.prototype.render = function (e, t) {
-            this.__b &&
-              (this.__v.__k && (this.__v.__k[0] = f(this.__b)),
-              (this.__b = null));
-            var r = t.__e && (0, n.createElement)(n.Fragment, null, e.fallback);
-            return (
-              r && (r.__h = null),
-              [
-                (0, n.createElement)(
-                  n.Fragment,
-                  null,
-                  t.__e ? null : e.children
-                ),
-                r,
-              ]
-            );
-          });
-        var b = function (e, t, n) {
-          if (
-            (++n[1] === n[0] && e.o.delete(t),
-            e.props.revealOrder &&
-              ("t" !== e.props.revealOrder[0] || !e.o.size))
-          )
-            for (n = e.u; n; ) {
-              for (; n.length > 3; ) n.pop()();
-              if (n[1] < n[0]) break;
-              e.u = n = n[2];
-            }
-        };
-        function C(e) {
-          return (
-            (this.getChildContext = function () {
-              return e.context;
-            }),
-            e.children
-          );
-        }
-        function E(e) {
-          var t = this,
-            r = e.i,
-            o = (0, n.createElement)(C, { context: t.context }, e.__v);
-          (t.componentWillUnmount = function () {
-            var e = t.l.parentNode;
-            e && e.removeChild(t.l), (0, n.__u)(t.s);
-          }),
-            t.i && t.i !== r && (t.componentWillUnmount(), (t.h = !1)),
-            e.__v
-              ? t.h
-                ? ((r.__k = t.__k), (0, n.render)(o, r), (t.__k = r.__k))
-                : ((t.l = document.createTextNode("")),
-                  (t.__k = r.__k),
-                  (0, n.hydrate)("", r),
-                  r.appendChild(t.l),
-                  (t.h = !0),
-                  (t.i = r),
-                  (0, n.render)(o, r, t.l),
-                  (r.__k = t.__k),
-                  (t.__k = t.l.__k))
-              : t.h && t.componentWillUnmount(),
-            (t.s = o);
-        }
-        function x(e, t) {
-          return (0, n.createElement)(E, { __v: e, i: t });
-        }
-        ((y.prototype = new n.Component()).__e = function (e) {
-          var t = this,
-            n = h(t.__v),
-            r = t.o.get(e);
-          return (
-            r[0]++,
-            function (o) {
-              var u = function () {
-                t.props.revealOrder ? (r.push(o), b(t, e, r)) : o();
-              };
-              n ? n(u) : u();
-            }
-          );
-        }),
-          (y.prototype.render = function (e) {
-            (this.u = null), (this.o = new Map());
-            var t = (0, n.toChildArray)(e.children);
-            e.revealOrder && "b" === e.revealOrder[0] && t.reverse();
-            for (var r = t.length; r--; )
-              this.o.set(t[r], (this.u = [1, 0, this.u]));
-            return e.children;
-          }),
-          (y.prototype.componentDidUpdate = y.prototype.componentDidMount = function () {
-            var e = this;
-            this.o.forEach(function (t, n) {
-              b(e, n, t);
-            });
-          });
-        var O =
-            ("undefined" != typeof Symbol &&
-              Symbol.for &&
-              Symbol.for("react.element")) ||
-            60103,
-          R = /^(?:accent|alignment|arabic|baseline|cap|clip(?!PathU)|color|fill|flood|font|glyph(?!R)|horiz|marker(?!H|W|U)|overline|paint|stop|strikethrough|stroke|text(?!L)|underline|unicode|units|v|vector|vert|word|writing|x(?!C))[A-Z]/,
-          g = "undefined" != typeof Symbol ? /fil|che|rad/i : /fil|che|ra/i;
-        function k(e, t, r) {
-          return (
-            null == t.__k && (t.textContent = ""),
-            (0, n.render)(e, t),
-            "function" == typeof r && r(),
-            e ? e.__c : null
-          );
-        }
-        function S(e, t, r) {
-          return (
-            (0, n.hydrate)(e, t),
-            "function" == typeof r && r(),
-            e ? e.__c : null
-          );
-        }
-        (n.Component.prototype.isReactComponent = {}),
-          [
-            "componentWillMount",
-            "componentWillReceiveProps",
-            "componentWillUpdate",
-          ].forEach(function (e) {
-            Object.defineProperty(n.Component.prototype, e, {
-              configurable: !0,
-              get: function () {
-                return this["UNSAFE_" + e];
-              },
-              set: function (t) {
-                Object.defineProperty(this, e, {
-                  configurable: !0,
-                  writable: !0,
-                  value: t,
-                });
-              },
-            });
-          });
-        var N = n.options.event;
-        function U() {}
-        function P() {
-          return this.cancelBubble;
-        }
-        function A() {
-          return this.defaultPrevented;
-        }
-        n.options.event = function (e) {
-          return (
-            N && (e = N(e)),
-            (e.persist = U),
-            (e.isPropagationStopped = P),
-            (e.isDefaultPrevented = A),
-            (e.nativeEvent = e)
-          );
-        };
-        var L,
-          w = {
-            configurable: !0,
-            get: function () {
-              return this.class;
-            },
-          },
-          F = n.options.vnode;
-        n.options.vnode = function (e) {
-          var t = e.type,
-            r = e.props,
-            o = r;
-          if ("string" == typeof t) {
-            for (var u in ((o = {}), r)) {
-              var i = r[u];
-              "defaultValue" === u && "value" in r && null == r.value
-                ? (u = "value")
-                : "download" === u && !0 === i
-                ? (i = "")
-                : /ondoubleclick/i.test(u)
-                ? (u = "ondblclick")
-                : /^onchange(textarea|input)/i.test(u + t) && !g.test(r.type)
-                ? (u = "oninput")
-                : /^on(Ani|Tra|Tou|BeforeInp)/.test(u)
-                ? (u = u.toLowerCase())
-                : R.test(u)
-                ? (u = u.replace(/[A-Z0-9]/, "-$&").toLowerCase())
-                : null === i && (i = void 0),
-                (o[u] = i);
-            }
-            "select" == t &&
-              o.multiple &&
-              Array.isArray(o.value) &&
-              (o.value = (0, n.toChildArray)(r.children).forEach(function (e) {
-                e.props.selected = -1 != o.value.indexOf(e.props.value);
-              })),
-              (e.props = o);
-          }
-          t &&
-            r.class != r.className &&
-            ((w.enumerable = "className" in r),
-            null != r.className && (o.class = r.className),
-            Object.defineProperty(o, "className", w)),
-            (e.$$typeof = O),
-            F && F(e);
-        };
-        var D = n.options.__r;
-        n.options.__r = function (e) {
-          D && D(e), (L = e.__c);
-        };
-        var T = {
-            ReactCurrentDispatcher: {
-              current: {
-                readContext: function (e) {
-                  return L.__n[e.__c].props.value;
-                },
-              },
-            },
-          },
-          I = "16.8.0";
-        function M(e) {
-          return n.createElement.bind(null, e);
-        }
-        function W(e) {
-          return !!e && e.$$typeof === O;
-        }
-        function j(e) {
-          return W(e) ? n.cloneElement.apply(null, arguments) : e;
-        }
-        function $(e) {
-          return !!e.__k && ((0, n.render)(null, e), !0);
-        }
-        function z(e) {
-          return (e && (e.base || (1 === e.nodeType && e))) || null;
-        }
-        (exports.version = I),
-          (exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = T);
-        var B = function (e, t) {
-            return e(t);
-          },
-          V = n.Fragment;
-        (exports.StrictMode = V), (exports.unstable_batchedUpdates = B);
-        var Y = {
-          useState: t.useState,
-          useReducer: t.useReducer,
-          useEffect: t.useEffect,
-          useLayoutEffect: t.useLayoutEffect,
-          useRef: t.useRef,
-          useImperativeHandle: t.useImperativeHandle,
-          useMemo: t.useMemo,
-          useCallback: t.useCallback,
-          useContext: t.useContext,
-          useDebugValue: t.useDebugValue,
-          version: "16.8.0",
-          Children: p,
-          render: k,
-          hydrate: S,
-          unmountComponentAtNode: $,
-          createPortal: x,
-          createElement: n.createElement,
-          createContext: n.createContext,
-          createFactory: M,
-          cloneElement: j,
-          createRef: n.createRef,
-          Fragment: n.Fragment,
-          isValidElement: W,
-          findDOMNode: z,
-          Component: n.Component,
-          PureComponent: u,
-          memo: i,
-          forwardRef: _,
-          unstable_batchedUpdates: B,
-          StrictMode: n.Fragment,
-          Suspense: m,
-          SuspenseList: y,
-          lazy: v,
-          __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: T,
-        };
-        exports.default = Y;
-      },
-      { "preact/hooks": "MwGB", preact: "aSor" },
     ],
     pz6A: [
       function (require, module, exports) {
@@ -4388,7 +3651,7 @@ parcelRequire = (function (e, r, t, n) {
       },
       {
         "react-is": "H1RQ",
-        react: "AQ6k",
+        react: "aSor",
         shallowequal: "pz6A",
         "@emotion/stylis": "gTWe",
         "@emotion/unitless": "RtcD",
@@ -4396,6 +3659,210 @@ parcelRequire = (function (e, r, t, n) {
         "hoist-non-react-statics": "ElIr",
         process: "pBGv",
       },
+    ],
+    MwGB: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.useState = a),
+          (exports.useReducer = p),
+          (exports.useEffect = h),
+          (exports.useLayoutEffect = m),
+          (exports.useRef = v),
+          (exports.useImperativeHandle = l),
+          (exports.useMemo = H),
+          (exports.useCallback = x),
+          (exports.useContext = d),
+          (exports.useDebugValue = y),
+          (exports.useErrorBoundary = E);
+        var _,
+          n,
+          t,
+          o = require("preact"),
+          e = 0,
+          u = [],
+          r = o.options.__r,
+          i = o.options.diffed,
+          c = o.options.__c,
+          s = o.options.unmount;
+        function f(_, t) {
+          o.options.__h && o.options.__h(n, _, e || t), (e = 0);
+          var u = n.__H || (n.__H = { __: [], __h: [] });
+          return _ >= u.__.length && u.__.push({}), u.__[_];
+        }
+        function a(_) {
+          return (e = 1), p(F, _);
+        }
+        function p(t, o, e) {
+          var u = f(_++, 2);
+          return (
+            (u.t = t),
+            u.__c ||
+              ((u.__ = [
+                e ? e(o) : F(void 0, o),
+                function (_) {
+                  var n = u.t(u.__[0], _);
+                  u.__[0] !== n && ((u.__ = [n, u.__[1]]), u.__c.setState({}));
+                },
+              ]),
+              (u.__c = n)),
+            u.__
+          );
+        }
+        function h(t, e) {
+          var u = f(_++, 3);
+          !o.options.__s &&
+            D(u.__H, e) &&
+            ((u.__ = t), (u.__H = e), n.__H.__h.push(u));
+        }
+        function m(t, e) {
+          var u = f(_++, 4);
+          !o.options.__s &&
+            D(u.__H, e) &&
+            ((u.__ = t), (u.__H = e), n.__h.push(u));
+        }
+        function v(_) {
+          return (
+            (e = 5),
+            H(function () {
+              return { current: _ };
+            }, [])
+          );
+        }
+        function l(_, n, t) {
+          (e = 6),
+            m(
+              function () {
+                "function" == typeof _ ? _(n()) : _ && (_.current = n());
+              },
+              null == t ? t : t.concat(_)
+            );
+        }
+        function H(n, t) {
+          var o = f(_++, 7);
+          return D(o.__H, t) && ((o.__ = n()), (o.__H = t), (o.__h = n)), o.__;
+        }
+        function x(_, n) {
+          return (
+            (e = 8),
+            H(function () {
+              return _;
+            }, n)
+          );
+        }
+        function d(t) {
+          var o = n.context[t.__c],
+            e = f(_++, 9);
+          return (
+            (e.__c = t),
+            o ? (null == e.__ && ((e.__ = !0), o.sub(n)), o.props.value) : t.__
+          );
+        }
+        function y(_, n) {
+          o.options.useDebugValue && o.options.useDebugValue(n ? n(_) : _);
+        }
+        function E(t) {
+          var o = f(_++, 10),
+            e = a();
+          return (
+            (o.__ = t),
+            n.componentDidCatch ||
+              (n.componentDidCatch = function (_) {
+                o.__ && o.__(_), e[1](_);
+              }),
+            [
+              e[0],
+              function () {
+                e[1](void 0);
+              },
+            ]
+          );
+        }
+        function g() {
+          u.some(function (_) {
+            if (_.__P)
+              try {
+                _.__H.__h.forEach(q), _.__H.__h.forEach(A), (_.__H.__h = []);
+              } catch (n) {
+                return (_.__H.__h = []), o.options.__e(n, _.__v), !0;
+              }
+          }),
+            (u = []);
+        }
+        (o.options.__r = function (t) {
+          r && r(t), (_ = 0);
+          var o = (n = t.__c).__H;
+          o && (o.__h.forEach(q), o.__h.forEach(A), (o.__h = []));
+        }),
+          (o.options.diffed = function (_) {
+            i && i(_);
+            var n = _.__c;
+            n &&
+              n.__H &&
+              n.__H.__h.length &&
+              ((1 !== u.push(n) && t === o.options.requestAnimationFrame) ||
+                (
+                  (t = o.options.requestAnimationFrame) ||
+                  function (_) {
+                    var n,
+                      t = function () {
+                        clearTimeout(o),
+                          b && cancelAnimationFrame(n),
+                          setTimeout(_);
+                      },
+                      o = setTimeout(t, 100);
+                    b && (n = requestAnimationFrame(t));
+                  }
+                )(g));
+          }),
+          (o.options.__c = function (_, n) {
+            n.some(function (_) {
+              try {
+                _.__h.forEach(q),
+                  (_.__h = _.__h.filter(function (_) {
+                    return !_.__ || A(_);
+                  }));
+              } catch (t) {
+                n.some(function (_) {
+                  _.__h && (_.__h = []);
+                }),
+                  (n = []),
+                  o.options.__e(t, _.__v);
+              }
+            }),
+              c && c(_, n);
+          }),
+          (o.options.unmount = function (_) {
+            s && s(_);
+            var n = _.__c;
+            if (n && n.__H)
+              try {
+                n.__H.__.forEach(q);
+              } catch (_) {
+                o.options.__e(_, n.__v);
+              }
+          });
+        var b = "function" == typeof requestAnimationFrame;
+        function q(_) {
+          "function" == typeof _.u && _.u();
+        }
+        function A(_) {
+          _.u = _.__();
+        }
+        function D(_, n) {
+          return (
+            !_ ||
+            _.length !== n.length ||
+            n.some(function (n, t) {
+              return n !== _[t];
+            })
+          );
+        }
+        function F(_, n) {
+          return "function" == typeof n ? n(_) : n;
+        }
+      },
+      { preact: "aSor" },
     ],
     ohRQ: [
       function (require, module, exports) {
@@ -4525,80 +3992,244 @@ parcelRequire = (function (e, r, t, n) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: !0 }),
           (exports.App = void 0);
-        var e = require("preact"),
+        var r = require("preact"),
           t = require("preact/hooks"),
-          r = u(require("styled-components")),
-          n = require("./components/loader/Loader"),
-          o = require("./components/cpu/Cpu");
-        function u(e) {
-          return e && e.__esModule ? e : { default: e };
+          e = require("./components/loader/Loader"),
+          n = require("./components/cpu/Cpu");
+        function o(r, t) {
+          return f(r) || c(r, t) || u(r, t) || i();
         }
-        function i(e, t) {
-          return s(e) || l(e, t) || c(e, t) || a();
-        }
-        function a() {
+        function i() {
           throw new TypeError(
             "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        function c(e, t) {
-          if (e) {
-            if ("string" == typeof e) return f(e, t);
-            var r = Object.prototype.toString.call(e).slice(8, -1);
+        function u(r, t) {
+          if (r) {
+            if ("string" == typeof r) return a(r, t);
+            var e = Object.prototype.toString.call(r).slice(8, -1);
             return (
-              "Object" === r && e.constructor && (r = e.constructor.name),
-              "Map" === r || "Set" === r
-                ? Array.from(e)
-                : "Arguments" === r ||
-                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
-                ? f(e, t)
+              "Object" === e && r.constructor && (e = r.constructor.name),
+              "Map" === e || "Set" === e
+                ? Array.from(r)
+                : "Arguments" === e ||
+                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
+                ? a(r, t)
                 : void 0
             );
           }
         }
-        function f(e, t) {
-          (null == t || t > e.length) && (t = e.length);
-          for (var r = 0, n = new Array(t); r < t; r++) n[r] = e[r];
+        function a(r, t) {
+          (null == t || t > r.length) && (t = r.length);
+          for (var e = 0, n = new Array(t); e < t; e++) n[e] = r[e];
           return n;
         }
-        function l(e, t) {
-          if ("undefined" != typeof Symbol && Symbol.iterator in Object(e)) {
-            var r = [],
+        function c(r, t) {
+          if ("undefined" != typeof Symbol && Symbol.iterator in Object(r)) {
+            var e = [],
               n = !0,
               o = !1,
-              u = void 0;
+              i = void 0;
             try {
               for (
-                var i, a = e[Symbol.iterator]();
-                !(n = (i = a.next()).done) &&
-                (r.push(i.value), !t || r.length !== t);
+                var u, a = r[Symbol.iterator]();
+                !(n = (u = a.next()).done) &&
+                (e.push(u.value), !t || e.length !== t);
                 n = !0
               );
             } catch (c) {
-              (o = !0), (u = c);
+              (o = !0), (i = c);
             } finally {
               try {
                 n || null == a.return || a.return();
               } finally {
-                if (o) throw u;
+                if (o) throw i;
               }
             }
-            return r;
+            return e;
           }
         }
-        function s(e) {
-          if (Array.isArray(e)) return e;
+        function f(r) {
+          if (Array.isArray(r)) return r;
         }
-        function p() {
-          var e = d(["\n  font-weight: 600;\n"]);
+        var l = function (r, t, e, n) {
+            return new (e || (e = Promise))(function (o, i) {
+              function u(r) {
+                try {
+                  c(n.next(r));
+                } catch (t) {
+                  i(t);
+                }
+              }
+              function a(r) {
+                try {
+                  c(n.throw(r));
+                } catch (t) {
+                  i(t);
+                }
+              }
+              function c(r) {
+                var t;
+                r.done
+                  ? o(r.value)
+                  : ((t = r.value),
+                    t instanceof e
+                      ? t
+                      : new e(function (r) {
+                          r(t);
+                        })).then(u, a);
+              }
+              c((n = n.apply(r, t || [])).next());
+            });
+          },
+          s = function () {
+            var i = o((0, t.useState)(!0), 2),
+              u = i[0],
+              a = i[1];
+            return (
+              (0, t.useEffect)(function () {
+                l(
+                  void 0,
+                  void 0,
+                  void 0,
+                  regeneratorRuntime.mark(function r() {
+                    return regeneratorRuntime.wrap(function (r) {
+                      for (;;)
+                        switch ((r.prev = r.next)) {
+                          case 0:
+                            return (r.next = 2), window.MobroSDK.init();
+                          case 2:
+                            return (
+                              (r.next = 4), window.MobroSDK.emit("monitor:data")
+                            );
+                          case 4:
+                            r.sent, a(!0);
+                          case 6:
+                          case "end":
+                            return r.stop();
+                        }
+                    }, r);
+                  })
+                );
+              }, []),
+              u ? (0, r.h)(n.Cpu, null) : (0, r.h)(e.Loader, null)
+            );
+          };
+        exports.App = s;
+      },
+      {
+        preact: "aSor",
+        "preact/hooks": "MwGB",
+        "./components/loader/Loader": "ohRQ",
+        "./components/cpu/Cpu": "ZFDU",
+      },
+    ],
+    gFgi: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.dark = void 0);
+        var e = {
+          background: "hsla(321, 12%, 29%, 1)",
+          yellow: "hsla(44, 81%, 67%, 1)",
+          light: "hsla(141, 30%, 91%, 1)",
+          green: "hsla(146, 22%, 44%, 1)",
+          dark: "hsla(180, 16%, 33%, 1)",
+          red: "hsla(13, 73%, 42%, 1)",
+        };
+        exports.dark = e;
+      },
+      {},
+    ],
+    IUpW: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.reset = void 0);
+        var e = require("styled-components");
+        function n() {
+          var e = t([
+            "\n/* http://meyerweb.com/eric/tools/css/reset/\n   v4.0 | 20180602\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmain, menu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, main, menu, nav, section {\n  display: block;\n}\n/* HTML5 hidden-attribute fix for newer browsers */\n*[hidden] {\n    display: none;\n}\nbody {\n  line-height: 1;\n}\nol, ul {\n  list-style: none;\n}\nblockquote, q {\n  quotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n",
+          ]);
           return (
-            (p = function () {
+            (n = function () {
               return e;
             }),
             e
           );
         }
-        function d(e, t) {
+        function t(e, n) {
+          return (
+            n || (n = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(n) } })
+            )
+          );
+        }
+        var r = (0, e.css)(n());
+        exports.reset = r;
+      },
+      { "styled-components": "tFSs" },
+    ],
+    pRXm: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.global = void 0);
+        var e = require("styled-components");
+        function r() {
+          var e = n([
+            "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: 'Abel-Regular';\n}\n",
+          ]);
+          return (
+            (r = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function n(e, r) {
+          return (
+            r || (r = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(r) } })
+            )
+          );
+        }
+        var t = (0, e.css)(r());
+        exports.global = t;
+      },
+      { "styled-components": "tFSs" },
+    ],
+    RkMV: [
+      function (require, module, exports) {
+        module.exports = "/assets/Abel-regular.4dd9b463.woff2";
+      },
+      {},
+    ],
+    ceza: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.fonts = void 0);
+        var e = require("styled-components"),
+          t = r(require("../assets/fonts/Abel-regular.woff2"));
+        function r(e) {
+          return e && e.__esModule ? e : { default: e };
+        }
+        function n() {
+          var e = o([
+            "\n  @font-face {\n    font-family: 'Abel-Regular';\n    font-style: normal;\n    font-weight: 400;\n    font-display: swap;\n    src: local('Abel-Regular'), url(",
+            ") format('woff2');\n  }\n",
+          ]);
+          return (
+            (n = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function o(e, t) {
           return (
             t || (t = e.slice(0)),
             Object.freeze(
@@ -4606,78 +4237,48 @@ parcelRequire = (function (e, r, t, n) {
             )
           );
         }
-        var v = function (e, t, r, n) {
-            return new (r || (r = Promise))(function (o, u) {
-              function i(e) {
-                try {
-                  c(n.next(e));
-                } catch (t) {
-                  u(t);
-                }
-              }
-              function a(e) {
-                try {
-                  c(n.throw(e));
-                } catch (t) {
-                  u(t);
-                }
-              }
-              function c(e) {
-                var t;
-                e.done
-                  ? o(e.value)
-                  : ((t = e.value),
-                    t instanceof r
-                      ? t
-                      : new r(function (e) {
-                          e(t);
-                        })).then(i, a);
-              }
-              c((n = n.apply(e, t || [])).next());
-            });
-          },
-          y = r.default.h1(p()),
-          m = function () {
-            var r = i((0, t.useState)(!1), 2),
-              u = r[0],
-              a = r[1];
-            return (
-              (0, t.useEffect)(function () {
-                v(
-                  void 0,
-                  void 0,
-                  void 0,
-                  regeneratorRuntime.mark(function e() {
-                    return regeneratorRuntime.wrap(function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            return (e.next = 2), window.MobroSDK.init();
-                          case 2:
-                            return (
-                              (e.next = 4), window.MobroSDK.emit("monitor:data")
-                            );
-                          case 4:
-                            e.sent, a(!0);
-                          case 6:
-                          case "end":
-                            return e.stop();
-                        }
-                    }, e);
-                  })
-                );
-              }, []),
-              u ? (0, e.h)(o.Cpu, null) : (0, e.h)(n.Loader, null)
-            );
-          };
-        exports.App = m;
+        var f = (0, e.css)(n(), t.default);
+        exports.fonts = f;
       },
       {
-        preact: "aSor",
-        "preact/hooks": "MwGB",
         "styled-components": "tFSs",
-        "./components/loader/Loader": "ohRQ",
-        "./components/cpu/Cpu": "ZFDU",
+        "../assets/fonts/Abel-regular.woff2": "RkMV",
+      },
+    ],
+    edpt: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.globalStyle = void 0);
+        var e = require("styled-components"),
+          r = require("./reset"),
+          t = require("./global"),
+          n = require("./fonts");
+        function o() {
+          var e = s(["\n  ", "\n  ", "\n  ", "\n"]);
+          return (
+            (o = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function s(e, r) {
+          return (
+            r || (r = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(r) } })
+            )
+          );
+        }
+        var l = (0, e.css)(o(), r.reset, n.fonts, t.global);
+        exports.globalStyle = l;
+      },
+      {
+        "styled-components": "tFSs",
+        "./reset": "IUpW",
+        "./global": "pRXm",
+        "./fonts": "ceza",
       },
     ],
     ZiyK: [
@@ -4685,13 +4286,46 @@ parcelRequire = (function (e, r, t, n) {
         "use strict";
         require("regenerator-runtime/runtime.js");
         var e = require("preact"),
-          r = require("./App");
-        (0, e.render)((0, e.h)(r.App, null), document.getElementById("root"));
+          r = require("styled-components"),
+          t = require("./App"),
+          n = require("./styles/theme"),
+          u = require("./styles");
+        function i() {
+          var e = l(["", ""]);
+          return (
+            (i = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function l(e, r) {
+          return (
+            r || (r = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(r) } })
+            )
+          );
+        }
+        var o = (0, r.createGlobalStyle)(i(), u.globalStyle),
+          c = n.dark;
+        (0, e.render)(
+          (0, e.h)(
+            r.ThemeProvider,
+            { theme: c },
+            (0, e.h)(o, null),
+            (0, e.h)(t.App, null)
+          ),
+          document.getElementById("root")
+        );
       },
       {
         "regenerator-runtime/runtime.js": "QVnC",
         preact: "aSor",
+        "styled-components": "tFSs",
         "./App": "NHn6",
+        "./styles/theme": "gFgi",
+        "./styles": "edpt",
       },
     ],
   },
@@ -4699,4 +4333,4 @@ parcelRequire = (function (e, r, t, n) {
   ["ZiyK"],
   null
 );
-//# sourceMappingURL=/assets/Index.ff0438a7.js.map
+//# sourceMappingURL=/assets/Index.86552fdf.js.map
