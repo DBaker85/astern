@@ -7,8 +7,4 @@ if (process.env.NODE_ENV === "development") {
   require("./sdk/sdk");
 }
 
-render(
-  <App />,
-
-  document.getElementById("root")
-);
+render(<App />, document.getElementById("root"));
