@@ -7,7 +7,6 @@
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
-    "jsxFactory": "h",
     "esModuleInterop": true,
     "allowJs": true
   },

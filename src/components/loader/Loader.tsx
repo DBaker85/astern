@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from "preact";
+import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const StyledLoader = styled.div`

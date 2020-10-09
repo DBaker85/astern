@@ -1,6 +1,7 @@
-import { h, FunctionComponent } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import React, { FunctionComponent, useEffect, useState } from "react";
+// import { useEffect, useState } from "preact/hooks";
 
+import { HardwareList } from "../../sdk/types";
 import { Loader } from "../loader/Loader";
 import { Cpu } from "../cpu/Cpu";
 
@@ -11,7 +12,10 @@ export const Main: FunctionComponent = () => {
   useEffect(() => {
     const start = async () => {
       await window.MobroSDK.init();
-      const hardware = await window.MobroSDK.emit("monitor:data");
+      const hardware = (await window.MobroSDK.emit(
+        "monitor:data"
+      )) as HardwareList;
+      console.log(JSON.stringify(hardware));
       setMobroInit(true);
     };
     start();

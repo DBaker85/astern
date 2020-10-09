@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from "preact";
+import React, { FunctionComponent } from "react";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import { dark } from "./styles/theme";

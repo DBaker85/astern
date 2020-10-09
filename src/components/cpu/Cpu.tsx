@@ -1,5 +1,5 @@
-import { h, FunctionComponent } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import React, { FunctionComponent, useEffect, useState } from "react";
+// import { useEffect, useState } from "preact/hooks";
 
 export const Cpu: FunctionComponent = () => {
   const [temperature, setTemperature] = useState(0);
@@ -19,13 +19,18 @@ export const Cpu: FunctionComponent = () => {
         setTemperature(data.payload.value);
       }
     );
-    window.MobroSDK.addChannelListener("theme_clock_cpu", (data) => {
+    window.MobroSDK.addChannelListener("theme_cpu_clock", (data) => {
       setClock(data.payload.value / 1000);
     });
   }, []);
   return (
-    <div>
-      cpu temp : {temperature} | cpu usage : {usage}% | {clock}ghz
-    </div>
+    <>
+      <div>
+        cpu temp : {temperature} | cpu usage : {usage}% | {clock}ghz
+      </div>
+      <div>
+        <svg width={300} height={300}></svg>
+      </div>
+    </>
   );
 };
