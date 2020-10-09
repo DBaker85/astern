@@ -1,10 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { Store } from "redux";
 
-import hardwareReducer from "./hardware/hardwareSlice";
+import moBroReducer from "./moBro/mobroSlice";
 
 const rootReducer = combineReducers({
-  hardware: hardwareReducer,
+  moBro: moBroReducer,
 });
 
 export type RootStateType = ReturnType<typeof rootReducer>;

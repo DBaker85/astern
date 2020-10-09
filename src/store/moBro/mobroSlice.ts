@@ -4,9 +4,6 @@ import { HardwareList } from "../../sdk/types";
 export const fetchHardwarelist = createAsyncThunk<HardwareList>(
   "moBroSdk/fetchHarwarelist",
   async () => {
-    if (!window.MobroSDK.initialized) {
-      await window.MobroSDK.init();
-    }
     const hardware = (await window.MobroSDK.emit(
       "monitor:data"
     )) as HardwareList;
@@ -14,21 +11,21 @@ export const fetchHardwarelist = createAsyncThunk<HardwareList>(
   }
 );
 
-interface initialMobroState {
+export interface MobroState {
   hardware: HardwareList | {};
   loading: Boolean;
   init: boolean;
 }
 
-const initialMobro: initialMobroState = {
+const initialMobroState: MobroState = {
   hardware: {},
   loading: false,
   init: false,
 };
 
-const hardwareSlice = createSlice({
+const mobBroSlice = createSlice({
   name: "moBroSdk",
-  initialState: initialMobro,
+  initialState: initialMobroState,
   reducers: {
     setMobroInit(state, action: PayloadAction<boolean>) {
       state.init = action.payload;
@@ -42,6 +39,6 @@ const hardwareSlice = createSlice({
   },
 });
 
-export const { setMobroInit } = hardwareSlice.actions;
+export const { setMobroInit } = mobBroSlice.actions;
 
-export default hardwareSlice.reducer;
+export default mobBroSlice.reducer;
