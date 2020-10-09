@@ -1,22 +1,27 @@
 import { h, FunctionComponent } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
-import { Loader } from "./components/loader/Loader";
-import { Cpu } from "./components/cpu/Cpu";
+import { dark } from "./styles/theme";
+import { globalStyle } from "./styles";
+import { Main } from "./components/main/main";
 
-export const App: FunctionComponent = () => {
-  const [mobroInit, setMobroInit] = useState(true);
+const GlobalStyle = createGlobalStyle`${globalStyle}`;
+const theme = dark;
 
-  useEffect(() => {
-    const start = async () => {
-      await window.MobroSDK.init();
-      const hardware = await window.MobroSDK.emit("monitor:data");
-      setMobroInit(true);
-    };
-    start();
-  }, []);
+const StyledMainWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: 20px;
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.light};
+`;
 
-  if (!mobroInit) return <Loader />;
-
-  return <Cpu />;
-};
+export const App: FunctionComponent = () => (
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <StyledMainWrapper>
+      <Main />
+    </StyledMainWrapper>
+  </ThemeProvider>
+);
