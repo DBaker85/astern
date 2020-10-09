@@ -3660,6 +3660,163 @@ parcelRequire = (function (e, r, t, n) {
         process: "pBGv",
       },
     ],
+    gFgi: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.dark = void 0);
+        var e = {
+          background: "hsla(321, 12%, 29%, 1)",
+          yellow: "hsla(44, 81%, 67%, 1)",
+          light: "hsla(141, 30%, 91%, 1)",
+          green: "hsla(146, 22%, 44%, 1)",
+          dark: "hsla(180, 16%, 33%, 1)",
+          red: "hsla(13, 73%, 42%, 1)",
+        };
+        exports.dark = e;
+      },
+      {},
+    ],
+    IUpW: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.reset = void 0);
+        var e = require("styled-components");
+        function n() {
+          var e = t([
+            "\n/* http://meyerweb.com/eric/tools/css/reset/\n   v4.0 | 20180602\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmain, menu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, main, menu, nav, section {\n  display: block;\n}\n/* HTML5 hidden-attribute fix for newer browsers */\n*[hidden] {\n    display: none;\n}\nbody {\n  line-height: 1;\n}\nol, ul {\n  list-style: none;\n}\nblockquote, q {\n  quotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n",
+          ]);
+          return (
+            (n = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function t(e, n) {
+          return (
+            n || (n = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(n) } })
+            )
+          );
+        }
+        var r = (0, e.css)(n());
+        exports.reset = r;
+      },
+      { "styled-components": "tFSs" },
+    ],
+    pRXm: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.global = void 0);
+        var e = require("styled-components");
+        function r() {
+          var e = n([
+            "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: 'Abel-Regular';\n}\n",
+          ]);
+          return (
+            (r = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function n(e, r) {
+          return (
+            r || (r = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(r) } })
+            )
+          );
+        }
+        var t = (0, e.css)(r());
+        exports.global = t;
+      },
+      { "styled-components": "tFSs" },
+    ],
+    RkMV: [
+      function (require, module, exports) {
+        module.exports = "/assets/Abel-regular.4dd9b463.woff2";
+      },
+      {},
+    ],
+    ceza: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.fonts = void 0);
+        var e = require("styled-components"),
+          t = r(require("../assets/fonts/Abel-regular.woff2"));
+        function r(e) {
+          return e && e.__esModule ? e : { default: e };
+        }
+        function n() {
+          var e = o([
+            '\n  @font-face {\n    font-family: "Abel-Regular";\n    font-style: normal;\n    font-weight: 400;\n    font-display: swap;\n    src: local("Abel-Regular"), url(',
+            ') format("woff2");\n  }\n',
+          ]);
+          return (
+            (n = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function o(e, t) {
+          return (
+            t || (t = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(t) } })
+            )
+          );
+        }
+        var f = (0, e.css)(n(), t.default);
+        exports.fonts = f;
+      },
+      {
+        "styled-components": "tFSs",
+        "../assets/fonts/Abel-regular.woff2": "RkMV",
+      },
+    ],
+    edpt: [
+      function (require, module, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }),
+          (exports.globalStyle = void 0);
+        var e = require("styled-components"),
+          r = require("./reset"),
+          t = require("./global"),
+          n = require("./fonts");
+        function o() {
+          var e = s(["\n  ", "\n  ", "\n  ", "\n"]);
+          return (
+            (o = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function s(e, r) {
+          return (
+            r || (r = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(r) } })
+            )
+          );
+        }
+        var l = (0, e.css)(o(), r.reset, n.fonts, t.global);
+        exports.globalStyle = l;
+      },
+      {
+        "styled-components": "tFSs",
+        "./reset": "IUpW",
+        "./global": "pRXm",
+        "./fonts": "ceza",
+      },
+    ],
     MwGB: [
       function (require, module, exports) {
         "use strict";
@@ -3870,12 +4027,42 @@ parcelRequire = (function (e, r, t, n) {
         Object.defineProperty(exports, "__esModule", { value: !0 }),
           (exports.Loader = void 0);
         var e = require("preact"),
-          r = function () {
-            return (0, e.h)("div", null, "Loading...");
+          n = t(require("styled-components"));
+        function t(e) {
+          return e && e.__esModule ? e : { default: e };
+        }
+        function r() {
+          var e = i([
+            "\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  .title {\n    font-size: 40px;\n    margin: 10px;\n  }\n",
+          ]);
+          return (
+            (r = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function i(e, n) {
+          return (
+            n || (n = e.slice(0)),
+            Object.freeze(
+              Object.defineProperties(e, { raw: { value: Object.freeze(n) } })
+            )
+          );
+        }
+        var o = n.default.div(r()),
+          u = function () {
+            return (0, e.h)(
+              o,
+              null,
+              (0, e.h)("div", { className: "title" }, "Loading"),
+              (0, e.h)("div", null, "Connecting to server"),
+              (0, e.h)("div", null, "Getting hardware configuration")
+            );
           };
-        exports.Loader = r;
+        exports.Loader = u;
       },
-      { preact: "aSor" },
+      { preact: "aSor", "styled-components": "tFSs" },
     ],
     ZFDU: [
       function (require, module, exports) {
@@ -3987,26 +4174,26 @@ parcelRequire = (function (e, r, t, n) {
       },
       { preact: "aSor", "preact/hooks": "MwGB" },
     ],
-    NHn6: [
+    kN3F: [
       function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: !0 }),
-          (exports.App = void 0);
+          (exports.Main = void 0);
         var r = require("preact"),
           t = require("preact/hooks"),
-          e = require("./components/loader/Loader"),
-          n = require("./components/cpu/Cpu");
+          e = require("../loader/Loader"),
+          n = require("../cpu/Cpu");
         function o(r, t) {
-          return f(r) || c(r, t) || u(r, t) || i();
+          return f(r) || c(r, t) || a(r, t) || i();
         }
         function i() {
           throw new TypeError(
             "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        function u(r, t) {
+        function a(r, t) {
           if (r) {
-            if ("string" == typeof r) return a(r, t);
+            if ("string" == typeof r) return u(r, t);
             var e = Object.prototype.toString.call(r).slice(8, -1);
             return (
               "Object" === e && r.constructor && (e = r.constructor.name),
@@ -4014,12 +4201,12 @@ parcelRequire = (function (e, r, t, n) {
                 ? Array.from(r)
                 : "Arguments" === e ||
                   /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
-                ? a(r, t)
+                ? u(r, t)
                 : void 0
             );
           }
         }
-        function a(r, t) {
+        function u(r, t) {
           (null == t || t > r.length) && (t = r.length);
           for (var e = 0, n = new Array(t); e < t; e++) n[e] = r[e];
           return n;
@@ -4032,16 +4219,16 @@ parcelRequire = (function (e, r, t, n) {
               i = void 0;
             try {
               for (
-                var u, a = r[Symbol.iterator]();
-                !(n = (u = a.next()).done) &&
-                (e.push(u.value), !t || e.length !== t);
+                var a, u = r[Symbol.iterator]();
+                !(n = (a = u.next()).done) &&
+                (e.push(a.value), !t || e.length !== t);
                 n = !0
               );
             } catch (c) {
               (o = !0), (i = c);
             } finally {
               try {
-                n || null == a.return || a.return();
+                n || null == u.return || u.return();
               } finally {
                 if (o) throw i;
               }
@@ -4054,14 +4241,14 @@ parcelRequire = (function (e, r, t, n) {
         }
         var l = function (r, t, e, n) {
             return new (e || (e = Promise))(function (o, i) {
-              function u(r) {
+              function a(r) {
                 try {
                   c(n.next(r));
                 } catch (t) {
                   i(t);
                 }
               }
-              function a(r) {
+              function u(r) {
                 try {
                   c(n.throw(r));
                 } catch (t) {
@@ -4077,15 +4264,17 @@ parcelRequire = (function (e, r, t, n) {
                       ? t
                       : new e(function (r) {
                           r(t);
-                        })).then(u, a);
+                        })).then(a, u);
               }
               c((n = n.apply(r, t || [])).next());
             });
           },
           s = function () {
-            var i = o((0, t.useState)(!0), 2),
-              u = i[0],
-              a = i[1];
+            var i = o((0, t.useState)(!1), 2),
+              a = i[0],
+              u = i[1],
+              c = o((0, t.useState)(!0), 2);
+            c[0], c[1];
             return (
               (0, t.useEffect)(function () {
                 l(
@@ -4103,7 +4292,7 @@ parcelRequire = (function (e, r, t, n) {
                               (r.next = 4), window.MobroSDK.emit("monitor:data")
                             );
                           case 4:
-                            r.sent, a(!0);
+                            r.sent, u(!0);
                           case 6:
                           case "end":
                             return r.stop();
@@ -4112,150 +4301,31 @@ parcelRequire = (function (e, r, t, n) {
                   })
                 );
               }, []),
-              u ? (0, r.h)(n.Cpu, null) : (0, r.h)(e.Loader, null)
+              a ? (0, r.h)(n.Cpu, null) : (0, r.h)(e.Loader, null)
             );
           };
-        exports.App = s;
+        exports.Main = s;
       },
       {
         preact: "aSor",
         "preact/hooks": "MwGB",
-        "./components/loader/Loader": "ohRQ",
-        "./components/cpu/Cpu": "ZFDU",
+        "../loader/Loader": "ohRQ",
+        "../cpu/Cpu": "ZFDU",
       },
     ],
-    gFgi: [
+    NHn6: [
       function (require, module, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: !0 }),
-          (exports.dark = void 0);
-        var e = {
-          background: "hsla(321, 12%, 29%, 1)",
-          yellow: "hsla(44, 81%, 67%, 1)",
-          light: "hsla(141, 30%, 91%, 1)",
-          green: "hsla(146, 22%, 44%, 1)",
-          dark: "hsla(180, 16%, 33%, 1)",
-          red: "hsla(13, 73%, 42%, 1)",
-        };
-        exports.dark = e;
-      },
-      {},
-    ],
-    IUpW: [
-      function (require, module, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: !0 }),
-          (exports.reset = void 0);
-        var e = require("styled-components");
-        function n() {
-          var e = t([
-            "\n/* http://meyerweb.com/eric/tools/css/reset/\n   v4.0 | 20180602\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmain, menu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, main, menu, nav, section {\n  display: block;\n}\n/* HTML5 hidden-attribute fix for newer browsers */\n*[hidden] {\n    display: none;\n}\nbody {\n  line-height: 1;\n}\nol, ul {\n  list-style: none;\n}\nblockquote, q {\n  quotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n",
-          ]);
-          return (
-            (n = function () {
-              return e;
-            }),
-            e
-          );
-        }
-        function t(e, n) {
-          return (
-            n || (n = e.slice(0)),
-            Object.freeze(
-              Object.defineProperties(e, { raw: { value: Object.freeze(n) } })
-            )
-          );
-        }
-        var r = (0, e.css)(n());
-        exports.reset = r;
-      },
-      { "styled-components": "tFSs" },
-    ],
-    pRXm: [
-      function (require, module, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: !0 }),
-          (exports.global = void 0);
-        var e = require("styled-components");
-        function r() {
-          var e = n([
-            "\n* {\n  box-sizing: border-box;\n}\nbody {\n  font-family: 'Abel-Regular';\n}\n",
-          ]);
-          return (
-            (r = function () {
-              return e;
-            }),
-            e
-          );
-        }
-        function n(e, r) {
-          return (
-            r || (r = e.slice(0)),
-            Object.freeze(
-              Object.defineProperties(e, { raw: { value: Object.freeze(r) } })
-            )
-          );
-        }
-        var t = (0, e.css)(r());
-        exports.global = t;
-      },
-      { "styled-components": "tFSs" },
-    ],
-    RkMV: [
-      function (require, module, exports) {
-        module.exports = "/assets/Abel-regular.4dd9b463.woff2";
-      },
-      {},
-    ],
-    ceza: [
-      function (require, module, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: !0 }),
-          (exports.fonts = void 0);
-        var e = require("styled-components"),
-          t = r(require("../assets/fonts/Abel-regular.woff2"));
-        function r(e) {
-          return e && e.__esModule ? e : { default: e };
-        }
-        function n() {
-          var e = o([
-            "\n  @font-face {\n    font-family: 'Abel-Regular';\n    font-style: normal;\n    font-weight: 400;\n    font-display: swap;\n    src: local('Abel-Regular'), url(",
-            ") format('woff2');\n  }\n",
-          ]);
-          return (
-            (n = function () {
-              return e;
-            }),
-            e
-          );
-        }
-        function o(e, t) {
-          return (
-            t || (t = e.slice(0)),
-            Object.freeze(
-              Object.defineProperties(e, { raw: { value: Object.freeze(t) } })
-            )
-          );
-        }
-        var f = (0, e.css)(n(), t.default);
-        exports.fonts = f;
-      },
-      {
-        "styled-components": "tFSs",
-        "../assets/fonts/Abel-regular.woff2": "RkMV",
-      },
-    ],
-    edpt: [
-      function (require, module, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: !0 }),
-          (exports.globalStyle = void 0);
-        var e = require("styled-components"),
-          r = require("./reset"),
-          t = require("./global"),
-          n = require("./fonts");
+          (exports.App = void 0);
+        var e = require("preact"),
+          r = i(require("styled-components")),
+          t = require("./styles/theme"),
+          n = require("./styles"),
+          u = require("./components/main/main");
         function o() {
-          var e = s(["\n  ", "\n  ", "\n  ", "\n"]);
+          if ("function" != typeof WeakMap) return null;
+          var e = new WeakMap();
           return (
             (o = function () {
               return e;
@@ -4263,7 +4333,46 @@ parcelRequire = (function (e, r, t, n) {
             e
           );
         }
-        function s(e, r) {
+        function i(e) {
+          if (e && e.__esModule) return e;
+          if (null === e || ("object" != typeof e && "function" != typeof e))
+            return { default: e };
+          var r = o();
+          if (r && r.has(e)) return r.get(e);
+          var t = {},
+            n = Object.defineProperty && Object.getOwnPropertyDescriptor;
+          for (var u in e)
+            if (Object.prototype.hasOwnProperty.call(e, u)) {
+              var i = n ? Object.getOwnPropertyDescriptor(e, u) : null;
+              i && (i.get || i.set)
+                ? Object.defineProperty(t, u, i)
+                : (t[u] = e[u]);
+            }
+          return (t.default = e), r && r.set(e, t), t;
+        }
+        function c() {
+          var e = a([
+            "\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  padding: 20px;\n  background-color: ",
+            ";\n  color: ",
+            ";\n",
+          ]);
+          return (
+            (c = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function l() {
+          var e = a(["", ""]);
+          return (
+            (l = function () {
+              return e;
+            }),
+            e
+          );
+        }
+        function a(e, r) {
           return (
             r || (r = e.slice(0)),
             Object.freeze(
@@ -4271,14 +4380,33 @@ parcelRequire = (function (e, r, t, n) {
             )
           );
         }
-        var l = (0, e.css)(o(), r.reset, n.fonts, t.global);
-        exports.globalStyle = l;
+        var f = (0, r.createGlobalStyle)(l(), n.globalStyle),
+          p = t.dark,
+          s = r.default.div(
+            c(),
+            function (e) {
+              return e.theme.background;
+            },
+            function (e) {
+              return e.theme.light;
+            }
+          ),
+          d = function () {
+            return (0, e.h)(
+              r.ThemeProvider,
+              { theme: p },
+              (0, e.h)(f, null),
+              (0, e.h)(s, null, (0, e.h)(u.Main, null))
+            );
+          };
+        exports.App = d;
       },
       {
+        preact: "aSor",
         "styled-components": "tFSs",
-        "./reset": "IUpW",
-        "./global": "pRXm",
-        "./fonts": "ceza",
+        "./styles/theme": "gFgi",
+        "./styles": "edpt",
+        "./components/main/main": "kN3F",
       },
     ],
     ZiyK: [
@@ -4286,46 +4414,13 @@ parcelRequire = (function (e, r, t, n) {
         "use strict";
         require("regenerator-runtime/runtime.js");
         var e = require("preact"),
-          r = require("styled-components"),
-          t = require("./App"),
-          n = require("./styles/theme"),
-          u = require("./styles");
-        function i() {
-          var e = l(["", ""]);
-          return (
-            (i = function () {
-              return e;
-            }),
-            e
-          );
-        }
-        function l(e, r) {
-          return (
-            r || (r = e.slice(0)),
-            Object.freeze(
-              Object.defineProperties(e, { raw: { value: Object.freeze(r) } })
-            )
-          );
-        }
-        var o = (0, r.createGlobalStyle)(i(), u.globalStyle),
-          c = n.dark;
-        (0, e.render)(
-          (0, e.h)(
-            r.ThemeProvider,
-            { theme: c },
-            (0, e.h)(o, null),
-            (0, e.h)(t.App, null)
-          ),
-          document.getElementById("root")
-        );
+          r = require("./App");
+        (0, e.render)((0, e.h)(r.App, null), document.getElementById("root"));
       },
       {
         "regenerator-runtime/runtime.js": "QVnC",
         preact: "aSor",
-        "styled-components": "tFSs",
         "./App": "NHn6",
-        "./styles/theme": "gFgi",
-        "./styles": "edpt",
       },
     ],
   },
@@ -4333,4 +4428,4 @@ parcelRequire = (function (e, r, t, n) {
   ["ZiyK"],
   null
 );
-//# sourceMappingURL=/assets/Index.86552fdf.js.map
+//# sourceMappingURL=/assets/Index.98bc5e56.js.map
