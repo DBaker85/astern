@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { HardwareList } from "../../sdk/types";
 
 export const fetchHardwarelist = createAsyncThunk<HardwareList>(
-  "hardware/fetchHarwarelist",
+  "moBroSdk/fetchHarwarelist",
   async () => {
     if (!window.MobroSDK.initialized) {
       await window.MobroSDK.init();
@@ -14,20 +14,26 @@ export const fetchHardwarelist = createAsyncThunk<HardwareList>(
   }
 );
 
-interface initialHardwareState {
+interface initialMobroState {
   hardware: HardwareList | {};
   loading: Boolean;
+  init: boolean;
 }
 
-const initialHardwareState: initialHardwareState = {
+const initialMobro: initialMobroState = {
   hardware: {},
   loading: false,
+  init: false,
 };
 
 const hardwareSlice = createSlice({
-  name: "hardware",
-  initialState: initialHardwareState,
-  reducers: {},
+  name: "moBroSdk",
+  initialState: initialMobro,
+  reducers: {
+    setMobroInit(state, action: PayloadAction<boolean>) {
+      state.init = action.payload;
+    },
+  },
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed
     [fetchHardwarelist.fulfilled]: (state, action) => {
@@ -36,6 +42,6 @@ const hardwareSlice = createSlice({
   },
 });
 
-// export const { fetchHarwarelist } = hardwareSlice.actions;
+export const { setMobroInit } = hardwareSlice.actions;
 
 export default hardwareSlice.reducer;
