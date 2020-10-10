@@ -1,8 +1,13 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
+// import styled from 'styled-components';
+
 // import { useEffect, useState } from "preact/hooks";
+
+import { Donut } from "../common/Donut";
 
 export const Cpu: FunctionComponent = () => {
   const [temperature, setTemperature] = useState(0);
+
   const [usage, setUsage] = useState(0);
   const [clock, setClock] = useState(0);
 
@@ -26,10 +31,10 @@ export const Cpu: FunctionComponent = () => {
   return (
     <>
       <div>
-        cpu temp : {temperature} | cpu usage : {usage}% | {clock}ghz
+        {/* cpu temp : {temperature} | cpu usage : {usage}% | {clock}ghz */}
       </div>
       <div>
-        <svg width={300} height={300}></svg>
+        <Donut value={temperature} />
       </div>
     </>
   );
