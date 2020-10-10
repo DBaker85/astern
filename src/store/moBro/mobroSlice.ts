@@ -15,10 +15,12 @@ export interface MobroState {
   hardware: HardwareList | {};
   loading: Boolean;
   init: boolean;
+  settings: Helper.Settings | {};
 }
 
 const initialMobroState: MobroState = {
   hardware: {},
+  settings: {},
   loading: false,
   init: false,
 };
@@ -31,7 +33,7 @@ const mobBroSlice = createSlice({
       state.init = action.payload;
     },
     setSettings(state, action: PayloadAction<Helper.Settings>) {
-      console.log(action);
+      state.settings = action.payload;
     },
   },
   extraReducers: {
