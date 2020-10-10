@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { HardwareList } from "../../sdk/types";
+import { HardwareList, Helper } from "../../sdk/types";
 
 export const fetchHardwarelist = createAsyncThunk<HardwareList>(
   "moBroSdk/fetchHarwarelist",
@@ -30,6 +30,9 @@ const mobBroSlice = createSlice({
     setMobroInit(state, action: PayloadAction<boolean>) {
       state.init = action.payload;
     },
+    setSettings(state, action: PayloadAction<Helper.Settings>) {
+      console.log(action);
+    },
   },
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -39,6 +42,6 @@ const mobBroSlice = createSlice({
   },
 });
 
-export const { setMobroInit } = mobBroSlice.actions;
+export const { setMobroInit, setSettings } = mobBroSlice.actions;
 
 export default mobBroSlice.reducer;

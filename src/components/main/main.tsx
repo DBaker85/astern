@@ -2,7 +2,11 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 // import { useEffect, useState } from "preact/hooks";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchHardwarelist, setMobroInit } from "../../store/moBro/mobroSlice";
+import {
+  fetchHardwarelist,
+  setMobroInit,
+  setSettings,
+} from "../../store/moBro/mobroSlice";
 import { RootStateType } from "../../store";
 import { Loader } from "../loader/Loader";
 import { Cpu } from "../cpu/Cpu";
@@ -16,6 +20,7 @@ export const Main: FunctionComponent = () => {
       if (!window.MobroSDK.initialized) {
         await window.MobroSDK.init();
         dispatch(setMobroInit(true));
+        dispatch(setSettings(window.MobroSDK.helper.settings));
       }
       dispatch(fetchHardwarelist());
     };

@@ -41,7 +41,19 @@ interface Window {
     };
     socket: WebSocket;
     initialized: boolean;
-    helper: any;
+    helper: {
+      settings: {
+        temperatureAsFahrenheit: boolean;
+        hardware: {
+          temperature: {
+            hardwaretype: string;
+            warning: number;
+            critical: number;
+            max: number;
+          }[];
+        };
+      };
+    };
     init: () => Promise<any>;
     getSocket: () => WebSocket;
     isConnected: () => Boolean;
