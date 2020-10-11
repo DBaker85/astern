@@ -46,7 +46,7 @@ export const Donut: FunctionComponent<DonutProps> = ({ value }) => (
         {value}
       </text>
       <text x="50%" y="50%" className="chart-label">
-        C
+        {/* C */}
       </text>
     </g>
   </svg>

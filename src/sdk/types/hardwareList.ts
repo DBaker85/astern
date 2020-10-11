@@ -1,71 +1,69 @@
-interface Cpu {
-  name: string;
-  caption: string;
-  description: string;
-  manufacturer: string;
-  processorid: string;
-  socket: string;
-  cores: number;
-  logicalprocessors: number;
-  l2cachesize: number;
-  l3cachesize: number;
-  cachesizeunit: string;
-  virtualizationenabled: boolean;
-  maxclockspeed: number;
+declare module HardwareList {
+  export interface Includedsensortypes {
+    processor?: string[];
+    memory?: string[];
+    graphics?: string[];
+    mainboard?: string[];
+    storage?: string[];
+    network?: string[];
+  }
+
+  export interface Config {
+    hardwaretype: string;
+    sensortype: string;
+    id?: string;
+    regex?: Regex;
+    name?: string;
+    sources?: string;
+    fallbackToFirstValue?: boolean;
+    extract?: Extract[];
+  }
+  export interface Sensor {
+    sensortype: string;
+    unit: string;
+    id: string;
+    label: string;
+    value: number;
+    min: number;
+    max: number;
+    avg?: any;
+    _config: Config;
+  }
+
+  export interface Datum {
+    hardwaretype: string;
+    title: string;
+    id: string;
+    sensors: Sensor[];
+  }
+
+  export interface Regex {
+    match: string;
+    flag: string;
+  }
+
+  export interface ByLabel {
+    includes: string;
+    excludes: string;
+  }
+
+  export interface Extract {
+    byLabel: ByLabel[];
+  }
+
+  export interface HardwaremonitorData {
+    timestamp: Date;
+    source: string;
+    includedhardwaretypes: string[];
+    includedsensortypes: Includedsensortypes;
+    data: Datum[];
+  }
+
+  export interface RootObject {
+    openhardwaremonitor: HardwaremonitorData;
+    librehardwaremonitor: HardwaremonitorData;
+    hwinfo: HardwaremonitorData;
+  }
 }
 
-interface Processor {
-  count: number;
-  cpus: Cpu[];
-}
-
-interface Gpu {
-  name: string;
-  caption: string;
-  description: string;
-  manufacturer: string;
-  driver: string;
-  videoprocessor: string;
-  videomodedescription: string;
-  bitsperpixel?: number;
-  horizontalresolution?: number;
-  verticalresolution?: number;
-  refreshrate?: number;
-  refreshrateunit: string;
-}
-
-interface Graphics {
-  count: number;
-  gpus: Gpu[];
-}
-
-interface Module {
-  name: string;
-  banklabel: string;
-  caption: string;
-  description: string;
-  manufacturer: string;
-  model?: any;
-  partnumber: string;
-  serialnumber: string;
-  type: string;
-  formfactor: string;
-  speed: number;
-  speedunit: string;
-  capacity: any;
-  capacityunit: string;
-}
-
-interface Memory {
-  count: number;
-  totalcapacity: number;
-  capacityunit: string;
-  modules: Module[];
-}
-
-export interface HardwareList {
-  timestamp: Date;
-  processor: Processor;
-  graphics: Graphics;
-  memory: Memory;
-}
+export { HardwareList };

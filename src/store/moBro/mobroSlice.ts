@@ -1,21 +1,16 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { HardwareList, Helper } from "../../sdk/types";
 
-export const fetchHardwarelist = createAsyncThunk<HardwareList>(
-  "moBroSdk/fetchHarwarelist",
-  async () => {
-    const hardware = (await window.MobroSDK.emit(
-      "monitor:data"
-    )) as HardwareList;
-    return hardware;
-  }
-);
-
 export interface MobroState {
-  hardware: HardwareList | {};
+  hardware: HardwareList.RootObject | {};
   loading: Boolean;
   init: boolean;
   settings: Helper.Settings | {};
+}
+
+interface initData {
+  hardwareList: HardwareList.RootObject;
+  settings: Helper.Settings;
 }
 
 const initialMobroState: MobroState = {
@@ -25,25 +20,35 @@ const initialMobroState: MobroState = {
   init: false,
 };
 
+export const initMobroClient = createAsyncThunk<initData>(
+  "moBroSdk/initMobroClient",
+  async () => {
+    await window.MobroSDK.init();
+    const hardwareList = (await window.MobroSDK.emit(
+      "monitor:data"
+    )) as HardwareList.RootObject;
+    const settings = (window.MobroSDK.helper as Helper.RootObject).settings;
+    return { hardwareList, settings };
+  }
+);
+
 const mobBroSlice = createSlice({
   name: "moBroSdk",
   initialState: initialMobroState,
-  reducers: {
-    setMobroInit(state, action: PayloadAction<boolean>) {
-      state.init = action.payload;
-    },
-    setSettings(state, action: PayloadAction<Helper.Settings>) {
-      state.settings = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
-    // Add reducers for additional action types here, and handle loading state as needed
-    [fetchHardwarelist.fulfilled]: (state, action) => {
-      state.hardware = action.payload;
+    [initMobroClient.pending]: (state, action: PayloadAction<initData>) => {
+      state.loading = true;
+    },
+    [initMobroClient.fulfilled]: (state, action: PayloadAction<initData>) => {
+      state.hardware = action.payload.hardwareList;
+      state.settings = action.payload.settings;
+      state.loading = false;
+      state.init = true;
     },
   },
 });
 
-export const { setMobroInit, setSettings } = mobBroSlice.actions;
+// export const { setMobroInit, setSettings } = mobBroSlice.actions;
 
 export default mobBroSlice.reducer;

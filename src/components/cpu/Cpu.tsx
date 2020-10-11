@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-// import styled from 'styled-components';
+import { useSelector } from "react-redux";
 
 // import { useEffect, useState } from "preact/hooks";
 
 import { Donut } from "../common/Donut";
+import { processorNameSelector } from "../../store/moBro/mobroSelectors";
 
 export const Cpu: FunctionComponent = () => {
   const [temperature, setTemperature] = useState(0);
-
+  const name = useSelector(processorNameSelector);
   const [usage, setUsage] = useState(0);
   const [clock, setClock] = useState(0);
 
@@ -32,6 +33,7 @@ export const Cpu: FunctionComponent = () => {
     <>
       <div>
         {/* cpu temp : {temperature} | cpu usage : {usage}% | {clock}ghz */}
+        {name}
       </div>
       <div>
         <Donut value={temperature} />
