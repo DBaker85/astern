@@ -3,6 +3,9 @@ import styled, { StyledFunction } from "styled-components";
 
 interface DonutProps {
   value: number;
+  warning: number;
+  critical: number;
+  max: number;
 }
 
 const DonutHole = styled.circle`
@@ -14,15 +17,35 @@ const DonutRing = styled.circle`
   fill: transparent;
 `;
 
-const DonutSegment = styled.circle<{ segmentValue: number }>`
-  stroke: ${(props) => props.theme.green};
+const DonutSegment = styled.circle<{
+  segmentValue: number;
+  warning: number;
+  critical: number;
+}>`
+  stroke: ${(props) => {
+    if (
+      props.segmentValue >= props.warning &&
+      props.segmentValue < props.critical
+    ) {
+      return props.theme.yellow;
+    }
+    if (props.segmentValue >= props.critical) {
+      return props.theme.red;
+    }
+    return props.theme.green;
+  }};
   stroke-dasharray: ${(props) =>
     `${props.segmentValue} ${100 - props.segmentValue}`};
   fill: transparent;
   transition: stroke-dasharray 300ms ease-in-out;
 `;
 
-export const Donut: FunctionComponent<DonutProps> = ({ value }) => (
+export const Donut: FunctionComponent<DonutProps> = ({
+  warning,
+  critical,
+  max,
+  value,
+}) => (
   <svg width="100%" height="100%" viewBox="0 0 42 42">
     <DonutHole cx="21" cy="21" r="15.91549430918954" />
     <DonutRing
@@ -39,6 +62,8 @@ export const Donut: FunctionComponent<DonutProps> = ({ value }) => (
       r="15.91549430918954"
       strokeWidth="5"
       segmentValue={value}
+      warning={warning}
+      critical={critical}
       strokeDashoffset="67"
     />
     <g className="chart-text">

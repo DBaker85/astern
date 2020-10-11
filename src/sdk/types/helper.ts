@@ -11,8 +11,8 @@ export declare module Helper {
   }
 
   export interface Settings {
-    temperatureAsFahrenheit: boolean;
-    hardware: Hardware;
+    temperatureAsFahrenheit?: boolean;
+    hardware?: Hardware;
   }
 
   export interface RootObject {

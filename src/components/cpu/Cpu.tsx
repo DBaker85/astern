@@ -4,13 +4,17 @@ import { useSelector } from "react-redux";
 // import { useEffect, useState } from "preact/hooks";
 
 import { Donut } from "../common/Donut";
-import { processorNameSelector } from "../../store/moBro/mobroSelectors";
+import {
+  processorLimitsSelector,
+  processorNameSelector,
+} from "../../store/moBro/mobroSelectors";
 
 export const Cpu: FunctionComponent = () => {
-  const [temperature, setTemperature] = useState(0);
+  const { warning, critical, max } = useSelector(processorLimitsSelector);
   const name = useSelector(processorNameSelector);
   const [usage, setUsage] = useState(0);
   const [clock, setClock] = useState(0);
+  const [temperature, setTemperature] = useState(0);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
@@ -36,7 +40,12 @@ export const Cpu: FunctionComponent = () => {
         {name}
       </div>
       <div>
-        <Donut value={temperature} />
+        <Donut
+          value={temperature}
+          warning={warning}
+          critical={critical}
+          max={max}
+        />
       </div>
     </>
   );
