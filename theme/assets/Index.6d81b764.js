@@ -8152,7 +8152,7 @@ parcelRequire = (function (e, r, t, n) {
               (e.theme !== n.theme && e.theme) || t || n.theme
             );
           },
-          _e = /[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~-]+/g,
+          _e = /[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~-]+/g,
           Oe = /(^-|-$)/g;
         function Ne(e) {
           return e.replace(_e, "-").replace(Oe, "");
@@ -8766,7 +8766,7 @@ parcelRequire = (function (e, r, t, n) {
     ],
     RkMV: [
       function (require, module, exports) {
-        module.exports = "/assets/Abel-regular.4dd9b463.woff2";
+        module.exports = "/assets/Abel-regular.67bb75b5.woff2";
       },
       {},
     ],
@@ -9416,4 +9416,4 @@ parcelRequire = (function (e, r, t, n) {
   ["ZiyK"],
   null
 );
-//# sourceMappingURL=/assets/Index.8be140b0.js.map
+//# sourceMappingURL=/assets/Index.6d81b764.js.map
