@@ -1,6 +1,6 @@
 {
-  "name": "vfast",
-  "version": "1.0.0",
+  "name": "astern",
+  "version": "0.0.1",
   "description": "A fast and modern mobro theme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -34,9 +34,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "preact": "^10.5.4",
-    "preact-compat": "^3.19.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "regenerator-runtime": "^0.13.7",
@@ -48,6 +45,11 @@
       ".js.map": "assets",
       ".woff2": "assets"
     }
+  },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom/test-utils": "preact/test-utils",
+    "react-dom": "preact/compat"
   },
   "husky": {
     "hooks": {
