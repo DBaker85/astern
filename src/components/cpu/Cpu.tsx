@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-// import { useEffect, useState } from "preact/hooks";
-
-import { Donut } from "../common/Donut";
 import {
   processorLimitsSelector,
   processorNameSelector,
 } from "../../store/moBro/mobroSelectors";
+import { channels } from "../../config/themeChannels";
+
+import { Donut } from "../common/Donut";
 
 export const Cpu: FunctionComponent = () => {
   const { warning, critical, max } = useSelector(processorLimitsSelector);
@@ -29,7 +29,7 @@ export const Cpu: FunctionComponent = () => {
         setTemperature(data.payload.value);
       }
     );
-    window.MobroSDK.addChannelListener("theme_cpu_clock", (data) => {
+    window.MobroSDK.addChannelListener(channels.PROCESSOR.CLOCK, (data) => {
       setClock(data.payload.value / 1000);
     });
   }, []);
