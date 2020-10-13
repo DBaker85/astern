@@ -1,7 +1,11 @@
 node_modules
 .parcel-cache
 .cache
+
+# dist folders
 .www
+theme
 
 # Mac stuff
 .DS_Store
+

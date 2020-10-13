@@ -4,11 +4,14 @@
   "description": "A fast and modern mobro theme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && parcel build src/index.pug --dist-dir ./theme/astern && npm run sdk:path && npm run assets:copy",
+    "build": "parcel build src/index.pug --dist-dir ./theme && run-p sdk:path assets:copy",
     "start": "parcel src/index.pug --open --dist-dir ./.www",
     "sdk:path": "ts-node --skip-project buildScripts/addSdk.ts",
     "assets:copy": "ts-node --skip-project buildScripts/addMobroAssets.ts",
-    "clean": "del-cli theme/astern"
+    "clean": "run-p clean:theme clean:cache clean:devbuild",
+    "clean:theme": "del-cli theme",
+    "clean:cache": "del-cli .parcel-cache",
+    "clean:devbuild": "del-cli .www"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +28,7 @@
     "fs-extra": "^9.0.1",
     "husky": "^4.3.0",
     "jest": "^26.5.2",
+    "npm-run-all": "^4.1.5",
     "parcel": "^2.0.0-beta.1",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.0.2",
