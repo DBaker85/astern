@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from "react";
-import styled, { StyledFunction } from "styled-components";
+import styled from "styled-components";
+
+import { mapRange } from "../../utils";
 
 interface DonutProps {
   value: number;
@@ -45,27 +47,30 @@ export const Donut: FunctionComponent<DonutProps> = ({
   critical,
   max,
   value,
-}) => (
-  <svg width="100%" height="100%" viewBox="0 0 42 42">
-    <DonutHole cx="21" cy="21" r="15.91549430918954" />
-    <DonutRing cx="21" cy="21" r="15.91549430918954" strokeWidth="3" />
-    <DonutSegment
-      cx="21"
-      cy="21"
-      r="15.91549430918954"
-      strokeWidth="5"
-      segmentValue={value}
-      warning={warning}
-      critical={critical}
-      strokeDashoffset="75"
-    />
-    <g className="chart-text">
-      <text x="50%" y="50%" className="chart-number">
-        {value}
-      </text>
-      <text x="50%" y="50%" className="chart-label">
-        {/* C */}
-      </text>
-    </g>
-  </svg>
-);
+}) => {
+  const segmentValue = mapRange(value, 0, max, 0, 100);
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 42 42">
+      <DonutHole cx="21" cy="21" r="15.91549430918954" />
+      <DonutRing cx="21" cy="21" r="15.91549430918954" strokeWidth="3" />
+      <DonutSegment
+        cx="21"
+        cy="21"
+        r="15.91549430918954"
+        strokeWidth="5"
+        segmentValue={segmentValue}
+        warning={warning}
+        critical={critical}
+        strokeDashoffset="75"
+      />
+      <g className="chart-text">
+        <text x="50%" y="50%" className="chart-number">
+          {value}
+        </text>
+        <text x="50%" y="50%" className="chart-label">
+          {/* C */}
+        </text>
+      </g>
+    </svg>
+  );
+};
