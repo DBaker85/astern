@@ -48,14 +48,7 @@ export const Donut: FunctionComponent<DonutProps> = ({
 }) => (
   <svg width="100%" height="100%" viewBox="0 0 42 42">
     <DonutHole cx="21" cy="21" r="15.91549430918954" />
-    <DonutRing
-      cx="21"
-      cy="21"
-      r="15.91549430918954"
-      strokeWidth="3"
-      strokeDasharray="85 15"
-      strokeDashoffset="67"
-    />
+    <DonutRing cx="21" cy="21" r="15.91549430918954" strokeWidth="3" />
     <DonutSegment
       cx="21"
       cy="21"
@@ -64,7 +57,7 @@ export const Donut: FunctionComponent<DonutProps> = ({
       segmentValue={value}
       warning={warning}
       critical={critical}
-      strokeDashoffset="67"
+      strokeDashoffset="75"
     />
     <g className="chart-text">
       <text x="50%" y="50%" className="chart-number">
