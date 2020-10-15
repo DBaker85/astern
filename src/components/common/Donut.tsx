@@ -58,6 +58,26 @@ const DonutSegment = styled.circle<{
   transition: stroke-dasharray 300ms ease-in-out;
 `;
 
+const TemperatureText = styled.text<{
+  warning: number;
+  critical: number;
+  value: number;
+}>`
+  fill: ${(props) => {
+    if (props.value >= props.warning && props.value < props.critical) {
+      return props.theme.yellow;
+    }
+    if (props.value >= props.critical) {
+      return props.theme.red;
+    }
+    return props.theme.light;
+  }};
+`;
+
+const SymbolText = styled.text`
+  fill: ${(props) => props.theme.light};
+`;
+
 export const Donut: FunctionComponent<DonutProps> = ({
   warning,
   critical,
@@ -130,16 +150,23 @@ export const Donut: FunctionComponent<DonutProps> = ({
       />
 
       <g>
-        <text x="50%" y="50%" fill="#fff" textAnchor="middle" fontSize=".8em">
-          {/* {value} */}
-          100
-        </text>
-        <text x="50%" y="80%" textAnchor="middle" fontSize=".4em">
+        <TemperatureText
+          x="48%"
+          y="60%"
+          textAnchor="middle"
+          fontSize=".8em"
+          warning={warningValue}
+          critical={criticalValue}
+          value={value}
+        >
+          {value}
+        </TemperatureText>
+        <SymbolText x="31" y="53%" textAnchor="middle" fontSize=".4em">
           °
-        </text>
-        <text x="50%" y="80%" textAnchor="middle" fontSize=".4em">
-          c
-        </text>
+        </SymbolText>
+        <SymbolText x="32" y="58%" textAnchor="middle" fontSize=".4em">
+          C
+        </SymbolText>
       </g>
     </svg>
   );
