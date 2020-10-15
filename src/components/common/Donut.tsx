@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useMemo } from "react";
 import styled from "styled-components";
 
 import { mapRange } from "../../utils";
@@ -17,6 +17,22 @@ const DonutHole = styled.circle`
 const DonutRing = styled.circle`
   stroke: ${(props) => props.theme.dark};
   fill: transparent;
+`;
+
+const Indicator = styled.circle`
+  stroke: ${(props) => props.theme.green};
+`;
+
+const WarningIndicator = styled.circle<{ warningIndicator: number }>`
+  stroke: ${(props) => props.theme.yellow};
+  transform-origin: center center;
+  transform: ${(props) => `rotate(${props.warningIndicator}deg)`};
+`;
+
+const CriticalIndicator = styled.circle<{ criticalIndicator: number }>`
+  stroke: ${(props) => props.theme.red};
+  transform-origin: center center;
+  transform: ${(props) => `rotate(${props.criticalIndicator}deg)`};
 `;
 
 const DonutSegment = styled.circle<{
@@ -48,71 +64,81 @@ export const Donut: FunctionComponent<DonutProps> = ({
   max,
   value,
 }) => {
+  const warningValue = useMemo(() => mapRange(warning, 0, max, 0, 100), [
+    warning,
+    max,
+  ]);
+  const criticalValue = useMemo(() => mapRange(critical, 0, max, 0, 100), [
+    critical,
+    max,
+  ]);
+  const warningIndicator = useMemo(() => mapRange(warning, 0, max, 0, 360), [
+    warning,
+    max,
+  ]);
+  const criticalIndicator = useMemo(() => mapRange(critical, 0, max, 0, 360), [
+    critical,
+    max,
+  ]);
+
   const segmentValue = mapRange(value, 0, max, 0, 100);
-  const warningValue = mapRange(warning, 0, max, 0, 100);
-  const criticalValue = mapRange(critical, 0, max, 0, 100);
-  const warningIndicator = mapRange(warning, 0, max, 0, 360);
-  const criticalIndicator = mapRange(critical, 0, max, 0, 360);
+
   return (
     <svg width="100%" height="100%" viewBox="0 0 42 42">
+      <Indicator
+        cx="21"
+        cy="21"
+        r="15.91549430918954"
+        fill="transparent"
+        strokeDasharray="1 99"
+        strokeWidth="10"
+        strokeDashoffset="75"
+      />
+      <WarningIndicator
+        cx="21"
+        cy="21"
+        r="15.91549430918954"
+        fill="transparent"
+        stroke="#fff"
+        strokeDasharray="1 99"
+        strokeWidth="10"
+        strokeDashoffset="75"
+        warningIndicator={warningIndicator}
+      />
+      <CriticalIndicator
+        cx="21"
+        cy="21"
+        r="15.91549430918954"
+        stroke="#fff"
+        fill="transparent"
+        criticalIndicator={criticalIndicator}
+        strokeDasharray="1 99"
+        strokeWidth="10"
+        strokeDashoffset="75"
+      />
       <DonutHole cx="21" cy="21" r="15.91549430918954" />
-      <DonutRing cx="21" cy="21" r="15.91549430918954" strokeWidth="3" />
-      <circle
-        cx="21"
-        cy="21"
-        r="19.0986"
-        stroke="#fff"
-        fill="transparent"
-        strokeDasharray="1 119"
-        strokeWidth="3"
-        strokeDashoffset="90"
-      />
-      <circle
-        cx="21"
-        cy="21"
-        r="19.0986"
-        stroke="#fff"
-        fill="transparent"
-        style={{
-          transformOrigin: "center center",
-          transform: `rotate(${warningIndicator}deg)`,
-        }}
-        strokeDasharray="1 119"
-        strokeWidth="3"
-        strokeDashoffset="90"
-      />
-      <circle
-        cx="21"
-        cy="21"
-        r="19.0986"
-        stroke="#fff"
-        fill="transparent"
-        style={{
-          transformOrigin: "center center",
-          transform: `rotate(${criticalIndicator}deg)`,
-        }}
-        strokeDasharray="1 119"
-        strokeWidth="3"
-        strokeDashoffset="90"
-      />
-
+      <DonutRing cx="21" cy="21" r="15.91549430918954" strokeWidth="2" />
       <DonutSegment
         cx="21"
         cy="21"
         r="15.91549430918954"
-        strokeWidth="5"
+        strokeWidth="4"
         segmentValue={segmentValue}
         warning={warningValue}
         critical={criticalValue}
         strokeDashoffset="75"
       />
 
-      <g className="chart-text">
-        <text x="50%" y="50%" className="chart-number">
-          {value}
+      <g>
+        <text x="50%" y="50%" fill="#fff" textAnchor="middle" fontSize=".8em">
+          {/* {value} */}
+          100
         </text>
-        <text x="50%" y="50%" className="chart-label">
-          {/* C */}
+        <text x="50%" y="80%" textAnchor="middle" fontSize=".4em">
+          °
+        </text>
+        <text x="50%" y="80%" textAnchor="middle" fontSize=".4em">
+          c
         </text>
       </g>
     </svg>
