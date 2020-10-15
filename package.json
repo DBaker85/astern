@@ -4,7 +4,8 @@
   "description": "A fast and modern mobro theme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build src/index.pug --out-dir ./theme/astern && run-p sdk:path assets:copy",
+    "build": "run-s clean build:app  && run-p sdk:path assets:copy",
+    "build:app": "parcel build src/index.pug --out-dir ./theme/astern",
     "start": "parcel src/index.pug --open --out-dir ./.www",
     "sdk:path": "ts-node --skip-project buildScripts/addSdk.ts",
     "assets:copy": "ts-node --skip-project buildScripts/addMobroAssets.ts",

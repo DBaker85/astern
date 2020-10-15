@@ -3,11 +3,12 @@ import styled from "styled-components";
 
 import { mapRange } from "../../utils";
 
-interface DonutProps {
+interface TemperatureChartProps {
   value: number;
   warning: number;
   critical: number;
   max: number;
+  unit?: "C" | "F";
 }
 
 const DonutHole = styled.circle`
@@ -76,13 +77,15 @@ const TemperatureText = styled.text<{
 
 const SymbolText = styled.text`
   fill: ${(props) => props.theme.light};
+  opacity: 0.6;
 `;
 
-export const Donut: FunctionComponent<DonutProps> = ({
+export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
   warning,
   critical,
   max,
   value,
+  unit = "C",
 }) => {
   const warningValue = useMemo(() => mapRange(warning, 0, max, 0, 100), [
     warning,
@@ -165,7 +168,7 @@ export const Donut: FunctionComponent<DonutProps> = ({
           °
         </SymbolText>
         <SymbolText x="32" y="58%" textAnchor="middle" fontSize=".4em">
-          C
+          {unit}
         </SymbolText>
       </g>
     </svg>

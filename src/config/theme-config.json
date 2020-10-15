@@ -15,6 +15,57 @@
           ]
         }
       ]
+    },
+    {
+      "name": "theme_gpu_clock",
+      "sources": "all",
+      "hardwaretype": "Graphics",
+      "sensortype": "Clock",
+      "fallbackToFirstValue": false,
+      "extract": [
+        {
+          "byLabel": [
+            {
+              "includes": "gpu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "theme_vram",
+      "sources": "all",
+      "hardwaretype": "Graphics",
+      "sensortype": "Data",
+      "fallbackToFirstValue": false,
+      "extract": [
+        {
+          "byLabel": [
+            {
+              "includes": "Memory Used"
+            },
+            {
+              "includes": "Memory Usage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "theme_vram_total",
+      "sources": "all",
+      "hardwaretype": "Graphics",
+      "sensortype": "Data",
+      "fallbackToFirstValue": false,
+      "extract": [
+        {
+          "byLabel": [
+            {
+              "includes": "Memory Total"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
