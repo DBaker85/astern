@@ -5,6 +5,7 @@ node_modules
 # dist folders
 .www
 theme
+dist
 
 # Mac stuff
 .DS_Store

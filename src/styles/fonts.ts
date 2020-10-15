@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import AbelRegular from "url:../assets/fonts/Abel-regular.woff2";
+import AbelRegular from "../assets/fonts/Abel-regular.woff2";
 
 export const fonts = css`
   @font-face {
