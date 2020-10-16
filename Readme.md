@@ -1,3 +1,5 @@
+![](https://api.travis-ci.org/DBaker85/astern.svg?branch=main)
+
 <p align="center"> 
     <img src="https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/astern_logo.png" alt="astern logo">
  </p>
