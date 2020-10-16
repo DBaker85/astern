@@ -28,24 +28,38 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
   value,
   farenheight = false,
 }) => {
-  const warningValue = useMemo(() => mapRange(warning, 0, max, 0, 100), [
-    warning,
-    max,
-  ]);
-  const criticalValue = useMemo(() => mapRange(critical, 0, max, 0, 100), [
-    critical,
-    max,
-  ]);
-  const warningIndicator = useMemo(() => mapRange(warning, 0, max, 0, 360), [
-    warning,
-    max,
-  ]);
-  const criticalIndicator = useMemo(() => mapRange(critical, 0, max, 0, 360), [
-    critical,
-    max,
-  ]);
+  const warningValue = useMemo(
+    () =>
+      farenheight
+        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
+        : mapRange(warning, 0, max, 0, 100),
+    [warning, max, farenheight]
+  );
+  const criticalValue = useMemo(
+    () =>
+      farenheight
+        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
+        : mapRange(critical, 0, max, 0, 100),
+    [critical, max, farenheight]
+  );
+  const warningIndicator = useMemo(
+    () =>
+      farenheight
+        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
+        : mapRange(warning, 0, max, 0, 360),
+    [warning, max, farenheight]
+  );
+  const criticalIndicator = useMemo(
+    () =>
+      farenheight
+        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
+        : mapRange(critical, 0, max, 0, 360),
+    [critical, max, farenheight]
+  );
 
-  const segmentValue = mapRange(value, 0, max, 0, 100);
+  const segmentValue = farenheight
+    ? celciusToFarenheight(mapRange(value, 0, max, 0, 100))
+    : mapRange(value, 0, max, 0, 100);
 
   return (
     <svg width="100%" height="100%" viewBox="0 0 42 42">
