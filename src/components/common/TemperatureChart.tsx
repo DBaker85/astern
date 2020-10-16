@@ -1,91 +1,32 @@
 import React, { FunctionComponent, useMemo } from "react";
-import styled from "styled-components";
 
-import { mapRange } from "../../utils";
+import { mapRange, celciusToFarenheight } from "../../utils";
+
+import {
+  CriticalIndicator,
+  DonutHole,
+  DonutRing,
+  DonutSegment,
+  Indicator,
+  SymbolText,
+  TemperatureText,
+  WarningIndicator,
+} from "./TemperatureChart.style";
 
 interface TemperatureChartProps {
   value: number;
   warning: number;
   critical: number;
   max: number;
-  unit?: "C" | "F";
+  farenheight?: boolean;
 }
-
-const DonutHole = styled.circle`
-  fill: ${(props) => props.theme.background};
-`;
-
-const DonutRing = styled.circle`
-  stroke: ${(props) => props.theme.dark};
-  fill: transparent;
-`;
-
-const Indicator = styled.circle`
-  stroke: ${(props) => props.theme.green};
-`;
-
-const WarningIndicator = styled.circle<{ warningIndicator: number }>`
-  stroke: ${(props) => props.theme.yellow};
-  transform-origin: center center;
-  transform: ${(props) => `rotate(${props.warningIndicator}deg)`};
-`;
-
-const CriticalIndicator = styled.circle<{ criticalIndicator: number }>`
-  stroke: ${(props) => props.theme.red};
-  transform-origin: center center;
-  transform: ${(props) => `rotate(${props.criticalIndicator}deg)`};
-`;
-
-const DonutSegment = styled.circle<{
-  segmentValue: number;
-  warning: number;
-  critical: number;
-}>`
-  stroke: ${(props) => {
-    if (
-      props.segmentValue >= props.warning &&
-      props.segmentValue < props.critical
-    ) {
-      return props.theme.yellow;
-    }
-    if (props.segmentValue >= props.critical) {
-      return props.theme.red;
-    }
-    return props.theme.green;
-  }};
-  stroke-dasharray: ${(props) =>
-    `${props.segmentValue} ${100 - props.segmentValue}`};
-  fill: transparent;
-  transition: stroke-dasharray 300ms ease-in-out;
-`;
-
-const TemperatureText = styled.text<{
-  warning: number;
-  critical: number;
-  value: number;
-}>`
-  fill: ${(props) => {
-    if (props.value >= props.warning && props.value < props.critical) {
-      return props.theme.yellow;
-    }
-    if (props.value >= props.critical) {
-      return props.theme.red;
-    }
-    return props.theme.light;
-  }};
-`;
-
-const SymbolText = styled.text`
-  fill: ${(props) => props.theme.light};
-  opacity: 0.6;
-`;
 
 export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
   warning,
   critical,
   max,
   value,
-  unit = "C",
+  farenheight = false,
 }) => {
   const warningValue = useMemo(() => mapRange(warning, 0, max, 0, 100), [
     warning,
@@ -168,7 +109,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
           °
         </SymbolText>
         <SymbolText x="32" y="58%" textAnchor="middle" fontSize=".4em">
-          {unit}
+          {farenheight ? "F" : " C"}
         </SymbolText>
       </g>
     </svg>

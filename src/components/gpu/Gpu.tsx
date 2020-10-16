@@ -6,7 +6,7 @@ import {
   gpuNameSelector,
   tempAsFarenHeightSelector,
 } from "../../store/moBro/mobroSelectors";
-import { celciusToFarenheight } from "../../utils";
+
 import { channels } from "../../config/themeChannels";
 
 import { TemperatureChart } from "../common/TemperatureChart";
@@ -44,11 +44,11 @@ export const Gpu: FunctionComponent = () => {
       </div>
       <div>
         <TemperatureChart
-          value={farenheight ? celciusToFarenheight(temperature) : temperature}
-          warning={farenheight ? celciusToFarenheight(warning) : warning}
-          critical={farenheight ? celciusToFarenheight(critical) : critical}
-          max={farenheight ? celciusToFarenheight(max) : max}
-          unit={farenheight ? "F" : "C"}
+          value={temperature}
+          warning={warning}
+          critical={critical}
+          max={max}
+          farenheight={farenheight}
         />
       </div>
     </div>
