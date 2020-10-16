@@ -1,5 +1,5 @@
 <p align="center"> 
-    <img src="https://user-images.githubusercontent.com/11611885/96277835-0ddd7500-0fd5-11eb-9f2e-5b094cee9244.png" alt="astern logo">
+    <img src="https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/astern_logo.png" alt="astern logo">
  </p>
 
 # fAST modERN mobro theme
@@ -21,4 +21,4 @@ Download the latest release.
 
 ## Tech stack
 
-Built with Preact and Redux to minimise DOM lookups. Also a big focus on memoization ( Maybe too much but ¯\\_(ツ)_/¯ )
+Built with Preact and Redux to minimise DOM lookups. Also a big focus on memoization ( Maybe too much but 🤷 )
