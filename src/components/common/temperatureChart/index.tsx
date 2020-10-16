@@ -61,6 +61,8 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
     ? celciusToFarenheight(mapRange(value, 0, max, 0, 100))
     : mapRange(value, 0, max, 0, 100);
 
+  const mappedValue = farenheight ? celciusToFarenheight(value) : value;
+
   return (
     <svg width="100%" height="100%" viewBox="0 0 42 42">
       <Indicator
@@ -115,9 +117,9 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
           fontSize=".8em"
           warning={warningValue}
           critical={criticalValue}
-          value={value}
+          value={mappedValue}
         >
-          {value}
+          {mappedValue}
         </TemperatureText>
         <SymbolText x="31" y="53%" textAnchor="middle" fontSize=".4em">
           °
