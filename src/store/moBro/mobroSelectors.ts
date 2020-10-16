@@ -24,6 +24,28 @@ export const processorNameSelector = createSelector(
   }
 );
 
+export const processorCoreCountSelector = createSelector(
+  (state: RootStateType) => state.moBro.hardware as HardwareList.RootObject,
+  (hardware) => {
+    let corecount;
+    const hardwareValues = Object.values(hardware);
+    for (let index = 0; index < hardwareValues.length; index++) {
+      const processor = hardwareValues[index].data.find(
+        (data: HardwareList.Datum) => data.hardwaretype === PROCESSOR_TYPE
+      ) as HardwareList.Datum;
+      if (processor) {
+        corecount = processor.sensors.filter(
+          (sensor) =>
+            sensor.label.includes("Core #") && sensor.sensortype === "Usage"
+        ).length;
+        break;
+      }
+    }
+
+    return corecount;
+  }
+);
+
 export const gpuNameSelector = createSelector(
   (state: RootStateType) => state.moBro.hardware as HardwareList.RootObject,
   (hardware) => {

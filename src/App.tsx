@@ -13,7 +13,7 @@ const StyledMainWrapper = styled.div`
   height: 100vh;
   display: flex;
   padding: 20px;
-  background-color: ${(props) => props.theme.background};
+  background-color: ${(props) => props.theme.darkBackground};
   color: ${(props) => props.theme.light};
 `;
 
