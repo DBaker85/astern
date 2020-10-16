@@ -3,7 +3,7 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import { dark } from "./styles/theme";
 import { globalStyle } from "./styles";
-import { Main } from "./components/main/main";
+import { Main } from "./components/main";
 
 const GlobalStyle = createGlobalStyle`${globalStyle}`;
 const theme = dark;

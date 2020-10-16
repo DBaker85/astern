@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useMemo } from "react";
 
-import { mapRange, celciusToFarenheight } from "../../utils";
+import { mapRange, celciusToFarenheight } from "../../../utils";
 
 import {
   CriticalIndicator,
@@ -11,7 +11,7 @@ import {
   SymbolText,
   TemperatureText,
   WarningIndicator,
-} from "./TemperatureChart.style";
+} from "./style";
 
 interface TemperatureChartProps {
   value: number;

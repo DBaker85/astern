@@ -2,36 +2,37 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import {
-  processorLimitsSelector,
-  processorNameSelector,
+  gpuLimitsSelector,
+  gpuNameSelector,
   tempAsFarenHeightSelector,
 } from "../../store/moBro/mobroSelectors";
+
 import { channels } from "../../config/themeChannels";
 
-import { TemperatureChart } from "../common/TemperatureChart";
+import { TemperatureChart } from "../common/temperatureChart";
 
-export const Cpu: FunctionComponent = () => {
+export const Gpu: FunctionComponent = () => {
   const farenheight = useSelector(tempAsFarenHeightSelector);
-  const name = useSelector(processorNameSelector);
-  const { warning, critical, max } = useSelector(processorLimitsSelector);
+  const { warning, critical, max } = useSelector(gpuLimitsSelector);
+  const name = useSelector(gpuNameSelector);
   const [usage, setUsage] = useState(0);
   const [clock, setClock] = useState(0);
   const [temperature, setTemperature] = useState(0);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
-      window.MobroSDK.generalChannels.PROCESSOR.USAGE,
+      window.MobroSDK.generalChannels.GRAPHICS.USAGE,
       (data) => {
         setUsage(data.payload.value);
       }
     );
     window.MobroSDK.addChannelListener(
-      window.MobroSDK.generalChannels.PROCESSOR.TEMPERATURE,
+      window.MobroSDK.generalChannels.GRAPHICS.TEMPERATURE,
       (data) => {
         setTemperature(data.payload.value);
       }
     );
-    window.MobroSDK.addChannelListener(channels.PROCESSOR.CLOCK, (data) => {
+    window.MobroSDK.addChannelListener(channels.GRAPHICS.CLOCK, (data) => {
       setClock(data.payload.value / 1000);
     });
   }, []);
@@ -39,7 +40,7 @@ export const Cpu: FunctionComponent = () => {
     <div>
       {name}
       <div>
-        cpu usage : {usage}% | {clock}ghz
+        Gpu usage : {usage}% | {clock}ghz
       </div>
       <div>
         <TemperatureChart
