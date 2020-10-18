@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 import {
   gpuLimitsSelector,
@@ -11,12 +12,19 @@ import { channels } from "../../config/themeChannels";
 
 import { TemperatureChart } from "../common/temperatureChart";
 
+export const StyledGpuWrapper = styled.div`
+  display: flex;
+  div {
+    width: 50%;
+  }
+`;
+
 export const Gpu: FunctionComponent = () => {
   const farenheight = useSelector(tempAsFarenHeightSelector);
   const { warning, critical, max } = useSelector(gpuLimitsSelector);
   const name = useSelector(gpuNameSelector);
   const [usage, setUsage] = useState(0);
-  const [clock, setClock] = useState(0);
+  const [clock, setClock] = useState("0");
   const [temperature, setTemperature] = useState(0);
 
   useEffect(() => {
@@ -33,14 +41,16 @@ export const Gpu: FunctionComponent = () => {
       }
     );
     window.MobroSDK.addChannelListener(channels.GRAPHICS.CLOCK, (data) => {
-      setClock(data.payload.value / 1000);
+      setClock((data.payload.value / 1000).toFixed(2));
     });
   }, []);
   return (
-    <div>
-      {name}
+    <StyledGpuWrapper>
       <div>
-        Gpu usage : {usage}% | {clock}ghz
+        {name}
+        <div>
+          Gpu usage : {usage}% | {clock}ghz
+        </div>
       </div>
       <div>
         <TemperatureChart
@@ -51,6 +61,6 @@ export const Gpu: FunctionComponent = () => {
           farenheight={farenheight}
         />
       </div>
-    </div>
+    </StyledGpuWrapper>
   );
 };

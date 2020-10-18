@@ -18,7 +18,7 @@ const MainWrapper = styled.div`
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3fr 1fr 1fr;
+  grid-template-rows: calc(50vh - 26px) calc(25vh - 26px) calc(25vh - 26px);
   gap: 20px;
 `;
 
@@ -44,6 +44,7 @@ export const Main: FunctionComponent = () => {
       <StyledCard>
         <CpuUsage />
       </StyledCard>
+
       <Logo />
     </MainWrapper>
   );
