@@ -114,17 +114,17 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
           x="48%"
           y="60%"
           textAnchor="middle"
-          fontSize=".8em"
+          fontSize=".42em"
           warning={warningValue}
           critical={criticalValue}
           value={mappedValue}
         >
           {mappedValue}
         </TemperatureText>
-        <SymbolText x="31" y="53%" textAnchor="middle" fontSize=".4em">
+        <SymbolText x="31" y="53%" textAnchor="middle" fontSize=".21em">
           °
         </SymbolText>
-        <SymbolText x="32" y="58%" textAnchor="middle" fontSize=".4em">
+        <SymbolText x="32" y="58%" textAnchor="middle" fontSize=".21em">
           {farenheight ? "F" : " C"}
         </SymbolText>
       </g>

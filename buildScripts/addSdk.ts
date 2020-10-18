@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import { readFile, writeFile } from "fs-extra";
+import { green, red } from "chalk";
 
 const sdkScript = async () => {
   try {
@@ -10,8 +11,9 @@ const sdkScript = async () => {
       '<script src="/sdk.js"></script>'
     );
     await writeFile(themepath, replacedIndex);
+    console.log(green("Replaced sdk script path in index.html"));
   } catch (err) {
-    console.log(err);
+    console.log(red(err));
   }
 };
 

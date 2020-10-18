@@ -7,5 +7,9 @@ export const global = css`
 }
 body {
   font-family: 'Abel-Regular';
+  font-size:30px;
+  background-color: ${(props) => props.theme.darkBackground};
+  color: ${(props) => props.theme.light};
+  
 }
 `

@@ -10,6 +10,7 @@ import { Loader } from "../loader";
 import { Cpu } from "../cpu";
 import { Gpu } from "../gpu";
 import { CpuUsage } from "../cpuUsage";
+import { Logo } from "../logo";
 
 const MainWrapper = styled.div`
   width: 100vw;
@@ -19,8 +20,6 @@ const MainWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3fr 1fr 1fr;
   gap: 20px;
-  background-color: ${(props) => props.theme.darkBackground};
-  color: ${(props) => props.theme.light};
 `;
 
 export const Main: FunctionComponent = () => {
@@ -45,7 +44,7 @@ export const Main: FunctionComponent = () => {
       <StyledCard>
         <CpuUsage />
       </StyledCard>
-      <div>ASTERN v{process.env.APP_VERSION}</div>
+      <Logo />
     </MainWrapper>
   );
 };
