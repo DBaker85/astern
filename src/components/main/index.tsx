@@ -11,6 +11,18 @@ import { Cpu } from "../cpu";
 import { Gpu } from "../gpu";
 import { CpuUsage } from "../cpuUsage";
 
+const MainWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1fr 1fr;
+  gap: 20px;
+  background-color: ${(props) => props.theme.darkBackground};
+  color: ${(props) => props.theme.light};
+`;
+
 export const Main: FunctionComponent = () => {
   const dispatch = useDispatch();
   const init = useSelector(initSelector);
@@ -22,20 +34,18 @@ export const Main: FunctionComponent = () => {
   if (!init) return <Loader />;
 
   return (
-    <>
-      <div>
-        <StyledCard>
-          <Cpu />
-        </StyledCard>
-        <StyledCard>
-          <CpuUsage />
-        </StyledCard>
-      </div>
-      <div>
-        <StyledCard>
-          <Gpu />
-        </StyledCard>
-      </div>
-    </>
+    <MainWrapper>
+      <StyledCard>
+        <Cpu />
+      </StyledCard>
+
+      <StyledCard>
+        <Gpu />
+      </StyledCard>
+      <StyledCard>
+        <CpuUsage />
+      </StyledCard>
+      <div>ASTERN v{process.env.APP_VERSION}</div>
+    </MainWrapper>
   );
 };

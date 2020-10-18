@@ -1,18 +1,22 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
+import styled, { IntrinsicElementsKeys } from "styled-components";
 
 import { processorCoreCountSelector } from "../../store/moBro/mobroSelectors";
 
 const StyledCoreWrapper = styled.div`
   display: flex;
+  width: 100%;
+  height: 100%;
 `;
-const StyledCoreCountWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+const StyledCoreCountWrapper = styled.div<{ coreCount: number }>`
+  display: grid;
+  grid-template-columns: ${(props) => `repeat(${props.coreCount},1fr)`};
+
+  grid-column-gap: 10px;
+  width: 100%;
+  height: 100%;
   div {
-    height: 50px;
-    display: flex;
     background-color: ${(props) => props.theme.dark};
   }
 `;
@@ -21,9 +25,7 @@ export const CpuUsage: FunctionComponent = () => {
   const [usage, setUsage] = useState(0);
   const coreCount = useSelector(processorCoreCountSelector);
   const cpuCoreCreator = () =>
-    [...new Array(coreCount)].map((value, index) => (
-      <div key={index}>Core</div>
-    ));
+    [...new Array(coreCount)].map((value, index) => <div key={index} />);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
@@ -36,8 +38,10 @@ export const CpuUsage: FunctionComponent = () => {
 
   return (
     <StyledCoreWrapper>
-      <StyledCoreCountWrapper>{cpuCoreCreator()}</StyledCoreCountWrapper>
-      {usage}%
+      <StyledCoreCountWrapper coreCount={coreCount}>
+        {cpuCoreCreator()}
+      </StyledCoreCountWrapper>
+      {/* {usage}% */}
     </StyledCoreWrapper>
   );
 };
