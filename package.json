@@ -49,9 +49,9 @@
     "styled-components": "^5.2.0"
   },
   "alias": {
-    "react": "react",
+    "react": "preact/compat",
     "react-dom/test-utils": "preact/test-utils",
-    "react-dom": "react-dom"
+    "react-dom": "preact/compat"
   },
   "husky": {
     "hooks": {
