@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 
 import {
   processorLimitsSelector,
@@ -8,15 +7,9 @@ import {
   tempAsFarenHeightSelector,
 } from "../../store/moBro/mobroSelectors";
 import { channels } from "../../config/themeChannels";
-
 import { TemperatureChart } from "../common/temperatureChart";
 
-export const StyledCpuWrapper = styled.div`
-  display: flex;
-  div {
-    width: 50%;
-  }
-`;
+import { StyledCpuWrapper } from "./style";
 
 export const Cpu: FunctionComponent = () => {
   const farenheight = useSelector(tempAsFarenHeightSelector);

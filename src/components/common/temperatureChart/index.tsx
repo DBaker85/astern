@@ -3,14 +3,14 @@ import React, { FunctionComponent, useMemo } from "react";
 import { mapRange, celciusToFarenheight } from "../../../utils";
 
 import {
-  CriticalIndicator,
-  DonutHole,
-  DonutRing,
-  DonutSegment,
-  Indicator,
-  SymbolText,
-  TemperatureText,
-  WarningIndicator,
+  StyledCriticalIndicator,
+  StyledDonutHole,
+  StyledDonutRing,
+  StyledDonutSegment,
+  StyledIndicator,
+  StyledSymbolText,
+  StyledTemperatureText,
+  StyledWarningIndicator,
 } from "./style";
 
 interface TemperatureChartProps {
@@ -65,7 +65,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
 
   return (
     <svg width="100%" height="100%" viewBox="0 0 42 42">
-      <Indicator
+      <StyledIndicator
         cx="21"
         cy="21"
         r="15.91549430918954"
@@ -74,7 +74,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
         strokeWidth="10"
         strokeDashoffset="75"
       />
-      <WarningIndicator
+      <StyledWarningIndicator
         cx="21"
         cy="21"
         r="15.91549430918954"
@@ -85,7 +85,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
         strokeDashoffset="75"
         warningIndicator={warningIndicator}
       />
-      <CriticalIndicator
+      <StyledCriticalIndicator
         cx="21"
         cy="21"
         r="15.91549430918954"
@@ -96,9 +96,9 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
         strokeWidth="10"
         strokeDashoffset="75"
       />
-      <DonutHole cx="21" cy="21" r="15.91549430918954" />
-      <DonutRing cx="21" cy="21" r="15.91549430918954" strokeWidth="2" />
-      <DonutSegment
+      <StyledDonutHole cx="21" cy="21" r="15.91549430918954" />
+      <StyledDonutRing cx="21" cy="21" r="15.91549430918954" strokeWidth="2" />
+      <StyledDonutSegment
         cx="21"
         cy="21"
         r="15.91549430918954"
@@ -110,7 +110,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
       />
 
       <g>
-        <TemperatureText
+        <StyledTemperatureText
           x="48%"
           y="60%"
           textAnchor="middle"
@@ -120,13 +120,13 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
           value={mappedValue}
         >
           {mappedValue}
-        </TemperatureText>
-        <SymbolText x="31" y="53%" textAnchor="middle" fontSize=".21em">
+        </StyledTemperatureText>
+        <StyledSymbolText x="31" y="53%" textAnchor="middle" fontSize=".21em">
           °
-        </SymbolText>
-        <SymbolText x="32" y="58%" textAnchor="middle" fontSize=".21em">
+        </StyledSymbolText>
+        <StyledSymbolText x="32" y="58%" textAnchor="middle" fontSize=".21em">
           {farenheight ? "F" : " C"}
-        </SymbolText>
+        </StyledSymbolText>
       </g>
     </svg>
   );

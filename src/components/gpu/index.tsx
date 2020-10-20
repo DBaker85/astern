@@ -1,23 +1,15 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 
 import {
   gpuLimitsSelector,
   gpuNameSelector,
   tempAsFarenHeightSelector,
 } from "../../store/moBro/mobroSelectors";
-
 import { channels } from "../../config/themeChannels";
 
 import { TemperatureChart } from "../common/temperatureChart";
-
-export const StyledGpuWrapper = styled.div`
-  display: flex;
-  div {
-    width: 50%;
-  }
-`;
+import { StyledGpuWrapper } from "./style";
 
 export const Gpu: FunctionComponent = () => {
   const farenheight = useSelector(tempAsFarenHeightSelector);

@@ -1,31 +1,35 @@
 import styled from "styled-components";
 
-export const DonutHole = styled.circle`
+export const StyledDonutHole = styled.circle`
   fill: ${(props) => props.theme.background};
 `;
 
-export const DonutRing = styled.circle`
+export const StyledDonutRing = styled.circle`
   stroke: ${(props) => props.theme.dark};
   fill: transparent;
 `;
 
-export const Indicator = styled.circle`
+export const StyledIndicator = styled.circle`
   stroke: ${(props) => props.theme.green};
 `;
 
-export const WarningIndicator = styled.circle<{ warningIndicator: number }>`
+export const StyledWarningIndicator = styled.circle<{
+  warningIndicator: number;
+}>`
   stroke: ${(props) => props.theme.yellow};
   transform-origin: center center;
   transform: ${(props) => `rotate(${props.warningIndicator}deg)`};
 `;
 
-export const CriticalIndicator = styled.circle<{ criticalIndicator: number }>`
+export const StyledCriticalIndicator = styled.circle<{
+  criticalIndicator: number;
+}>`
   stroke: ${(props) => props.theme.red};
   transform-origin: center center;
   transform: ${(props) => `rotate(${props.criticalIndicator}deg)`};
 `;
 
-export const DonutSegment = styled.circle<{
+export const StyledDonutSegment = styled.circle<{
   segmentValue: number;
   warning: number;
   critical: number;
@@ -48,7 +52,7 @@ export const DonutSegment = styled.circle<{
   transition: stroke-dasharray 300ms ease-in-out;
 `;
 
-export const TemperatureText = styled.text<{
+export const StyledTemperatureText = styled.text<{
   warning: number;
   critical: number;
   value: number;
@@ -64,7 +68,7 @@ export const TemperatureText = styled.text<{
   }};
 `;
 
-export const SymbolText = styled.text`
+export const StyledSymbolText = styled.text`
   fill: ${(props) => props.theme.light};
   opacity: 0.6;
 `;

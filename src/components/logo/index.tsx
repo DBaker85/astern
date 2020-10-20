@@ -1,14 +1,6 @@
 import React, { FunctionComponent } from "react";
-import styled from "styled-components";
 
-const StyledLogo = styled.div`
-  .ast {
-    color: ${(props) => props.theme.yellow};
-  }
-  .tern {
-    color: ${(props) => props.theme.red};
-  }
-`;
+import { StyledLogo } from "./style";
 
 export const Logo: FunctionComponent = () => (
   <StyledLogo>
