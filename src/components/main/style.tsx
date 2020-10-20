@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainWrapper = styled.div`
+export const StyledMainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   padding: 20px;

@@ -1,8 +1,7 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
 
-import { StyledCard } from "../common/StyledCard";
+import { StyledCard } from "../common/card";
 import { initMobroClient } from "../../store/moBro/mobroSlice";
 import { initSelector } from "../../store/moBro/mobroSelectors";
 
@@ -12,7 +11,9 @@ import { Gpu } from "../gpu";
 import { CpuUsage } from "../cpuUsage";
 import { Logo } from "../logo";
 
-import { MainWrapper } from "./style";
+import { StyledMainWrapper } from "./style";
+import { GpuUsage } from "../gpuUsage";
+import { RamUsage } from "../ramUsage";
 
 export const Main: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export const Main: FunctionComponent = () => {
   if (!init) return <Loader />;
 
   return (
-    <MainWrapper>
+    <StyledMainWrapper>
       <StyledCard>
         <Cpu />
       </StyledCard>
@@ -36,8 +37,13 @@ export const Main: FunctionComponent = () => {
       <StyledCard>
         <CpuUsage />
       </StyledCard>
-
+      <StyledCard>
+        <GpuUsage />
+      </StyledCard>
+      <StyledCard>
+        <RamUsage />
+      </StyledCard>
       <Logo />
-    </MainWrapper>
+    </StyledMainWrapper>
   );
 };
