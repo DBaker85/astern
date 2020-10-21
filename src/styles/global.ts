@@ -10,6 +10,7 @@ body {
   font-size:30px;
   background-color: ${(props) => props.theme.darkBackground};
   color: ${(props) => props.theme.light};
-  
+  width: 100vw;
+  height: 100vh;
 }
 `
