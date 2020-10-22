@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import styled from "styled-components";
-
-export const StyledRamWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { BarChart } from "../common/barChart";
+import { StyledRamWrapper } from "./style";
 
 export const RamUsage = () => {
   const [usage, setUsage] = useState(0);
@@ -35,8 +31,7 @@ export const RamUsage = () => {
 
   return (
     <StyledRamWrapper>
-      <div>{usage}%</div>
-      <div>{ram}gb used</div>
+      <BarChart progress={usage} text={`${ram}gb used`} />
     </StyledRamWrapper>
   );
 };

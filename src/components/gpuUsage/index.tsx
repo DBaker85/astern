@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 
 import { channels } from "../../config/themeChannels";
+import { BarChart } from "../common/barChart";
 
-import styled from "styled-components";
-
-export const StyledGpuWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { StyledGpuWrapper } from "./style";
 
 export const GpuUsage = () => {
   const [usage, setUsage] = useState(0);
   const [vram, setVram] = useState(0);
   const [vramTotal, setVramTotal] = useState(0);
+
+  const percentage = Math.ceil((vramTotal / 100) * vram);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
@@ -31,10 +29,11 @@ export const GpuUsage = () => {
 
   return (
     <StyledGpuWrapper>
-      <div>{usage}%</div>
-      <div>
-        {vram}mb used of {vramTotal}mb
-      </div>
+      <BarChart progress={usage} text={`${usage}%`} />
+      <BarChart
+        progress={percentage}
+        text={`${vram}mb used of ${vramTotal}mb`}
+      />
     </StyledGpuWrapper>
   );
 };
