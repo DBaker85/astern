@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { StyledCard } from "../common/card";
+import { Card } from "../common/card";
 import { initMobroClient } from "../../store/moBro/mobroSlice";
 import { initSelector } from "../../store/moBro/mobroSelectors";
 
@@ -27,22 +27,22 @@ export const Main: FunctionComponent = () => {
 
   return (
     <StyledMainWrapper>
-      <StyledCard>
+      <Card title="Cpu">
         <Cpu />
-      </StyledCard>
+      </Card>
 
-      <StyledCard>
+      <Card title="Gpu">
         <Gpu />
-      </StyledCard>
-      <StyledCard>
+      </Card>
+      <Card title="Cpu usage">
         <CpuUsage />
-      </StyledCard>
-      <StyledCard>
+      </Card>
+      <Card title="Gpu usage">
         <GpuUsage />
-      </StyledCard>
-      <StyledCard>
+      </Card>
+      <Card title="Ram usage">
         <RamUsage />
-      </StyledCard>
+      </Card>
       <Logo />
     </StyledMainWrapper>
   );
