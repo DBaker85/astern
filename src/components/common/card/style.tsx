@@ -8,8 +8,8 @@ export const StyledCard = styled.div`
   .title {
     display: flex;
     position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 0.7em;
+    top: 2px;
+    left: 10px;
+    font-size: 0.5em;
   }
 `;

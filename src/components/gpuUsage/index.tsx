@@ -10,7 +10,7 @@ export const GpuUsage = () => {
   const [vram, setVram] = useState(0);
   const [vramTotal, setVramTotal] = useState(0);
 
-  const percentage = Math.ceil((vramTotal / 100) * vram);
+  const percentage = Math.ceil((vram / vramTotal) * 100);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
