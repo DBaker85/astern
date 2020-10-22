@@ -8,7 +8,7 @@ interface CardType {
 
 export const Card: FunctionComponent<CardType> = ({ title, children }) => (
   <StyledCard>
-    <div className="title">{title}</div>
+    {title && <div className="title">{title}</div>}
     {children}
   </StyledCard>
 );
