@@ -66,6 +66,23 @@
           ]
         }
       ]
+    },
+    {
+      "name": "theme_vram_percentage",
+      "sources": "all",
+      "hardwaretype": "Graphics",
+      "sensortype": "Usage",
+      "fallbackToFirstValue": false,
+      "extract": [
+        {
+          "byLabel": [
+            {
+              "includes": "Memory",
+              "excludes": "Controller"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

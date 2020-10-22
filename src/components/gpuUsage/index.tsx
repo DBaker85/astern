@@ -9,8 +9,7 @@ export const GpuUsage = () => {
   const [usage, setUsage] = useState(0);
   const [vram, setVram] = useState(0);
   const [vramTotal, setVramTotal] = useState(0);
-
-  const percentage = Math.ceil((vram / vramTotal) * 100);
+  const [vramPercentage, setVramPercentage] = useState(0);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
@@ -25,13 +24,19 @@ export const GpuUsage = () => {
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM_TOTAL, (data) => {
       setVramTotal(data.payload.value);
     });
+    window.MobroSDK.addChannelListener(
+      channels.GRAPHICS.VRAM_PERCENTAGE,
+      (data) => {
+        setVramPercentage(data.payload.value);
+      }
+    );
   });
 
   return (
     <StyledGpuWrapper>
       <BarChart progress={usage} text={`${usage}%`} />
       <BarChart
-        progress={percentage}
+        progress={vramPercentage}
         text={`${vram}mb used of ${vramTotal}mb`}
       />
     </StyledGpuWrapper>

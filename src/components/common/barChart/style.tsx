@@ -19,7 +19,9 @@ export const StyledBar = styled.div<{ progress: number }>`
   .text {
     display: flex;
     height: 100%;
-    justify-content: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;

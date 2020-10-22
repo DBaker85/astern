@@ -4,5 +4,6 @@ export const channels = {
     CLOCK: "theme_gpu_clock",
     VRAM: "theme_vram",
     VRAM_TOTAL: "theme_vram_total",
+    VRAM_PERCENTAGE: "theme_vram_percentage",
   },
 };
