@@ -6,7 +6,6 @@ export const fonts = css`
     font-family: "Abel-Regular";
     font-style: normal;
     font-weight: 400;
-    font-display: swap;
     src: local("Abel-Regular"), url(${AbelRegular}) format("woff2");
   }
 `;

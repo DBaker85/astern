@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import { channels } from "../../config/themeChannels";
-import { BarChart } from "../common/barChart";
+import { channels } from "../../../config/themeChannels";
+import { BarChart } from "../../common/barChart";
 
 import { StyledGpuWrapper } from "./style";
 

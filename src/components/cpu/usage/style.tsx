@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { StyledCard } from "../../common/card";
+
 export const StyledCoreWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -65,4 +67,8 @@ export const StyledCore = styled.div<{ usage: number }>`
     left: 0;
     bottom: 0;
   }
+`;
+
+export const StyledUsageCard = styled(StyledCard)`
+  grid-column: span 2;
 `;

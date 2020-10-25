@@ -5,6 +5,7 @@ export const StyledCard = styled.div`
   padding: 20px;
   border-radius: 20px;
   position: relative;
+  display: grid;
   .title {
     display: flex;
     position: absolute;

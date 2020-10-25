@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { processorCoreCountSelector } from "../../store/moBro/mobroSelectors";
+import { processorCoreCountSelector } from "../../../store/moBro/mobroSelectors";
 
 import {
   StyledCore,
   StyledCoreCountWrapper,
   StyledCoreWrapper,
   StyledUsage,
+  StyledUsageCard,
 } from "./style";
 
 export const CpuUsage: FunctionComponent = () => {
@@ -31,11 +32,13 @@ export const CpuUsage: FunctionComponent = () => {
   }, []);
 
   return (
-    <StyledCoreWrapper>
-      <StyledCoreCountWrapper>{cpuCoreCreator(usage)}</StyledCoreCountWrapper>
-      <StyledUsage>
-        <div>{usage}%</div>
-      </StyledUsage>
-    </StyledCoreWrapper>
+    <StyledUsageCard>
+      <StyledCoreWrapper>
+        <StyledCoreCountWrapper>{cpuCoreCreator(usage)}</StyledCoreCountWrapper>
+        <StyledUsage>
+          <div>{usage}%</div>
+        </StyledUsage>
+      </StyledCoreWrapper>
+    </StyledUsageCard>
   );
 };

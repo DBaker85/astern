@@ -5,7 +5,7 @@ export const StyledMainWrapper = styled.div`
   height: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: calc(50vh - 26px) calc(25vh - 26px) calc(25vh - 26px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, calc(25vh - 26px));
   gap: 20px;
 `;
