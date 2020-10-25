@@ -46,8 +46,7 @@ export const StyledDonutSegment = styled.circle<{
     }
     return props.theme.green;
   }};
-  stroke-dasharray: ${(props) =>
-    `${props.segmentValue} ${100 - props.segmentValue}`};
+
   fill: transparent;
   transition: stroke-dasharray 300ms ease-in-out;
 `;

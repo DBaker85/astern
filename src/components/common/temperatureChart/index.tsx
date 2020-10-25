@@ -107,6 +107,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
         warning={warningValue}
         critical={criticalValue}
         strokeDashoffset="75"
+        strokeDasharray={`${segmentValue} ${100 - segmentValue}`}
       />
 
       <g>
