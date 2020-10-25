@@ -18,7 +18,7 @@ export const CpuUsage: FunctionComponent = () => {
   const cpuCoreCreator = (usage: number) =>
     [...new Array(coreCount)].map((value, index) => (
       <StyledCore usage={usage} key={index}>
-        <div />
+        <div style={{ height: `${usage}%` }} />
       </StyledCore>
     ));
 

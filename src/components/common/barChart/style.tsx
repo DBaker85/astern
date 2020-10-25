@@ -9,7 +9,7 @@ export const StyledBar = styled.div<{ progress: number }>`
   .progress {
     display: flex;
     height: 100%;
-    width: ${(props) => `${props.progress}%`};
+
     background-color: ${(props) => props.theme.green};
     position: absolute;
     top: 0;

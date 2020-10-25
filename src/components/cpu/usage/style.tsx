@@ -60,7 +60,6 @@ export const StyledCore = styled.div<{ usage: number }>`
   position: relative;
   div {
     background-color: ${(props) => props.theme.green};
-    height: ${(props) => props.usage}%;
     width: 100%;
     display: flex;
     position: absolute;

@@ -12,7 +12,7 @@ export const BarChart: FunctionComponent<BarChartType> = ({
   progress,
 }) => (
   <StyledBar progress={progress}>
-    <div className="progress"></div>
+    <div className="progress" style={{ width: `${progress}%` }}></div>
     <div className="text">{text}</div>
   </StyledBar>
 );
