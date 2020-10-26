@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 import { channels } from "../../../config/themeChannels";
 import { BarChart } from "../../common/barChart";
+import { Card } from "../../common/card";
 
 import { StyledGpuWrapper } from "./style";
+
+const StyledUsageCard = styled(Card)`
+  grid-column-start: 4;
+`;
 
 export const GpuUsage = () => {
   const [usage, setUsage] = useState(0);
@@ -33,12 +39,14 @@ export const GpuUsage = () => {
   });
 
   return (
-    <StyledGpuWrapper>
-      <BarChart progress={usage} text={`${usage}%`} />
-      <BarChart
-        progress={vramPercentage}
-        text={`${vram}mb used of ${vramTotal}mb`}
-      />
-    </StyledGpuWrapper>
+    <StyledUsageCard>
+      <StyledGpuWrapper>
+        <BarChart progress={usage} text={`${usage}%`} />
+        <BarChart
+          progress={vramPercentage}
+          text={`${vram}mb used of ${vramTotal}mb`}
+        />
+      </StyledGpuWrapper>
+    </StyledUsageCard>
   );
 };

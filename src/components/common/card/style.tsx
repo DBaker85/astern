@@ -5,12 +5,17 @@ export const StyledCard = styled.div`
   padding: 20px;
   border-radius: 20px;
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .title {
+    font-size: 0.7em;
+  }
+  .content {
+    font-size: 2em;
     display: flex;
-    position: absolute;
-    top: 2px;
-    left: 10px;
-    font-size: 0.5em;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
   }
 `;

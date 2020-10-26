@@ -1,17 +1,23 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 import {
   processorLimitsSelector,
   tempAsFarenHeightSelector,
+  processorNameSelector,
 } from "../../../store/moBro/mobroSelectors";
 
 import { TemperatureChart } from "../../common/temperatureChart";
-import { StyledCard } from "../../common/card";
+import { Card } from "../../common/card";
+
+const StyledTempCard = styled(Card)`
+  grid-row: span 2;
+`;
 
 export const CpuTemperature: FunctionComponent = () => {
   const farenheight = useSelector(tempAsFarenHeightSelector);
-
+  const name = useSelector(processorNameSelector);
   const { warning, critical, max } = useSelector(processorLimitsSelector);
 
   const [temperature, setTemperature] = useState(0);
@@ -25,7 +31,7 @@ export const CpuTemperature: FunctionComponent = () => {
     );
   }, []);
   return (
-    <StyledCard>
+    <StyledTempCard title={name}>
       <TemperatureChart
         value={temperature}
         warning={warning}
@@ -33,6 +39,6 @@ export const CpuTemperature: FunctionComponent = () => {
         max={max}
         farenheight={farenheight}
       />
-    </StyledCard>
+    </StyledTempCard>
   );
 };

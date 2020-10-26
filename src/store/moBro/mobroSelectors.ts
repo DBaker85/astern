@@ -53,15 +53,14 @@ export const gpuNameSelector = createSelector(
     let name;
     const hardwareValues = Object.values(hardware);
     for (let index = 0; index < hardwareValues.length; index++) {
-      const processor = hardwareValues[index].data.find(
+      const gpu = hardwareValues[index].data.find(
         (data: SensorList.Datum) => data.hardwaretype === GPU_TYPE
       ) as SensorList.Datum;
-      if (processor) {
-        name = processor.title;
+      if (gpu) {
+        name = gpu.title;
         break;
       }
     }
-
     return name;
   }
 );
