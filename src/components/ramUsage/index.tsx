@@ -27,7 +27,7 @@ export const RamUsage = () => {
   });
 
   return (
-    <Card>
+    <Card title="Ram">
       <BarChart progress={usage} text={`${ram}gb used of ${ramTotal}`} />
     </Card>
   );

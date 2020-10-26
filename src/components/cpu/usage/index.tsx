@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 import { processorCoreCountSelector } from "../../../store/moBro/mobroSelectors";
 import { Card } from "../../common/card";
@@ -10,6 +11,13 @@ import {
   StyledCoreWrapper,
   StyledUsage,
 } from "./style";
+
+const StyledUsageCard = styled(Card)`
+  grid-column: span 2;
+  .content {
+    width: 100%;
+  }
+`;
 
 export const CpuUsage: FunctionComponent = () => {
   const [usage, setUsage] = useState(0);
@@ -32,13 +40,13 @@ export const CpuUsage: FunctionComponent = () => {
   }, []);
 
   return (
-    <Card>
+    <StyledUsageCard>
       <StyledCoreWrapper>
         <StyledCoreCountWrapper>{cpuCoreCreator(usage)}</StyledCoreCountWrapper>
         <StyledUsage>
           <div>{usage}%</div>
         </StyledUsage>
       </StyledCoreWrapper>
-    </Card>
+    </StyledUsageCard>
   );
 };
