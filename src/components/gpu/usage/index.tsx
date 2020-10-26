@@ -44,7 +44,9 @@ export const GpuUsage = () => {
         <BarChart progress={usage} text={`${usage}%`} />
         <BarChart
           progress={vramPercentage}
-          text={`${vram}mb used of ${vramTotal}mb`}
+          text={`${Math.ceil(vram / 1000)}gb / ${Math.ceil(
+            vramTotal / 1000
+          )}gb`}
         />
       </StyledGpuWrapper>
     </StyledUsageCard>

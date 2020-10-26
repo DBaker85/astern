@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const StyledCard = styled.div`
   background-color: ${(props) => props.theme.background};
-  padding: 20px;
-  border-radius: 20px;
+  padding: 1vw;
+  border-radius: 1vw;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.6);
   .title {
     font-size: 0.7em;
   }

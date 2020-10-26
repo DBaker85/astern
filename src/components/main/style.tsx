@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const StyledMainWrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 1.5vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 30px 1fr 1fr;
-  grid-template-rows: repeat(3, calc(33.3vh - 20px));
-  gap: 10px;
+  grid-template-columns: 19vw 26.5vw 2vw 19vw 26.5vw;
+  grid-template-rows: repeat(3, 31vh);
+  gap: 1vh;
 `;
