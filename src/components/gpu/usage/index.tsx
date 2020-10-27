@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 import { channels } from "../../../config/themeChannels";
-import { BarChart } from "../../common/barChart";
+
 import { Card } from "../../common/card";
 
-import { StyledGpuWrapper } from "./style";
+import { StyledGpuWrapper, StyledUsage } from "./style";
+import { UsageChart, UsageType, arrayUpdater } from "../../common/usageChart";
 
 const StyledUsageCard = styled(Card)`
   grid-column-start: 4;
+  .content {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const GpuUsage = () => {
   const [usage, setUsage] = useState(0);
+  const [usageArray, setUsageArray] = useState<UsageType[]>([]);
   const [vram, setVram] = useState(0);
   const [vramTotal, setVramTotal] = useState(0);
   const [vramPercentage, setVramPercentage] = useState(0);
@@ -22,6 +29,9 @@ export const GpuUsage = () => {
       window.MobroSDK.generalChannels.GRAPHICS.USAGE,
       (data) => {
         setUsage(data.payload.value);
+        setUsageArray((usageArray) =>
+          arrayUpdater(usageArray, data.payload.value)
+        );
       }
     );
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM, (data) => {
@@ -36,18 +46,19 @@ export const GpuUsage = () => {
         setVramPercentage(data.payload.value);
       }
     );
-  });
+  }, []);
 
   return (
     <StyledUsageCard>
+      <StyledUsage>
+        <div>{usage}%</div>
+      </StyledUsage>
       <StyledGpuWrapper>
-        <BarChart progress={usage} text={`${usage}%`} />
-        <BarChart
-          progress={vramPercentage}
-          text={`${Math.ceil(vram / 1000)}gb / ${Math.ceil(
-            vramTotal / 1000
-          )}gb`}
-        />
+        <ParentSize>
+          {({ width, height }) => (
+            <UsageChart usageArray={usageArray} width={width} height={height} />
+          )}
+        </ParentSize>
       </StyledGpuWrapper>
     </StyledUsageCard>
   );

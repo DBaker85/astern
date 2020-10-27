@@ -1,22 +1,11 @@
 import styled from "styled-components";
 
-export const StyledCoreWrapper = styled.div`
+export const StyledChartWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  position: relative;
 `;
-export const StyledCoreCountWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
-  column-gap: 10px;
-  row-gap: 10px;
-  width: 100%;
-  height: 100%;
-  div {
-    background-color: ${(props) => props.theme.dark};
-  }
-`;
+
 export const StyledUsage = styled.div`
   display: flex;
   position: absolute;
@@ -45,23 +34,5 @@ export const StyledUsage = styled.div`
       background-color: ${(props) => props.theme.darkBackground};
       opacity: 0.8;
     }
-  }
-`;
-export const StyledCore = styled.div<{ usage: number }>`
-  position: relative;
-  display: flex;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: ${(props) => props.theme.dark};
-  height: 100%;
-  position: relative;
-  div {
-    background-color: ${(props) => props.theme.green};
-    width: 100%;
-    display: flex;
-    position: absolute;
-    left: 0;
-    bottom: 0;
   }
 `;

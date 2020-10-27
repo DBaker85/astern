@@ -1,52 +1,51 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 import { processorCoreCountSelector } from "../../../store/moBro/mobroSelectors";
 import { Card } from "../../common/card";
+import { UsageChart, UsageType, arrayUpdater } from "../../common/usageChart";
 
-import {
-  StyledCore,
-  StyledCoreCountWrapper,
-  StyledCoreWrapper,
-  StyledUsage,
-} from "./style";
+import { StyledUsage, StyledChartWrapper } from "./style";
 
 const StyledUsageCard = styled(Card)`
   grid-column: span 2;
   .content {
     width: 100%;
+    height: 100%;
   }
 `;
 
 export const CpuUsage: FunctionComponent = () => {
   const [usage, setUsage] = useState(0);
   const coreCount = useSelector(processorCoreCountSelector);
-
-  const cpuCoreCreator = (usage: number) =>
-    [...new Array(coreCount)].map((value, index) => (
-      <StyledCore usage={usage} key={index}>
-        <div style={{ height: `${usage}%` }} />
-      </StyledCore>
-    ));
+  const [usageArray, setUsageArray] = useState<UsageType[]>([]);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
       window.MobroSDK.generalChannels.PROCESSOR.USAGE,
       (data) => {
         setUsage(Math.ceil(data.payload.value));
+        setUsageArray((usageArray) =>
+          arrayUpdater(usageArray, data.payload.value)
+        );
       }
     );
   }, []);
 
   return (
     <StyledUsageCard>
-      <StyledCoreWrapper>
-        <StyledCoreCountWrapper>{cpuCoreCreator(usage)}</StyledCoreCountWrapper>
-        <StyledUsage>
-          <div>{usage}%</div>
-        </StyledUsage>
-      </StyledCoreWrapper>
+      <StyledUsage>
+        <div>{usage}%</div>
+      </StyledUsage>
+      <StyledChartWrapper>
+        <ParentSize>
+          {({ width, height }) => (
+            <UsageChart usageArray={usageArray} width={width} height={height} />
+          )}
+        </ParentSize>
+      </StyledChartWrapper>
     </StyledUsageCard>
   );
 };
