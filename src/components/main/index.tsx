@@ -32,8 +32,10 @@ export const Main: FunctionComponent = () => {
       <GpuDetails />
       <GpuTemperature />
       <RamUsage />
-      <GpuUsage />
+      <GpuDetails />
+
       <CpuUsage />
+      <GpuUsage />
       <Logo />
     </StyledMainWrapper>
   );

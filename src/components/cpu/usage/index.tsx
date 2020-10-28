@@ -3,7 +3,10 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
-import { processorCoreCountSelector } from "../../../store/moBro/mobroSelectors";
+import {
+  processorCoreCountSelector,
+  processorNameSelector,
+} from "../../../store/moBro/mobroSelectors";
 import { Card } from "../../common/card";
 import { UsageChart, UsageType, arrayUpdater } from "../../common/usageChart";
 
@@ -13,11 +16,12 @@ const StyledUsageCard = styled(Card)`
   grid-column: span 2;
   .content {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 0.7em);
   }
 `;
 
 export const CpuUsage: FunctionComponent = () => {
+  const name = useSelector(processorNameSelector);
   const [usage, setUsage] = useState(0);
   const coreCount = useSelector(processorCoreCountSelector);
   const [usageArray, setUsageArray] = useState<UsageType[]>([]);
@@ -35,7 +39,7 @@ export const CpuUsage: FunctionComponent = () => {
   }, []);
 
   return (
-    <StyledUsageCard>
+    <StyledUsageCard title={name}>
       <StyledUsage>
         <div>{usage}%</div>
       </StyledUsage>

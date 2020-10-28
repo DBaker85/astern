@@ -42,7 +42,7 @@ export const UsageChart: FunctionComponent<UsageChartProps> = ({
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
   const themeContext = useContext(ThemeContext);
-  console.log(themeContext);
+
   // scales
   const timeScale = useMemo(
     () =>
@@ -68,9 +68,11 @@ export const UsageChart: FunctionComponent<UsageChartProps> = ({
   return (
     <svg width={width} height={height}>
       <LinearGradient
-        id="area-background-gradient"
-        from={"#3b6978"}
-        to={"#fff"}
+        id="area-gradient"
+        from={themeContext.green}
+        fromOffset="50%"
+        to={themeContext.darkBackground}
+        toOffset="100%"
       />
       <AreaClosed
         data={usageArray}
@@ -78,6 +80,8 @@ export const UsageChart: FunctionComponent<UsageChartProps> = ({
         y={(d) => TempValueScale(getTemperatureValue(d)) ?? 0}
         yScale={TempValueScale}
         strokeWidth={1}
+        stroke="url(#area-gradient)"
+        fill={themeContext.dark}
         curve={curveMonotoneX}
       />
     </svg>

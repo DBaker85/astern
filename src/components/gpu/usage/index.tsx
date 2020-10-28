@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 import { channels } from "../../../config/themeChannels";
+import { gpuNameSelector } from "../../../store/moBro/mobroSelectors";
 
 import { Card } from "../../common/card";
 
@@ -11,15 +13,18 @@ import { UsageChart, UsageType, arrayUpdater } from "../../common/usageChart";
 
 const StyledUsageCard = styled(Card)`
   grid-column-start: 4;
+  grid-column-end: 6;
+
   .content {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 0.7em);
   }
 `;
 
 export const GpuUsage = () => {
   const [usage, setUsage] = useState(0);
   const [usageArray, setUsageArray] = useState<UsageType[]>([]);
+  const name = useSelector(gpuNameSelector);
   const [vram, setVram] = useState(0);
   const [vramTotal, setVramTotal] = useState(0);
   const [vramPercentage, setVramPercentage] = useState(0);
@@ -49,7 +54,7 @@ export const GpuUsage = () => {
   }, []);
 
   return (
-    <StyledUsageCard>
+    <StyledUsageCard title={name}>
       <StyledUsage>
         <div>{usage}%</div>
       </StyledUsage>
