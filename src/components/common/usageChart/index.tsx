@@ -3,9 +3,9 @@ import { produce } from "immer";
 import { ThemeContext } from "styled-components";
 
 import { curveMonotoneX } from "@visx/curve";
-import { AreaClosed } from "@visx/shape";
+import { Area } from "@visx/shape";
 import { scaleTime, scaleLinear } from "@visx/scale";
-import { LinearGradient } from "@visx/gradient";
+
 import { max, extent } from "d3-array";
 
 export const arrayUpdater = (baseState: UsageType[], value: number) =>
@@ -67,21 +67,12 @@ export const UsageChart: FunctionComponent<UsageChartProps> = ({
 
   return (
     <svg width={width} height={height}>
-      <LinearGradient
-        id="area-gradient"
-        from={themeContext.green}
-        fromOffset="50%"
-        to={themeContext.darkBackground}
-        toOffset="100%"
-      />
-      <AreaClosed
+      <Area
         data={usageArray}
         x={(d) => timeScale(getDate(d)) ?? 0}
         y={(d) => TempValueScale(getTemperatureValue(d)) ?? 0}
-        yScale={TempValueScale}
         strokeWidth={1}
-        stroke="url(#area-gradient)"
-        fill={themeContext.dark}
+        stroke={themeContext.green}
         curve={curveMonotoneX}
       />
     </svg>

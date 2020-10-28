@@ -14,10 +14,6 @@ import { StyledUsage, StyledChartWrapper } from "./style";
 
 const StyledUsageCard = styled(Card)`
   grid-column: span 2;
-  .content {
-    width: 100%;
-    height: calc(100% - 0.7em);
-  }
 `;
 
 export const CpuUsage: FunctionComponent = () => {

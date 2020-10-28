@@ -14,11 +14,6 @@ import { UsageChart, UsageType, arrayUpdater } from "../../common/usageChart";
 const StyledUsageCard = styled(Card)`
   grid-column-start: 4;
   grid-column-end: 6;
-
-  .content {
-    width: 100%;
-    height: calc(100% - 0.7em);
-  }
 `;
 
 export const GpuUsage = () => {

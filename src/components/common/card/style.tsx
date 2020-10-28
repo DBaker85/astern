@@ -11,6 +11,11 @@ export const StyledCard = styled.div`
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.6);
   .title {
     font-size: 0.7em;
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    width: 100%;
+    text-align: center;
   }
   .content {
     font-size: 2em;
@@ -18,5 +23,7 @@ export const StyledCard = styled.div`
     align-items: center;
     justify-content: center;
     flex: 1;
+    height: 100%;
+    width: 100%;
   }
 `;
