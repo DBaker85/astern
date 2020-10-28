@@ -1,9 +1,11 @@
-import React, { useMemo, FunctionComponent } from "react";
-import { AreaClosed } from "@visx/shape";
+import React, { useMemo, FunctionComponent, useContext } from "react";
 import { produce } from "immer";
+import { ThemeContext } from "styled-components";
 
 import { curveMonotoneX } from "@visx/curve";
+import { AreaClosed } from "@visx/shape";
 import { scaleTime, scaleLinear } from "@visx/scale";
+import { LinearGradient } from "@visx/gradient";
 import { max, extent } from "d3-array";
 
 export const arrayUpdater = (baseState: UsageType[], value: number) =>
@@ -39,7 +41,8 @@ export const UsageChart: FunctionComponent<UsageChartProps> = ({
   // bounds
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
-
+  const themeContext = useContext(ThemeContext);
+  console.log(themeContext);
   // scales
   const timeScale = useMemo(
     () =>
@@ -64,14 +67,17 @@ export const UsageChart: FunctionComponent<UsageChartProps> = ({
 
   return (
     <svg width={width} height={height}>
+      <LinearGradient
+        id="area-background-gradient"
+        from={"#3b6978"}
+        to={"#fff"}
+      />
       <AreaClosed
         data={usageArray}
         x={(d) => timeScale(getDate(d)) ?? 0}
         y={(d) => TempValueScale(getTemperatureValue(d)) ?? 0}
         yScale={TempValueScale}
         strokeWidth={1}
-        stroke="black"
-        fill="grey"
         curve={curveMonotoneX}
       />
     </svg>

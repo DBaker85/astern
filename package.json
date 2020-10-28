@@ -45,6 +45,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "@visx/curve": "^1.0.0",
+    "@visx/gradient": "^1.0.0",
     "@visx/responsive": "^1.1.0",
     "@visx/scale": "^1.1.0",
     "@visx/shape": "^1.1.0",
