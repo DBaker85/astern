@@ -52,31 +52,32 @@ const mobBroSlice = createSlice({
   name: "moBroSdk",
   initialState: initialMobroState,
   reducers: {},
-  extraReducers: {
-    [initMobroClient.pending]: (state, action: PayloadAction<initData>) => {
+  extraReducers: (builder) => {
+    builder.addCase(initMobroClient.pending, (state) => {
       state.loading = true;
-    },
-    [initMobroClient.fulfilled]: (state, action: PayloadAction<initData>) => {
-      const fullHardware = {
-        ...action.payload.hardwareList,
-        ...{
-          memory: {
-            ...action.payload.hardwareList.memory,
-            totalcapacityGb: format(
-              action.payload.hardwareList.memory.totalcapacity
-            ),
-          },
-        },
-      };
-      (state.hardware = fullHardware),
-        (state.sensors = action.payload.sensorList);
-      state.settings = action.payload.settings;
-      state.loading = false;
-      state.init = true;
-    },
+    }),
+      builder.addCase(
+        initMobroClient.fulfilled,
+        (state, action: PayloadAction<initData>) => {
+          const fullHardware = {
+            ...action.payload.hardwareList,
+            ...{
+              memory: {
+                ...action.payload.hardwareList.memory,
+                totalcapacityGb: format(
+                  action.payload.hardwareList.memory.totalcapacity
+                ),
+              },
+            },
+          };
+          state.hardware = fullHardware;
+          state.sensors = action.payload.sensorList;
+          state.settings = action.payload.settings;
+          state.loading = false;
+          state.init = true;
+        }
+      );
   },
 });
-
-// export const { setMobroInit, setSettings } = mobBroSlice.actions;
 
 export default mobBroSlice.reducer;

@@ -7,5 +7,5 @@ cache:
   directories:
     - "$HOME/.npm"
 script:
-  - npm run test
   - npm run build
+  - npm run test:coverage:publish
