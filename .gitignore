@@ -2,6 +2,10 @@ node_modules
 .parcel-cache
 .cache
 *.log
+
+# tests
+coverage
+
 # dist folders
 .www
 theme
