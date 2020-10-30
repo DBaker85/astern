@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { initMobroClient } from "../../store/moBro/mobroSlice";
 import { initSelector } from "../../store/moBro/mobroSelectors";
 
-import { Loader } from "../loader";
+import { Loader } from "../loader/loader";
 
 import { CpuTemperature, CpuUsage, CpuDetails } from "../cpu";
 
 import { GpuDetails, GpuUsage, GpuTemperature } from "../gpu";
 
-import { RamUsage } from "../ramUsage";
+import { RamUsage } from "../ram/ram";
 
-import { Logo } from "../logo";
-import { StyledMainWrapper } from "./style";
+import { Logo } from "../logo/logo";
+import { StyledMainWrapper } from "./main.style";
 
 export const Main: FunctionComponent = () => {
   const dispatch = useDispatch();

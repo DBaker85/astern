@@ -8,7 +8,7 @@ import { gpuNameSelector } from "../../../store/moBro/mobroSelectors";
 
 import { Card } from "../../common/card/card";
 
-import { StyledGpuWrapper, StyledUsage } from "./style";
+import { StyledGpuWrapper, StyledUsage } from "./gpuUsage.style";
 import { UsageChart } from "../../common/usageChart/usageChart";
 import { UsageType, arrayUpdater } from "../../common/usageChart/utils";
 

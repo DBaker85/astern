@@ -11,7 +11,7 @@ import { Card } from "../../common/card/card";
 import { UsageChart } from "../../common/usageChart/usageChart";
 import { UsageType, arrayUpdater } from "../../common/usageChart/utils";
 
-import { StyledUsage, StyledChartWrapper } from "./style";
+import { StyledUsage, StyledChartWrapper } from "./cpuUsage.style";
 
 const StyledUsageCard = styled(Card)`
   grid-column: span 2;
