@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 
 import { totalRamSelector } from "../../store/moBro/mobroSelectors";
-import { BarChart } from "../common/barChart";
-import { Card } from "../common/card";
+import { BarChart } from "../common/barChart/barChart";
+import { Card } from "../common/card/card";
 
 export const RamUsage = () => {
   const [usage, setUsage] = useState(0);

@@ -8,8 +8,8 @@ import {
   gpuNameSelector,
 } from "../../../store/moBro/mobroSelectors";
 
-import { TemperatureChart } from "../../common/temperatureChart";
-import { Card } from "../../common/card";
+import { TemperatureChart } from "../../common/temperatureChart/temperatureChart";
+import { Card } from "../../common/card/card";
 
 const StyledTempCard = styled(Card)`
   grid-row: span 2;

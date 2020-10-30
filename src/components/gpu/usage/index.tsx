@@ -6,10 +6,11 @@ import ParentSize from "@visx/responsive/lib/components/ParentSize";
 import { channels } from "../../../config/themeChannels";
 import { gpuNameSelector } from "../../../store/moBro/mobroSelectors";
 
-import { Card } from "../../common/card";
+import { Card } from "../../common/card/card";
 
 import { StyledGpuWrapper, StyledUsage } from "./style";
-import { UsageChart, UsageType, arrayUpdater } from "../../common/usageChart";
+import { UsageChart } from "../../common/usageChart/usageChart";
+import { UsageType, arrayUpdater } from "../../common/usageChart/utils";
 
 const StyledUsageCard = styled(Card)`
   grid-column-start: 4;

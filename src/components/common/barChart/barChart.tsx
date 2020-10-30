@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { StyledBar } from "./style";
+import { StyledBar } from "./barChart.style";
 
 interface BarChartType {
   text: String;

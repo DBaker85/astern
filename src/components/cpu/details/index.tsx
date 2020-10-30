@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { processorNameSelector } from "../../../store/moBro/mobroSelectors";
 import { channels } from "../../../config/themeChannels";
-import { Card } from "../../common/card";
+import { Card } from "../../common/card/card";
 
 export const CpuDetails: FunctionComponent = () => {
   const name = useSelector(processorNameSelector);
