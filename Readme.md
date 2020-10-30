@@ -1,4 +1,4 @@
-![](https://api.travis-ci.org/DBaker85/astern.svg?branch=main) [![Coverage Status](https://coveralls.io/repos/github/DBaker85/astern/badge.svg?branch=main)](https://coveralls.io/github/DBaker85/astern?branch=main)
+![](https://img.shields.io/travis/DBaker85/astern?style=flat-square) [![Coverage Status](https://coveralls.io/repos/github/DBaker85/astern/badge.svg?branch=main)](https://coveralls.io/github/DBaker85/astern?branch=main)
 
 <p align="center"> 
     <img src="https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/astern_logo.png" alt="astern logo">
