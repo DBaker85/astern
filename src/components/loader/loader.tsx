@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { StyledLoader } from "./style";
+import { StyledLoader } from "./loader.style";
 
 export const Loader: FunctionComponent = () => (
   <StyledLoader>

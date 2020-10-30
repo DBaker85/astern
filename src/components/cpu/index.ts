@@ -1,3 +1,3 @@
-export * from "./details";
-export * from "./temperature";
-export * from "./usage";
+export * from "./details/cpuDetails";
+export * from "./temperature/cpuTemperature";
+export * from "./usage/cpuUsage";

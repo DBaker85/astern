@@ -11,7 +11,7 @@ import {
   StyledSymbolText,
   StyledTemperatureText,
   StyledWarningIndicator,
-} from "./style";
+} from "./temperatureChart.style";
 
 interface TemperatureChartProps {
   value: number;

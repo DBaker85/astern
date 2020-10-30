@@ -13,7 +13,7 @@ export interface FullHardwareList extends HardwareList.RootObject {
 export interface MobroState {
   sensors: SensorList.RootObject | {};
   hardware: FullHardwareList | {};
-  loading: Boolean;
+  loading: boolean;
   init: boolean;
   settings: Helper.Settings | {};
 }

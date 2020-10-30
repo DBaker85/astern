@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { StyledLogo } from "./style";
+import { StyledLogo } from "./logo.style";
 
 export const Logo: FunctionComponent = () => (
   <StyledLogo>

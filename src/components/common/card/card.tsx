@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { StyledCard } from "./style";
+import { StyledCard } from "./card.style";
 
 interface CardType {
   title?: string;

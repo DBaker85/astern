@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { gpuNameSelector } from "../../../store/moBro/mobroSelectors";
 import { channels } from "../../../config/themeChannels";
-import { Card } from "../../common/card";
+import { Card } from "../../common/card/card";
 
 const StyledDetailsCard = styled(Card)`
   grid-column-start: 4;
