@@ -7,9 +7,9 @@ describe("Utils", () => {
   });
 
   it("Should map to a range", () => {
-    const mappedMaxRange = mapRange(1024, 0, 1204, 0, 100);
-    const mappedMinRange = mapRange(20, 20, 1204, 0, 100);
-    // expect(mappedMaxRange).toEqual(100);
+    const mappedMaxRange = mapRange(1024, 0, 1024, 0, 100);
+    const mappedMinRange = mapRange(20, 20, 1024, 0, 100);
+    expect(mappedMaxRange).toEqual(100);
     expect(mappedMinRange).toEqual(0);
   });
 });
