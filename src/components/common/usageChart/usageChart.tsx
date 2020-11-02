@@ -39,7 +39,7 @@ export const UsageChart: FunctionComponent<UsageChartProps> = ({
     () =>
       scaleLinear({
         range: [innerHeight + margin.top, margin.top],
-        domain: [0, (max(usageArray, getUsageValue) || 0) + innerHeight / 3],
+        domain: [0, 100],
         nice: true,
       }),
     [margin.top, innerHeight]
