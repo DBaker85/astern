@@ -17,9 +17,9 @@ import {
   gpuLimits,
   ramCapacity,
   coreCount,
-} from "./mocks";
+} from "./mocks/mockState";
 
-describe("selectors", () => {
+describe("Mobro selectors", () => {
   it("should get cpu name", () => {
     expect(processorNameSelector(mocks)).toBe(cpuName);
   });
@@ -37,5 +37,11 @@ describe("selectors", () => {
   });
   it("should get ram capacity", () => {
     expect(totalRamSelector(mocks)).toBe(ramCapacity.totalcapacityGb);
+  });
+  it("should get init Value", () => {
+    expect(initSelector(mocks)).toBe(true);
+  });
+  it("should get farenheight config", () => {
+    expect(tempAsFarenHeightSelector(mocks)).toBe(false);
   });
 });
