@@ -3,10 +3,13 @@ import React, { FunctionComponent, useMemo } from "react";
 import { mapRange, celciusToFarenheight } from "../../../utils";
 
 import {
-  StyledCriticalIndicator,
   StyledDonutHole,
   StyledDonutRing,
   StyledDonutSegment,
+} from "../donut/donut.style";
+
+import {
+  StyledCriticalIndicator,
   StyledIndicator,
   StyledSymbolText,
   StyledTemperatureText,
