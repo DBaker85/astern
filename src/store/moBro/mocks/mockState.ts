@@ -3,8 +3,8 @@ import { RootStateType } from "../../index";
 export const cpuName = "AmazeCpu";
 export const gpuName = "AmazeRayTracing";
 export const ramCapacity = {
-  bytes: 17179869184,
-  totalcapacityGb: "16gb",
+  totalcapacity: 17179869184,
+  totalcapacityGb: "16GB",
   count: 2,
   capacityunit: "B",
 };
