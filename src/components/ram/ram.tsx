@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { totalRamSelector } from "../../store/moBro/mobroSelectors";
-import { BarChart } from "../common/barChart/barChart";
+import { UsageBar } from "../common/usageBar/usageBar";
 import { Card } from "../common/card/card";
 
 export const RamUsage = () => {
@@ -11,6 +11,7 @@ export const RamUsage = () => {
   const ramTotal = useSelector(totalRamSelector);
 
   useEffect(() => {
+    console.log(usage, ram, ramTotal);
     window.MobroSDK.addChannelListener(
       window.MobroSDK.generalChannels.MEMORY.USAGE,
       (data) => {
@@ -27,7 +28,9 @@ export const RamUsage = () => {
 
   return (
     <Card title="Ram">
-      <BarChart progress={usage} text={`${ram}gb / ${ramTotal}`} />
+      <UsageBar value={usage} used={ram} total={ramTotal} />
     </Card>
   );
 };
+
+// value text={`${ram}gb / ${ramTotal}`}
