@@ -10,7 +10,7 @@ const StyledVramCard = styled(Card)`
 `;
 
 export const GpuVram: FunctionComponent = () => {
-  const name = "vram";
+  const name = "Vram";
 
   const [usage, setUsage] = useState(0);
   const [ramTotal, setRamTotal] = useState(0);
@@ -18,10 +18,10 @@ export const GpuVram: FunctionComponent = () => {
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM, (data) => {
-      setRam(data.payload.value);
+      setRam(Math.ceil(data.payload.value / 1000));
     });
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM_TOTAL, (data) => {
-      setRamTotal(data.payload.value);
+      setRamTotal(Math.ceil(data.payload.value / 1000));
     });
     window.MobroSDK.addChannelListener(
       channels.GRAPHICS.VRAM_PERCENTAGE,
