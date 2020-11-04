@@ -23,7 +23,8 @@ export const Main: FunctionComponent = () => {
     dispatch(initMobroClient());
   }, []);
 
-  if (!init) return <Loader />;
+  // if (!init) return <Loader />;
+  if (!init) return <RamUsage />;
 
   return (
     <StyledMainWrapper>

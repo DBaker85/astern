@@ -9,7 +9,7 @@ import {
 interface BarChartProps {
   value: number;
   used: number;
-  total: string;
+  total: number;
 }
 
 export const UsageBar: FunctionComponent<BarChartProps> = ({
@@ -43,7 +43,7 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
           // critical={criticalValue}
           // value={mappedValue}
         >
-          {used}GB
+          {used}
         </text>
 
         <text x="31" y="53%" textAnchor="middle" fontSize="6.3px">

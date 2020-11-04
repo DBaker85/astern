@@ -4,7 +4,7 @@ import { format } from "bytes";
 import { HardwareList, Helper, SensorList } from "../../sdk/types";
 
 interface FullMemoryList extends HardwareList.Memory {
-  totalcapacityGb: string;
+  totalcapacityGb: number;
 }
 export interface FullHardwareList extends HardwareList.RootObject {
   memory: FullMemoryList;
@@ -59,14 +59,18 @@ const mobBroSlice = createSlice({
       builder.addCase(
         initMobroClient.fulfilled,
         (state, action: PayloadAction<initData>) => {
+          const totalcapacityGb = parseInt(
+            format(action.payload.hardwareList.memory.totalcapacity, {
+              unit: "GB",
+            }).split("GB")[0],
+            10
+          );
           const fullHardware = {
             ...action.payload.hardwareList,
             ...{
               memory: {
                 ...action.payload.hardwareList.memory,
-                totalcapacityGb: format(
-                  action.payload.hardwareList.memory.totalcapacity
-                ),
+                totalcapacityGb,
               },
             },
           };

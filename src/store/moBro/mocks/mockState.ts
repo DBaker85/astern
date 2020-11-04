@@ -4,7 +4,7 @@ export const cpuName = "AmazeCpu";
 export const gpuName = "AmazeRayTracing";
 export const ramCapacity = {
   totalcapacity: 17179869184,
-  totalcapacityGb: "16GB",
+  totalcapacityGb: 16,
   count: 2,
   capacityunit: "B",
 };
