@@ -6,13 +6,13 @@ import {
   StyledDonutHole,
   StyledDonutRing,
   StyledDonutSegment,
+  StyledDonutText,
 } from "../donut/donut.style";
 
 import {
   StyledCriticalIndicator,
   StyledIndicator,
   StyledSymbolText,
-  StyledTemperatureText,
   StyledWarningIndicator,
 } from "./temperatureChart.style";
 
@@ -114,7 +114,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
       />
 
       <g>
-        <StyledTemperatureText
+        <StyledDonutText
           x="48%"
           y="60%"
           textAnchor="middle"
@@ -124,7 +124,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
           value={mappedValue}
         >
           {mappedValue}
-        </StyledTemperatureText>
+        </StyledDonutText>
         <StyledSymbolText x="31" y="53%" textAnchor="middle" fontSize="6.3px">
           °
         </StyledSymbolText>

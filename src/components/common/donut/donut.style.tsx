@@ -11,8 +11,8 @@ export const StyledDonutRing = styled.circle`
 
 export const StyledDonutSegment = styled.circle<{
   segmentValue: number;
-  warning: number;
-  critical: number;
+  warning?: number;
+  critical?: number;
 }>`
   stroke: ${(props) => {
     if (
@@ -30,4 +30,24 @@ export const StyledDonutSegment = styled.circle<{
 
   fill: transparent;
   transition: stroke-dasharray 300ms ease-in-out;
+`;
+
+export const StyledDonutText = styled.text<{
+  warning?: number;
+  critical?: number;
+  value: number;
+}>`
+  fill: ${(props) => {
+    if (
+      props.warning &&
+      props.value >= props.warning &&
+      props.value < props.critical
+    ) {
+      return props.theme.yellow;
+    }
+    if (props.critical && props.value >= props.critical) {
+      return props.theme.red;
+    }
+    return props.theme.light;
+  }};
 `;

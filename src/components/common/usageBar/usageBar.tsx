@@ -4,6 +4,7 @@ import {
   StyledDonutHole,
   StyledDonutRing,
   StyledDonutSegment,
+  StyledDonutText,
 } from "../donut/donut.style";
 
 interface BarChartProps {
@@ -36,18 +37,18 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
       />
 
       <g>
-        <text
+        <StyledDonutText
           x="48%"
           y="60%"
           textAnchor="middle"
           fontSize="12.6px"
           // warning={warningValue}
           // critical={criticalValue}
-          // value={mappedValue}
+          value={used}
         >
           {used}
           {unit}
-        </text>
+        </StyledDonutText>
 
         <text x="31" y="53%" textAnchor="middle" fontSize="6.3px">
           /

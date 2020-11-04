@@ -20,22 +20,6 @@ export const StyledCriticalIndicator = styled.circle<{
   transform: ${(props) => `rotate(${props.criticalIndicator}deg)`};
 `;
 
-export const StyledTemperatureText = styled.text<{
-  warning: number;
-  critical: number;
-  value: number;
-}>`
-  fill: ${(props) => {
-    if (props.value >= props.warning && props.value < props.critical) {
-      return props.theme.yellow;
-    }
-    if (props.value >= props.critical) {
-      return props.theme.red;
-    }
-    return props.theme.light;
-  }};
-`;
-
 export const StyledSymbolText = styled.text`
   fill: ${(props) => props.theme.light};
   opacity: 0.6;
