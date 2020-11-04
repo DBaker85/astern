@@ -8,7 +8,7 @@ import { Loader } from "../loader/loader";
 
 import { CpuTemperature, CpuUsage, CpuDetails } from "../cpu";
 
-import { GpuDetails, GpuUsage, GpuTemperature } from "../gpu";
+import { GpuDetails, GpuUsage, GpuTemperature, GpuVram } from "../gpu";
 
 import { RamUsage } from "../ram/ram";
 
@@ -29,10 +29,11 @@ export const Main: FunctionComponent = () => {
     <StyledMainWrapper>
       <CpuDetails />
       <CpuTemperature />
+
       <GpuDetails />
       <GpuTemperature />
       <RamUsage />
-      <GpuDetails />
+      <GpuVram />
 
       <CpuUsage />
       <GpuUsage />
