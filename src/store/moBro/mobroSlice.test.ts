@@ -51,7 +51,7 @@ describe("Mobro Slice", () => {
       hardware: {
         processor,
         graphics,
-        memory: { ...memory, ...{ totalcapacityGb: "16GB" } },
+        memory: { ...memory, ...{ totalcapacityGb: 16 } },
       },
       settings,
     };

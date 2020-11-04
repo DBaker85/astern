@@ -9,13 +9,15 @@ import {
 interface BarChartProps {
   value: number;
   used: number;
-  total: string;
+  total: number;
+  unit: string;
 }
 
 export const UsageBar: FunctionComponent<BarChartProps> = ({
   value,
   used,
   total,
+  unit,
 }) => {
   return (
     <svg width="100%" height="100%" viewBox="0 0 42 42">
@@ -43,7 +45,8 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
           // critical={criticalValue}
           // value={mappedValue}
         >
-          {used}GB
+          {used}
+          {unit}
         </text>
 
         <text x="31" y="53%" textAnchor="middle" fontSize="6.3px">
@@ -51,6 +54,7 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
         </text>
         <text x="32" y="58%" textAnchor="middle" fontSize="6.3px">
           {total}
+          {unit}
         </text>
       </g>
     </svg>
