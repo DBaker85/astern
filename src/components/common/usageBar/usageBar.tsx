@@ -7,6 +7,8 @@ import {
   StyledDonutText,
 } from "../donut/donut.style";
 
+import { StyledSymbolText } from "./usageBar.style";
+
 interface BarChartProps {
   value: number;
   used: number;
@@ -30,33 +32,33 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
         r="15.91549430918954"
         strokeWidth="4"
         segmentValue={value}
-        warning={0}
-        critical={85}
+        warning={90}
+        critical={95}
         strokeDashoffset="75"
         strokeDasharray={`${value} ${100 - value}`}
       />
 
       <g>
         <StyledDonutText
-          x="48%"
-          y="60%"
+          x="50%"
+          y="52%"
           textAnchor="middle"
           fontSize="12.6px"
-          // warning={warningValue}
-          // critical={criticalValue}
-          value={used}
+          warning={90}
+          critical={95}
+          value={value}
         >
           {used}
-          {unit}
+          <tspan fontSize="6.3px">{unit}</tspan>
         </StyledDonutText>
 
-        <text x="31" y="53%" textAnchor="middle" fontSize="6.3px">
+        <StyledSymbolText x="40%" y="67%" textAnchor="middle" fontSize="5px">
           /
-        </text>
-        <text x="32" y="58%" textAnchor="middle" fontSize="6.3px">
+        </StyledSymbolText>
+        <StyledSymbolText x="58%" y="67%" textAnchor="middle" fontSize="6.3px">
           {total}
-          {unit}
-        </text>
+          <tspan fontSize="3.1px">{unit}</tspan>
+        </StyledSymbolText>
       </g>
     </svg>
   );
