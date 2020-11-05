@@ -19,7 +19,7 @@ I wanted this theme to be modern and show some relevant stats like Core clock an
 
 ## Screenshot
 
-![astern screenshot](https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/screenshot.jpg)
+![astern screenshot](https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/screenshot.JPG)
 
 ## Installation
 
