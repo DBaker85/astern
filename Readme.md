@@ -10,12 +10,12 @@ I wanted this theme to be modern and show some relevant stats like Core clock an
 
 ## Features
 
-| CPU         | GPU         | Ram   |
-| ----------- | ----------- | ----- |
-| Core Clock  | Core Clock  | Usage |
-| Temperature | Temperature |
-| Usage       | Vram Usage  |
-|             | Usage       |
+| CPU                 | GPU                 | Ram   |
+| ------------------- | ------------------- | ----- |
+| Core Clock          | Core Clock          | Usage |
+| Temperature °C / °F | Temperature °C / °F |
+| Usage               | Vram Usage          |
+|                     | Usage               |
 
 ## Screenshot
 
