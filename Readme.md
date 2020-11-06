@@ -23,7 +23,8 @@ I wanted this theme to be modern and show some relevant stats like Core clock an
 
 ## Installation
 
-Download the [latest release](https://github.com/DBaker85/astern/releases)
+Go to the [latest release](https://github.com/DBaker85/astern/releases)
+Download file `astern.zip` it contains all files required
 
 ### windows
 
