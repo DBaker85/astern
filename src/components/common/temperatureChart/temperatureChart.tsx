@@ -31,40 +31,33 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
   value,
   farenheight = false,
 }) => {
+  const mappedValue = farenheight ? celciusToFarenheight(value) : value;
+  const mappedWarningValue = farenheight
+    ? celciusToFarenheight(warning)
+    : warning;
+  const mappedCriticalValue = farenheight
+    ? celciusToFarenheight(critical)
+    : critical;
+  const mappedMaxValue = farenheight ? celciusToFarenheight(max) : max;
+
   const warningValue = useMemo(
-    () =>
-      farenheight
-        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
-        : mapRange(warning, 0, max, 0, 100),
-    [warning, max, farenheight]
+    () => mapRange(mappedWarningValue, 0, mappedMaxValue, 0, 100),
+    [mappedWarningValue, mappedMaxValue]
   );
   const criticalValue = useMemo(
-    () =>
-      farenheight
-        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
-        : mapRange(critical, 0, max, 0, 100),
-    [critical, max, farenheight]
+    () => mapRange(mappedCriticalValue, 0, mappedMaxValue, 0, 100),
+    [mappedCriticalValue, mappedMaxValue]
   );
   const warningIndicator = useMemo(
-    () =>
-      farenheight
-        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
-        : mapRange(warning, 0, max, 0, 360),
-    [warning, max, farenheight]
+    () => mapRange(mappedWarningValue, 0, mappedMaxValue, 0, 360),
+    [mappedWarningValue, mappedMaxValue]
   );
   const criticalIndicator = useMemo(
-    () =>
-      farenheight
-        ? celciusToFarenheight(mapRange(warning, 0, max, 0, 100))
-        : mapRange(critical, 0, max, 0, 360),
-    [critical, max, farenheight]
+    () => mapRange(mappedCriticalValue, 0, mappedMaxValue, 0, 360),
+    [mappedCriticalValue, mappedMaxValue]
   );
 
-  const segmentValue = farenheight
-    ? celciusToFarenheight(mapRange(value, 0, max, 0, 100))
-    : mapRange(value, 0, max, 0, 100);
-
-  const mappedValue = farenheight ? celciusToFarenheight(value) : value;
+  const segmentValue = mapRange(mappedValue, 0, mappedMaxValue, 0, 100);
 
   return (
     <svg width="100%" height="100%" viewBox="0 0 42 42">
@@ -119,8 +112,8 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
           y="60%"
           textAnchor="middle"
           fontSize="12.6px"
-          warning={warningValue}
-          critical={criticalValue}
+          warning={mappedWarningValue}
+          critical={mappedCriticalValue}
           value={mappedValue}
         >
           {mappedValue}
