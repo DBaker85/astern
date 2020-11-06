@@ -14,13 +14,7 @@ deploy:
   provider: releases
   api_key:
     secure: Gjr3uS7rGSRYOVyNqPpvFaRlrWCODnkDNLTTLBxOtZiTLWO86jSHlgx47kFGGm5XHX0fZ13ggXLF2mR+BkOB0dgWaE8vRIvX4rrbI4xpro11m1PpxOMTqD+GDfmRO5hplM++IfntTO/yBY5d9Q4g96odvDWwih16QuRt7qp/oS4DyX6+BnJKVvf7NaxItmdp1lyn2OzBjJuVJzN/QG7MLmpDWA4kJ+H9gWdsLGGgp/PnnApYfxG/RJog7c/mlq5VGbqiDZwkSsMsFDOZmYXMdXVi++gkb9vR/dmo+4r49Da4Ktnss8iDq9+HmGkbxkGrZEl/UcugdiGX0VGb+/EfraCjhZsT9hDZJBhpI9CqxNvHR50kJ+gwrf3iOh9vHDz4iWU3XvDFtC6LKTxpXobYTjBzNcRG2QfquSs+ePHnTP6EWYXu3XyGACZ0kAlCqQOZmkwkwfIB7xi/wySY5TdnW8xOHtUMBhJXcslqsDlLmkSkn/Xq/U3g8D9QnmQ04D1HsZRgsXY6mDOc26Pnx/b4cVf2C7HP3O+chRHag+4/VgiMcllNTnHj43jjFOpKt8nvd21Povxb7NeqX0TCQvpj5ZGYA0sKjYk9RIPJBCXw6hWnIttYBlzsStFstO2C+raon+KAZy2hQePHApEWMYBq6icZPATSDoBodlBBHX8l/FY=
-  file_glob: true
-  file:
-    - theme/**/*.js
-    - theme/**/*.woff2
-    - theme/astern/index.html
-    - theme/astern/readme.md
-    - theme/astern/theme-config.json
+  file: theme/astern.zip
   on:
     repo: DBaker85/astern
     branch: main
