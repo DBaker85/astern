@@ -15,7 +15,7 @@ const copyAssets = async () => {
       "config",
       configFilename
     );
-    const themepath = resolve(__dirname, "..", "theme");
+    const themepath = resolve(__dirname, "..", "theme", "astern");
     await copy(readmeFile, join(themepath, readmeFilename));
     await copy(configFile, join(themepath, configFilename));
     console.log(green("Mobro Assets added to build folder"));
