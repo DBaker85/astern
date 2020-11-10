@@ -21,30 +21,15 @@ export const GpuUsage = () => {
   const [usage, setUsage] = useState(0);
   const [usageArray, setUsageArray] = useState<UsageType[]>([]);
   const name = useSelector(gpuNameSelector);
-  const [vram, setVram] = useState(0);
-  const [vramTotal, setVramTotal] = useState(0);
-  const [vramPercentage, setVramPercentage] = useState(0);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
       window.MobroSDK.generalChannels.GRAPHICS.USAGE,
       (data) => {
-        setUsage(data.payload.value);
+        setUsage(Math.round(data.payload.value));
         setUsageArray((usageArray) =>
           arrayUpdater(usageArray, data.payload.value)
         );
-      }
-    );
-    window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM, (data) => {
-      setVram(Math.ceil(data.payload.value));
-    });
-    window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM_TOTAL, (data) => {
-      setVramTotal(data.payload.value);
-    });
-    window.MobroSDK.addChannelListener(
-      channels.GRAPHICS.VRAM_PERCENTAGE,
-      (data) => {
-        setVramPercentage(data.payload.value);
       }
     );
   }, []);
@@ -52,7 +37,7 @@ export const GpuUsage = () => {
   return (
     <StyledUsageCard title={name}>
       <StyledUsage>
-        <div>{usage}%</div>
+        <div data-testid="usage-text-value">{usage}%</div>
       </StyledUsage>
       <StyledGpuWrapper>
         <ParentSize>

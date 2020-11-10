@@ -18,10 +18,10 @@ export const GpuVram: FunctionComponent = () => {
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM, (data) => {
-      setRam(Math.ceil(data.payload.value / 1000));
+      setRam(data.payload.value / 1000);
     });
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM_TOTAL, (data) => {
-      setRamTotal(Math.ceil(data.payload.value / 1000));
+      setRamTotal(data.payload.value / 1000);
     });
     window.MobroSDK.addChannelListener(
       channels.GRAPHICS.VRAM_PERCENTAGE,
