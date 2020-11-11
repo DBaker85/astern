@@ -20,7 +20,12 @@ export const RamUsage = () => {
     window.MobroSDK.addChannelListener(
       window.MobroSDK.generalChannels.MEMORY.USED,
       (data) => {
-        setRam(data.payload.value);
+        let payload;
+        payload =
+          data.payload.unit === "MB"
+            ? data.payload.value / 1000
+            : data.payload.value;
+        setRam(payload);
       }
     );
   });
