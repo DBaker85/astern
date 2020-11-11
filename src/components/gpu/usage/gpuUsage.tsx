@@ -37,7 +37,7 @@ export const GpuUsage = () => {
   return (
     <StyledUsageCard title={name}>
       <StyledUsage>
-        <div data-testid="usage-text-value">{usage}%</div>
+        <div>{usage}%</div>
       </StyledUsage>
       <StyledGpuWrapper>
         <ParentSize>
