@@ -6,5 +6,4 @@ export const mapRange = (
   outMax: number
 ) => ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 
-export const celciusToFarenheight = (celsius: number) =>
-  Math.ceil((celsius * 9) / 5 + 32);
+export const celciusToFarenheight = (celsius: number) => (celsius * 9) / 5 + 32;

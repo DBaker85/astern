@@ -22,6 +22,8 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
   total,
   unit,
 }) => {
+  const mappedUsed = Math.round(used);
+  const mappedTotal = Math.round(total);
   return (
     <svg width="100%" height="100%" viewBox="0 0 42 42">
       <StyledDonutHole cx="21" cy="21" r="15.91549430918954" />
@@ -48,7 +50,7 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
           critical={95}
           value={value}
         >
-          {used}
+          <tspan data-testid="usage-text-used">{mappedUsed}</tspan>
           <tspan fontSize="6.3px">{unit}</tspan>
         </StyledDonutText>
 
@@ -56,7 +58,7 @@ export const UsageBar: FunctionComponent<BarChartProps> = ({
           /
         </StyledSymbolText>
         <StyledSymbolText x="58%" y="67%" textAnchor="middle" fontSize="6.3px">
-          {total}
+          <tspan data-testid="usage-text-total">{mappedTotal}</tspan>
           <tspan fontSize="3.1px">{unit}</tspan>
         </StyledSymbolText>
       </g>

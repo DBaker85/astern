@@ -31,7 +31,9 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
   value,
   farenheight = false,
 }) => {
-  const mappedValue = farenheight ? celciusToFarenheight(value) : value;
+  const mappedValue = farenheight
+    ? Math.round(celciusToFarenheight(value))
+    : Math.round(value);
   const mappedWarningValue = farenheight
     ? celciusToFarenheight(warning)
     : warning;
@@ -115,6 +117,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
           warning={mappedWarningValue}
           critical={mappedCriticalValue}
           value={mappedValue}
+          data-testid="temperature-text-value"
         >
           {mappedValue}
         </StyledDonutText>

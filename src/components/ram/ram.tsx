@@ -11,7 +11,6 @@ export const RamUsage = () => {
   const ramTotal = useSelector(totalRamSelector);
 
   useEffect(() => {
-    console.log(usage, ram, ramTotal);
     window.MobroSDK.addChannelListener(
       window.MobroSDK.generalChannels.MEMORY.USAGE,
       (data) => {
@@ -21,7 +20,12 @@ export const RamUsage = () => {
     window.MobroSDK.addChannelListener(
       window.MobroSDK.generalChannels.MEMORY.USED,
       (data) => {
-        setRam(Math.ceil(data.payload.value));
+        let payload;
+        payload =
+          data.payload.unit === "MB"
+            ? data.payload.value / 1000
+            : data.payload.value;
+        setRam(payload);
       }
     );
   });

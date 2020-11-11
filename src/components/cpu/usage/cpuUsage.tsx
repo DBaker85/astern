@@ -20,14 +20,13 @@ const StyledUsageCard = styled(Card)`
 export const CpuUsage: FunctionComponent = () => {
   const name = useSelector(processorNameSelector);
   const [usage, setUsage] = useState(0);
-  const coreCount = useSelector(processorCoreCountSelector);
   const [usageArray, setUsageArray] = useState<UsageType[]>([]);
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(
       window.MobroSDK.generalChannels.PROCESSOR.USAGE,
       (data) => {
-        setUsage(Math.ceil(data.payload.value));
+        setUsage(Math.round(data.payload.value));
         setUsageArray((usageArray) =>
           arrayUpdater(usageArray, data.payload.value)
         );
