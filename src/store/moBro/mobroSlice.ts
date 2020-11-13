@@ -37,10 +37,10 @@ export const initMobroClient = createAsyncThunk<initData>(
   async () => {
     await window.MobroSDK.init();
     const sensorList = (await window.MobroSDK.emit(
-      "monitor:data"
+      window.MobroSDK.com.MONITOR.DATA
     )) as SensorList.RootObject;
     const hardwareList = (await window.MobroSDK.emit(
-      "monitor:hardware"
+      window.MobroSDK.com.MONITOR.HARDWARE
     )) as HardwareList.RootObject;
 
     const settings = (window.MobroSDK.helper as Helper.RootObject).settings;
