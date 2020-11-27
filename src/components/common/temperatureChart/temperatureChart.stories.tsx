@@ -1,6 +1,6 @@
 import React from "react";
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { Story, Meta } from "@storybook/react";
+import { withContainer } from "../../../../.storybook/decorators";
 
 import { TemperatureChart, TemperatureChartProps } from "./temperatureChart";
 
@@ -11,6 +11,7 @@ const Template: Story<TemperatureChartProps> = (args) => (
 export default {
   title: "Common/Temperature",
   component: TemperatureChart,
+  decorators: [withContainer],
   argTypes: {
     farenheight: {
       description: "Convert °C values to °F",
