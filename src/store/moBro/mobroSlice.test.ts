@@ -1,7 +1,3 @@
-// it('should set the correct campaign', () => {
-//     expect(campaignReducer(state, setCurrent('ketelComfort'))).toEqual(expectedResult);
-//   });
-
 import reducer, { initMobroClient, MobroState } from "./mobroSlice";
 
 const initialMobroState: MobroState = {
