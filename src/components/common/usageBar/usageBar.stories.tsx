@@ -7,7 +7,7 @@ import { UsageBar, BarChartProps } from "./usageBar";
 const Template: Story<BarChartProps> = (args) => <UsageBar {...args} />;
 
 export default {
-  title: "Common/Usage",
+  title: "Common/Usage/Bar",
   component: UsageBar,
   decorators: [withContainer],
   argTypes: {

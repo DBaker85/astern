@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import { StyledCard } from "./card.style";
 
-interface CardType {
+export interface CardType {
   title?: string;
   className?: string;
 }
