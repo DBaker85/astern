@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
+    "@storybook/addon-a11y": "^6.1.8",
     "@types/adm-zip": "^0.4.33",
     "@visx/curve": "^1.0.0",
     "@visx/responsive": "^1.1.0",

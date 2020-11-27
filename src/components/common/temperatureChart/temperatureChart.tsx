@@ -16,7 +16,7 @@ import {
   StyledWarningIndicator,
 } from "./temperatureChart.style";
 
-interface TemperatureChartProps {
+export interface TemperatureChartProps {
   value: number;
   warning: number;
   critical: number;
