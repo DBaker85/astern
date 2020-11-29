@@ -8,7 +8,7 @@ import { max, extent } from "d3-array";
 
 import { UsageType, getTime, getUsageValue } from "./utils";
 
-interface UsageChartProps {
+export interface UsageChartProps {
   width: number;
   height: number;
   margin?: { top: number; right: number; bottom: number; left: number };
