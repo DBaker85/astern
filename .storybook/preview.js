@@ -1,7 +1,11 @@
 import React from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { addDecorator } from '@storybook/react';
+
 import { globalStyle } from "../src/styles";
 import { dark } from "../src/styles/theme";
+import { withPerformance } from 'storybook-addon-performance';
+
 
 const GlobalStyle = createGlobalStyle`${globalStyle}`;
 const theme = dark;
@@ -19,3 +23,5 @@ export const decorators = [
     </ThemeProvider>
   ),
 ];
+
+addDecorator(withPerformance);
