@@ -3,28 +3,29 @@ import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 import { Chart } from "../../common/usageChart/chart";
 import { UsageType, arrayUpdater } from "../../common/usageChart/utils";
-import { StyledUsage, StyledChartWrapper, StyledChartContainer } from "./usageChart.style";
+import {
+  StyledUsage,
+  StyledChartWrapper,
+  StyledChartContainer,
+} from "./usageChart.style";
 
 export interface usageChartProps {
-    usage: number;
+  usage: number;
 }
 
-export const UsageChart: FunctionComponent<usageChartProps> = ({usage}) => {
+export const UsageChart: FunctionComponent<usageChartProps> = ({ usage }) => {
   const [usageArray, setUsageArray] = useState<UsageType[]>([]);
 
-  useEffect(() => {
+  const formatUsage = (usage: number) => Math.round(usage);
 
-       
-        setUsageArray((usageArray) =>
-          arrayUpdater(usageArray, usage)
-        );
-    
+  useEffect(() => {
+    setUsageArray((usageArray) => arrayUpdater(usageArray, usage));
   }, [usage]);
 
   return (
     <StyledChartContainer>
       <StyledUsage>
-        <div>{usage}%</div>
+        <div>{formatUsage(usage)}%</div>
       </StyledUsage>
       <StyledChartWrapper>
         <ParentSize>
