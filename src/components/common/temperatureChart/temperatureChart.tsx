@@ -69,7 +69,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
         r="15.91549430918954"
         fill="transparent"
         strokeDasharray="1 99"
-        strokeWidth="10"
+        strokeWidth="6"
         strokeDashoffset="75"
       />
       <StyledWarningIndicator
@@ -79,7 +79,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
         fill="transparent"
         stroke="#fff"
         strokeDasharray="1 99"
-        strokeWidth="10"
+        strokeWidth="6"
         strokeDashoffset="75"
         warningIndicator={warningIndicator}
       />
@@ -91,7 +91,7 @@ export const TemperatureChart: FunctionComponent<TemperatureChartProps> = ({
         fill="transparent"
         criticalIndicator={criticalIndicator}
         strokeDasharray="1 99"
-        strokeWidth="10"
+        strokeWidth="6"
         strokeDashoffset="75"
       />
       <StyledDonutHole cx="21" cy="21" r="15.91549430918954" />

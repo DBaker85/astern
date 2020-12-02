@@ -13,7 +13,7 @@ import { GpuDetails, GpuUsage, GpuTemperature, GpuVram } from "../gpu";
 import { RamUsage } from "../ram/ram";
 
 import { Logo } from "../logo/logo";
-import { StyledMainWrapper } from "./main.style";
+import { StyledMainContainer } from "./main.style";
 
 export const Main: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -26,18 +26,27 @@ export const Main: FunctionComponent = () => {
   if (!init) return <Loader />;
 
   return (
-    <StyledMainWrapper>
-      <CpuDetails />
-      <CpuTemperature />
+    <StyledMainContainer>
+      <div className="stats-wrapper">
+        <div className="stats-group">
+          <CpuDetails />
+          <CpuTemperature />
+          <RamUsage />
+          <CpuUsage />
+        </div>
+        <div className="stats-group">
+          <GpuDetails />
+          <GpuTemperature />
 
-      <GpuDetails />
-      <GpuTemperature />
-      <RamUsage />
-      <GpuVram />
+          <GpuVram />
 
-      <CpuUsage />
-      <GpuUsage />
-      <Logo />
-    </StyledMainWrapper>
+          <GpuUsage />
+        </div>
+      </div>
+      <footer className="footer">
+        19:30
+        <Logo />
+      </footer>
+    </StyledMainContainer>
   );
 };

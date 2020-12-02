@@ -6,10 +6,6 @@ import { gpuNameSelector } from "../../../store/moBro/mobroSelectors";
 import { channels } from "../../../config/themeChannels";
 import { Card } from "../../common/card/card";
 
-const StyledDetailsCard = styled(Card)`
-  grid-column-start: 4;
-`;
-
 export const GpuDetails: FunctionComponent = () => {
   const name = useSelector(gpuNameSelector);
 
@@ -20,5 +16,5 @@ export const GpuDetails: FunctionComponent = () => {
       setClock((data.payload.value / 1000).toFixed(2));
     });
   }, []);
-  return <StyledDetailsCard title={name}>{clock}ghz</StyledDetailsCard>;
+  return <Card title={name}>{clock}ghz</Card>;
 };

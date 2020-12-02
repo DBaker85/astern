@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 
 import {
   processorLimitsSelector,
@@ -10,10 +9,6 @@ import {
 
 import { TemperatureChart } from "../../common/temperatureChart/temperatureChart";
 import { Card } from "../../common/card/card";
-
-const StyledTempCard = styled(Card)`
-  grid-row: span 2;
-`;
 
 export const CpuTemperature: FunctionComponent = () => {
   const farenheight = useSelector(tempAsFarenHeightSelector);
@@ -31,7 +26,7 @@ export const CpuTemperature: FunctionComponent = () => {
     );
   }, []);
   return (
-    <StyledTempCard title={name}>
+    <Card title={name}>
       <TemperatureChart
         value={temperature}
         warning={warning}
@@ -39,6 +34,6 @@ export const CpuTemperature: FunctionComponent = () => {
         max={max}
         farenheight={farenheight}
       />
-    </StyledTempCard>
+    </Card>
   );
 };
