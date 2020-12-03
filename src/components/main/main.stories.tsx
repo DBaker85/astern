@@ -3,16 +3,17 @@ import { Story, Meta } from "@storybook/react";
 import { Main } from "./main";
 import { StyledMainContainer } from "./main.style";
 import { Card } from "../common/card/card";
-import { Logo } from "../logo/logo";
+import { Logo } from "../common/logo/logo";
 import { TemperatureChart } from "../common/temperatureChart/temperatureChart";
 import { UsageBar } from "../common/usageBar/usageBar";
 import { UsageChart } from "../common/usageChart/usageChart";
+import { Clock } from "../common/clock/clock";
 
 const Template: Story<{}> = () => {
   const [usageData, setUsageData] = useState(0);
   useEffect(() => {
     const int = setInterval(() => {
-      setUsageData(Math.random() * 100);
+      setUsageData(Math.random() * 50);
     }, 1000);
     return () => clearInterval(int);
   }, []);
@@ -46,7 +47,7 @@ const Template: Story<{}> = () => {
         </div>
       </div>
       <footer className="footer">
-        19:30
+        <Clock />
         <Logo />
       </footer>
     </StyledMainContainer>

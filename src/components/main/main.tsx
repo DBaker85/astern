@@ -4,15 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { initMobroClient } from "../../store/moBro/mobroSlice";
 import { initSelector } from "../../store/moBro/mobroSelectors";
 
-import { Loader } from "../loader/loader";
-
 import { CpuTemperature, CpuUsage, CpuDetails } from "../cpu";
-
 import { GpuDetails, GpuUsage, GpuTemperature, GpuVram } from "../gpu";
-
 import { RamUsage } from "../ram/ram";
+import { Logo } from "../common/logo/logo";
+import { Loader } from "../common/loader/loader";
+import { Clock } from "../common/clock/clock";
 
-import { Logo } from "../logo/logo";
 import { StyledMainContainer } from "./main.style";
 
 export const Main: FunctionComponent = () => {
@@ -44,7 +42,7 @@ export const Main: FunctionComponent = () => {
         </div>
       </div>
       <footer className="footer">
-        19:30
+        <Clock />
         <Logo />
       </footer>
     </StyledMainContainer>
