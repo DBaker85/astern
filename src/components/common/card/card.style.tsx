@@ -8,7 +8,7 @@ export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.6); */
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.6);
   .title {
     font-size: 0.7em;
     position: absolute;
