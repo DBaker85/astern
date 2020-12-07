@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const StyledDonutHole = styled.circle`
-  fill: ${(props) => props.theme.background};
+  fill: ${(props) => props.theme.dark};
 `;
 
 export const StyledDonutRing = styled.circle`
-  stroke: ${(props) => props.theme.dark};
+  stroke: ${(props) => props.theme.background};
   fill: transparent;
 `;
 

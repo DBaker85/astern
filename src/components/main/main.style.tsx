@@ -28,6 +28,6 @@ export const StyledMainContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: red;
+    background-color: ${(props) => props.theme.dark};
   }
 `;
