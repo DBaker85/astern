@@ -18,7 +18,8 @@
     "clean:cache": "del-cli .cache",
     "clean:devbuild": "del-cli .www",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token n7wizm09peq"
   },
   "author": "",
   "license": "ISC",
@@ -48,6 +49,7 @@
     "adm-zip": "^0.4.16",
     "babel-loader": "^8.2.2",
     "chalk": "^4.1.0",
+    "chromatic": "^5.4.0",
     "core-js": "^3.8.0",
     "coveralls": "^3.1.0",
     "del-cli": "^3.0.1",
