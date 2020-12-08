@@ -2,12 +2,12 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 const blink = keyframes`
-  0%, 100% {
-    opacity: 0;
+  0%, 49%, 100% {
+    opacity: 1;
   }
 
-  50% {
-    opacity: 1;
+  60%, 99% {
+    opacity: 0;
   }
   
 `;
@@ -18,13 +18,13 @@ const Dots = styled.span`
 `;
 
 export const Clock: FunctionComponent = () => {
-  const [hour, setHour] = useState(0);
+  const [hour, setHour] = useState("00");
   const [minute, setMinute] = useState("00");
 
   useEffect(() => {
     const interval = setInterval(() => {
       const currentTime = new Date();
-      setHour(currentTime.getHours());
+      setHour(currentTime.getHours().toString().padStart(2, "0"));
       setMinute(currentTime.getMinutes().toString().padStart(2, "0"));
     }, 1000);
     return () => clearInterval(interval);

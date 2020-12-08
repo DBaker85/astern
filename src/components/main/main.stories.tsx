@@ -1,5 +1,7 @@
 import React, { useEffect, useState, VFC } from "react";
 import { Story, Meta } from "@storybook/react";
+import { customViewports } from "../../../.storybook/preview";
+
 import { Main } from "./main";
 import { StyledMainContainer } from "./main.style";
 import { Card } from "../common/card/card";
@@ -34,9 +36,9 @@ const Template: Story<{}> = () => {
           </Card>
         </div>
         <div className="stats-group">
-          <Card title="GTX 3070">4.80GHZ</Card>
+          <Card title="GTX 3070">2.12GHZ</Card>
           <Card title="GTX 3070">
-            <TemperatureChart value={50} max={100} critical={90} warning={70} />
+            <TemperatureChart value={60} max={110} critical={90} warning={70} />
           </Card>
           <Card title="Vram">
             <UsageBar value={20} total={10} used={2} unit="GB" />
@@ -59,6 +61,12 @@ export default {
   component: Main,
   parameters: {
     layout: "fullscreen",
+    viewport: {
+      // the viewports you want to use
+      viewports: customViewports,
+      // your own default viewport
+      defaultViewport: "largeScreen",
+    },
   },
 };
 

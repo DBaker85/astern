@@ -4,6 +4,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
-    'storybook-addon-performance/register'
+    "@storybook/addon-viewport",
+    "storybook-addon-performance/register",
   ],
 };
