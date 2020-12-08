@@ -32,7 +32,7 @@ export const parameters = {
   viewport: { viewports: customViewports },
   options: {
     storySort: {
-      order: ["Example", "UI", "Common", "Pages"],
+      order: ["Example", "UI", "Common", "Components", "Pages"],
       method: "alphabetical",
     },
   },

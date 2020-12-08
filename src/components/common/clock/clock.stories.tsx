@@ -7,7 +7,7 @@ import { Clock } from "./clock";
 const Template: Story = () => <Clock />;
 
 export default {
-  title: "Common/Clock",
+  title: "Components/Clock",
   component: Clock,
   decorators: [withContainer],
 } as Meta;

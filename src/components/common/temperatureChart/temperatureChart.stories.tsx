@@ -2,6 +2,8 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 import { withContainer } from "../../../../.storybook/decorators";
 
+import { dark as theme } from "../../../styles/theme";
+
 import { TemperatureChart, TemperatureChartProps } from "./temperatureChart";
 
 const Template: Story<TemperatureChartProps> = (args) => (
@@ -9,9 +11,16 @@ const Template: Story<TemperatureChartProps> = (args) => (
 );
 
 export default {
-  title: "Common/Temperature",
+  title: "Components/Temperature",
   component: TemperatureChart,
-  decorators: [withContainer],
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: theme.dark }}>
+        <Story />
+      </div>
+    ),
+    withContainer,
+  ],
   argTypes: {
     farenheight: {
       description: "Convert °C values to °F",
