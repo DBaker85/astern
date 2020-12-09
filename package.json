@@ -1,6 +1,6 @@
 {
   "name": "astern",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A fast and modern mobro theme",
   "scripts": {
     "test": "jest",
