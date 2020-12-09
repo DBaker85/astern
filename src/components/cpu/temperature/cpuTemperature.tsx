@@ -26,7 +26,7 @@ export const CpuTemperature: FunctionComponent = () => {
     );
   }, []);
   return (
-    <Card title={name}>
+    <Card title={name} gridRowEnd="span 2">
       <TemperatureChart
         value={temperature}
         warning={warning}

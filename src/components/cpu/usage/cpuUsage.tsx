@@ -22,7 +22,7 @@ export const CpuUsage: FunctionComponent = () => {
   }, []);
 
   return (
-    <Card title={name}>
+    <Card title={name} gridColumnEnd="span 2">
       <UsageChart usage={usage} />
     </Card>
   );
