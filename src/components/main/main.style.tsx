@@ -14,12 +14,12 @@ export const StyledMainContainer = styled.div`
   .stats-group {
     width: 49%;
     display: grid;
-    grid-template-columns: 47% 50%;
-    grid-template-rows: repeat(3, 30%);
+    grid-template-columns: calc(50% - 1.5vw) 50%;
+    grid-template-rows: repeat(3, calc((100% - 3vw) / 3));
     gap: 1.5vw;
   }
   .stats-group + .stats-group {
-    margin-left: 1.5%;
+    margin-left: 1.5vw;
   }
   .footer {
     height: 5%;
