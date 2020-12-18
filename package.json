@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
+    "@types/lodash.debounce": "^4.0.6",
     "@visx/curve": "^1.0.0",
     "@visx/responsive": "^1.1.0",
     "@visx/scale": "^1.1.0",
@@ -79,6 +80,7 @@
     "bytes": "^3.1.0",
     "d3-array": "^2.8.0",
     "immer": "^7.0.14",
+    "lodash.debounce": "^4.0.8",
     "preact": "^10.5.4",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",

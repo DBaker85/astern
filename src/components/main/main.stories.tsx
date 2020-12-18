@@ -2,6 +2,8 @@ import React, { useEffect, useState, VFC } from "react";
 import { Story, Meta } from "@storybook/react";
 import { customViewports } from "../../../.storybook/preview";
 
+import { useWindowSize } from "../../hooks";
+
 import { Main } from "./main";
 import { StyledMainContainer } from "./main.style";
 import { Card } from "../common/card/card";
@@ -13,6 +15,8 @@ import { Clock } from "../common/clock/clock";
 
 const Template: Story<{}> = () => {
   const [usageData, setUsageData] = useState(0);
+  const windowSize = useWindowSize();
+
   useEffect(() => {
     const int = setInterval(() => {
       setUsageData(Math.random() * 50);
@@ -21,7 +25,7 @@ const Template: Story<{}> = () => {
   }, []);
 
   return (
-    <StyledMainContainer>
+    <StyledMainContainer windowSize={windowSize}>
       <div className="stats-wrapper">
         <div className="stats-group">
           <Card title="Intel 8700k">4.80GHZ</Card>

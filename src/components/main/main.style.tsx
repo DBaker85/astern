@@ -1,25 +1,28 @@
 import styled from "styled-components";
+import { WindowSize } from "../../hooks";
 
-export const StyledMainContainer = styled.div`
+export const StyledMainContainer = styled.div<{ windowSize: WindowSize }>`
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   .stats-wrapper {
     height: 95%;
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    padding: 1.5vw;
   }
   .stats-group {
-    width: 50%;
+    width: ${(props) =>
+      props.windowSize.width > props.windowSize.height ? "50%" : "100%"};
+    height: ${(props) =>
+      props.windowSize.width > props.windowSize.height ? "100%" : "50%"};
     display: grid;
     grid-template-columns: calc(50% - 1.5vw) 50%;
     grid-template-rows: repeat(3, calc((100% - 3vw) / 3));
     gap: 1.5vw;
-  }
-  .stats-group + .stats-group {
-    margin-left: 1.5vw;
+    padding: 1.5vw;
   }
   .footer {
     height: 5%;
