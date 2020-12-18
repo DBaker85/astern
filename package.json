@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@testing-library/jest-dom": "5.11.5",
+    "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.1.1",
     "@types/bytes": "3.1.0",
     "@types/d3-array": "2.3.0",
