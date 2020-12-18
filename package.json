@@ -24,7 +24,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "7.12.9",
+    "@babel/core": "7.12.10",
     "@storybook/addon-a11y": "6.1.9",
     "@storybook/addon-actions": "6.1.9",
     "@storybook/addon-docs": "6.1.9",
