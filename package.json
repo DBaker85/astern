@@ -81,7 +81,7 @@
     "d3-array": "2.9.1",
     "immer": "7.0.15",
     "lodash.debounce": "4.0.8",
-    "preact": "10.5.4",
+    "preact": "10.5.7",
     "react-redux": "7.2.1",
     "redux": "4.0.5",
     "regenerator-runtime": "0.13.7",
