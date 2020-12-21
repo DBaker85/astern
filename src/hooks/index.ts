@@ -24,7 +24,7 @@ export const useWindowSize = () => {
       });
     };
 
-    const debouncedResize = debounce(handleResize, 500);
+    const debouncedResize = debounce(handleResize, 200);
 
     // Add event listener
     window.addEventListener("resize", debouncedResize);
