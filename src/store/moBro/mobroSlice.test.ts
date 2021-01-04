@@ -7,8 +7,8 @@ const initialMobroState: MobroState = {
   loading: false,
   init: false,
   windowSize: {
-    width: 800,
-    height: 480,
+    width: 0,
+    height: 0,
   },
 };
 
@@ -36,11 +36,16 @@ describe("Mobro Slice", () => {
       graphics,
       memory,
     };
+    const windowSize = {
+      width: 800,
+      height: 480,
+    };
 
     const payload = {
       sensorList,
       hardwareList,
       settings,
+      windowSize,
     };
     const action = { type: initMobroClient.fulfilled, payload };
     const newState = reducer(initialMobroState, action);

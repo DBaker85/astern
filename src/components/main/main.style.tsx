@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { WindowSize } from "../../store/moBro/mobroSlice";
 
-type ContainerProps = {
+export type StyledMainContainerProps = {
   windowSize: WindowSize;
   columns: boolean;
 };
 
-export const StyledMainContainer = styled.div<ContainerProps>`
+export const StyledMainContainer = styled.div<StyledMainContainerProps>`
   width: 100vw;
   height: 100vh;
   display: flex;
