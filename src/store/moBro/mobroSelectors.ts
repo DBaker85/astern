@@ -65,6 +65,21 @@ export const gpuNameSelector = createSelector(
   }
 );
 
+export const gpuCountSelector = createSelector(
+  (state: RootStateType) => state.moBro.sensors as SensorList.RootObject,
+  (hardware) => {
+    let gpu;
+    const hardwareValues = Object.values(hardware);
+    for (let index = 0; index < hardwareValues.length; index++) {
+      gpu = hardwareValues[index].data.filter(
+        (data: SensorList.Datum) => data.hardwaretype === GPU_TYPE
+      ) as string[];
+      console.log(gpu);
+    }
+    return 1;
+  }
+);
+
 export const processorLimitsSelector = createSelector(
   (state: RootStateType) =>
     (state.moBro.settings as Helper.Settings).hardware.temperature,
