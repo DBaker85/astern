@@ -16,6 +16,7 @@ export interface MobroState {
   loading: boolean;
   init: boolean;
   settings: Helper.Settings | {};
+  windowSize: WindowSize;
 }
 
 interface initData {
@@ -24,10 +25,19 @@ interface initData {
   settings: Helper.Settings;
 }
 
+export type WindowSize = {
+  width: number;
+  height: number;
+};
+
 const initialMobroState: MobroState = {
   sensors: {},
   hardware: {},
   settings: {},
+  windowSize: {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  },
   loading: false,
   init: false,
 };
@@ -74,6 +84,7 @@ const mobBroSlice = createSlice({
               },
             },
           };
+
           state.hardware = fullHardware;
           state.sensors = action.payload.sensorList;
           state.settings = action.payload.settings;

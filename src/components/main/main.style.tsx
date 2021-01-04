@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { WindowSize } from "../../hooks";
+import { WindowSize } from "../../store/moBro/mobroSlice";
 
 export const StyledMainContainer = styled.div<{ windowSize: WindowSize }>`
   width: 100vw;

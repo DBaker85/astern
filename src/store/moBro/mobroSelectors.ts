@@ -86,5 +86,7 @@ export const totalRamSelector = (state: RootStateType) =>
   (state.moBro.hardware as FullHardwareList).memory.totalcapacityGb;
 
 export const initSelector = (state: RootStateType) => state.moBro.init;
+export const windowSizeSelector = (state: RootStateType) =>
+  state.moBro.windowSize;
 export const tempAsFarenHeightSelector = (state: RootStateType) =>
   (state.moBro.settings as Helper.Settings).temperatureAsFahrenheit;

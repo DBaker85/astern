@@ -1,8 +1,8 @@
 import React, { useEffect, useState, VFC } from "react";
 import { Story, Meta } from "@storybook/react";
-import { customViewports } from "../../../.storybook/preview";
+import debounce from "lodash.debounce";
 
-import { useWindowSize } from "../../hooks";
+import { customViewports } from "../../../.storybook/preview";
 
 import { Main } from "./main";
 import { StyledMainContainer } from "./main.style";
@@ -15,12 +15,30 @@ import { Clock } from "../common/clock/clock";
 
 const Template: Story<{}> = () => {
   const [usageData, setUsageData] = useState(0);
-  const windowSize = useWindowSize();
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   useEffect(() => {
     const int = setInterval(() => {
       setUsageData(Math.random() * 50);
     }, 1000);
+    const handleResize = () => {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    const debouncedResize = debounce(handleResize, 200);
+
+    // Add event listener
+    window.addEventListener("resize", debouncedResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
     return () => clearInterval(int);
   }, []);
 
