@@ -6,6 +6,10 @@ const initialMobroState: MobroState = {
   settings: {},
   loading: false,
   init: false,
+  windowSize: {
+    width: 800,
+    height: 480,
+  },
 };
 
 describe("Mobro Slice", () => {
@@ -50,6 +54,10 @@ describe("Mobro Slice", () => {
         memory: { ...memory, ...{ totalcapacityGb: 16 } },
       },
       settings,
+      windowSize: {
+        width: 800,
+        height: 480,
+      },
     };
 
     expect(newState).toEqual(expectedState);
