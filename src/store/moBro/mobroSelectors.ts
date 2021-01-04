@@ -65,18 +65,21 @@ export const gpuNameSelector = createSelector(
   }
 );
 
-export const gpuCountSelector = createSelector(
+export const hasGpuSelector = createSelector(
   (state: RootStateType) => state.moBro.sensors as SensorList.RootObject,
   (hardware) => {
-    let gpu;
+    let hasGpu = false;
     const hardwareValues = Object.values(hardware);
     for (let index = 0; index < hardwareValues.length; index++) {
-      gpu = hardwareValues[index].data.filter(
+      const gpuData = hardwareValues[index].data.filter(
         (data: SensorList.Datum) => data.hardwaretype === GPU_TYPE
       ) as string[];
-      console.log(gpu);
+      if (gpuData.length) {
+        hasGpu = true;
+        break;
+      }
     }
-    return 1;
+    return hasGpu;
   }
 );
 

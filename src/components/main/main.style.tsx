@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { WindowSize } from "../../store/moBro/mobroSlice";
 
-export const StyledMainContainer = styled.div<{ windowSize: WindowSize }>`
+export const StyledMainContainer = styled.div<{
+  windowSize: WindowSize;
+  columns: boolean;
+}>`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -14,10 +17,24 @@ export const StyledMainContainer = styled.div<{ windowSize: WindowSize }>`
     width: 100%;
   }
   .stats-group {
-    width: ${(props) =>
-      props.windowSize.width > props.windowSize.height ? "50%" : "100%"};
-    height: ${(props) =>
-      props.windowSize.width > props.windowSize.height ? "100%" : "50%"};
+    width: ${(props) => {
+      if (props.columns) {
+        return props.windowSize.width > props.windowSize.height
+          ? "50%"
+          : "100%";
+      } else {
+        return "100%";
+      }
+    }};
+    height: ${(props) => {
+      if (props.columns) {
+        return props.windowSize.width > props.windowSize.height
+          ? "100%"
+          : "50%";
+      } else {
+        return "100%";
+      }
+    }};
     display: grid;
     grid-template-columns: calc(50% - 1.5vw) 50%;
     grid-template-rows: repeat(3, calc((100% - 3vw) / 3));

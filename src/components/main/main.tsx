@@ -5,6 +5,7 @@ import { initMobroClient } from "../../store/moBro/mobroSlice";
 import {
   initSelector,
   windowSizeSelector,
+  hasGpuSelector,
 } from "../../store/moBro/mobroSelectors";
 
 import { CpuTemperature, CpuUsage, CpuDetails } from "../cpu";
@@ -19,8 +20,9 @@ import { StyledMainContainer } from "./main.style";
 export const Main: FunctionComponent = () => {
   const dispatch = useDispatch();
   const init = useSelector(initSelector);
+  const hasGpu = useSelector(hasGpuSelector);
   const windowSize = useSelector(windowSizeSelector);
-
+  console.log(hasGpu);
   useEffect(() => {
     dispatch(initMobroClient());
   }, []);
@@ -28,7 +30,7 @@ export const Main: FunctionComponent = () => {
   if (!init) return <Loader />;
 
   return (
-    <StyledMainContainer windowSize={windowSize}>
+    <StyledMainContainer windowSize={windowSize} columns={hasGpu}>
       <div className="stats-wrapper">
         <div className="stats-group">
           <CpuDetails />
@@ -36,14 +38,14 @@ export const Main: FunctionComponent = () => {
           <RamUsage />
           <CpuUsage />
         </div>
-        <div className="stats-group">
-          <GpuDetails />
-          <GpuTemperature />
-
-          <GpuVram />
-
-          <GpuUsage />
-        </div>
+        {hasGpu && (
+          <div className="stats-group">
+            <GpuDetails />
+            <GpuTemperature />
+            <GpuVram />
+            <GpuUsage />
+          </div>
+        )}
       </div>
       <footer className="footer">
         <Clock />
