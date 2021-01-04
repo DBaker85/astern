@@ -10,6 +10,11 @@ export interface FullHardwareList extends HardwareList.RootObject {
   memory: FullMemoryList;
 }
 
+export type WindowSize = {
+  width: number;
+  height: number;
+};
+
 export interface MobroState {
   sensors: SensorList.RootObject | {};
   hardware: FullHardwareList | {};
@@ -23,20 +28,16 @@ interface initData {
   sensorList: SensorList.RootObject;
   hardwareList: HardwareList.RootObject;
   settings: Helper.Settings;
+  windowSize: WindowSize;
 }
-
-export type WindowSize = {
-  width: number;
-  height: number;
-};
 
 const initialMobroState: MobroState = {
   sensors: {},
   hardware: {},
   settings: {},
   windowSize: {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   },
   loading: false,
   init: false,
@@ -54,7 +55,13 @@ export const initMobroClient = createAsyncThunk<initData>(
     )) as HardwareList.RootObject;
 
     const settings = (window.MobroSDK.helper as Helper.RootObject).settings;
-    return { sensorList, hardwareList, settings };
+
+    const windowSize = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+
+    return { sensorList, hardwareList, settings, windowSize };
   }
 );
 
@@ -88,6 +95,7 @@ const mobBroSlice = createSlice({
           state.hardware = fullHardware;
           state.sensors = action.payload.sensorList;
           state.settings = action.payload.settings;
+          state.windowSize = action.payload.windowSize;
           state.loading = false;
           state.init = true;
         }
