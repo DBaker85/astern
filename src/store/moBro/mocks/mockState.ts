@@ -92,6 +92,10 @@ export const mocks: RootStateType = {
         temperature: [cpuLimits, gpuLimits],
       },
     },
+    windowSize: {
+      width: 800,
+      height: 480,
+    },
     loading: false,
     init: true,
   },
