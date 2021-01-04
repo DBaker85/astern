@@ -22,7 +22,6 @@ export const Main: FunctionComponent = () => {
   const init = useSelector(initSelector);
   const hasGpu = useSelector(hasGpuSelector);
   const windowSize = useSelector(windowSizeSelector);
-  console.log(hasGpu);
   useEffect(() => {
     dispatch(initMobroClient());
   }, []);
