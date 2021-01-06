@@ -51,5 +51,8 @@ export const StyledMainContainer = styled.div<StyledMainContainerProps>`
     justify-content: space-between;
     width: 100%;
     background-color: ${(props) => props.theme.dark};
+    .logo {
+      display: flex;
+    }
   }
 `;

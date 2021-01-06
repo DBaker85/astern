@@ -48,7 +48,9 @@ export const Main: FunctionComponent = () => {
       </div>
       <footer className="footer">
         <Clock />
-        <Logo />
+        <div className="logo">
+          <Logo />v{process.env.APP_VERSION}
+        </div>
       </footer>
     </StyledMainContainer>
   );

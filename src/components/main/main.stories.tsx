@@ -79,7 +79,9 @@ const Template: Story<{ hasGpu: boolean }> = (args) => {
       </div>
       <footer className="footer">
         <Clock />
-        <Logo />
+        <div className="logo">
+          <Logo />v{process.env.APP_VERSION}
+        </div>
       </footer>
     </StyledMainContainer>
   );
@@ -104,7 +106,7 @@ export default {
         "Toggle if there is a GPU present. This is for demo purposes only and is handled automatically in the theme.",
     },
   },
-};
+} as Meta;
 
 export const Default = Template.bind({});
 

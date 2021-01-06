@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
 
 import { StyledLoader } from "./loader.style";
+import { Logo } from "../logo/logo";
 
 export const Loader: FunctionComponent = () => (
   <StyledLoader>
-    <div className="title">Loading</div>
-    <div>Connecting to server</div>
-    <div>Getting hardware configuration</div>
+    <Logo />
+    <div>fAST and modERN</div>
+    <div>Loading</div>
   </StyledLoader>
 );
