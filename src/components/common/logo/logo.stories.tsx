@@ -7,7 +7,7 @@ import { TextLogo } from "./logo";
 const Template: Story = () => <TextLogo />;
 
 export default {
-  title: "Common/Logo/Text",
+  title: "Common/Logo/Text-Logo",
   component: TextLogo,
   decorators: [withContainer],
 } as Meta;

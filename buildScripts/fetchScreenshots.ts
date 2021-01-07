@@ -51,10 +51,10 @@ const screenshot = async () => {
       .filter(
         (test) =>
           test.spec.component.displayName === "Main" ||
-          test.spec.component.displayName === "Logo"
+          test.spec.component.displayName === "Full-Logo"
       )
       .map((test) => ({
-        name: test.spec.component.displayName,
+        name: test.spec.component.displayName.replace("-", ""),
         url: test.thumbnailUrl,
       }))
       .forEach((screenshot) => {

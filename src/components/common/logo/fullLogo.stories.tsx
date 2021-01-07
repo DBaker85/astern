@@ -7,7 +7,7 @@ import { FullLogo } from "./fullLogo";
 const Template: Story = () => <FullLogo />;
 
 export default {
-  title: "Common/Logo/Full",
+  title: "Common/Logo/Full-Logo",
   component: FullLogo,
   decorators: [withContainer],
 } as Meta;
