@@ -7,7 +7,7 @@ import { customViewports } from "../../../.storybook/preview";
 import { Main } from "./main";
 import { StyledMainContainer } from "./main.style";
 import { Card } from "../common/card/card";
-import { Logo } from "../common/logo/logo";
+import { TextLogo } from "../common/logo/logo";
 import { TemperatureChart } from "../common/temperatureChart/temperatureChart";
 import { UsageBar } from "../common/usageBar/usageBar";
 import { UsageChart } from "../common/usageChart/usageChart";
@@ -80,7 +80,7 @@ const Template: Story<{ hasGpu: boolean }> = (args) => {
       <footer className="footer">
         <Clock />
         <div className="logo">
-          <Logo />v{process.env.APP_VERSION}
+          <TextLogo />v{process.env.APP_VERSION}
         </div>
       </footer>
     </StyledMainContainer>

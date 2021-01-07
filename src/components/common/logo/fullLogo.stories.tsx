@@ -2,13 +2,13 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 import { withContainer } from "../../../../.storybook/decorators";
 
-import { TextLogo } from "./logo";
+import { FullLogo } from "./fullLogo";
 
-const Template: Story = () => <TextLogo />;
+const Template: Story = () => <FullLogo />;
 
 export default {
-  title: "Common/Logo/Text",
-  component: TextLogo,
+  title: "Common/Logo/Full",
+  component: FullLogo,
   decorators: [withContainer],
 } as Meta;
 

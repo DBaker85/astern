@@ -11,7 +11,7 @@ import {
 import { CpuTemperature, CpuUsage, CpuDetails } from "../cpu";
 import { GpuDetails, GpuUsage, GpuTemperature, GpuVram } from "../gpu";
 import { RamUsage } from "../ram/ram";
-import { Logo } from "../common/logo/logo";
+import { TextLogo } from "../common/logo/logo";
 import { Loader } from "../common/loader/loader";
 import { Clock } from "../common/clock/clock";
 
@@ -49,7 +49,7 @@ export const Main: FunctionComponent = () => {
       <footer className="footer">
         <Clock />
         <div className="logo">
-          <Logo />v{process.env.APP_VERSION}
+          <TextLogo />v{process.env.APP_VERSION}
         </div>
       </footer>
     </StyledMainContainer>
