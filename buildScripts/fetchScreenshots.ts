@@ -47,7 +47,7 @@ const screenshot = async () => {
       "https://www.chromatic.com/graphql",
       query
     );
-    const mappedScreenshots = chromaticData.app.lastBuild.tests
+    chromaticData.app.lastBuild.tests
       .filter(
         (test) =>
           test.spec.component.displayName === "Main" ||
