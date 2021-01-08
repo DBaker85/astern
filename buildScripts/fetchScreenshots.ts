@@ -2,7 +2,7 @@ import { request, gql } from "graphql-request";
 import { red, green, yellow } from "chalk";
 import { createWriteStream } from "fs-extra";
 import { resolve, join } from "path";
-import { get } from "https";
+import fetch from "node-fetch";
 
 type ChromaticTest = {
   thumbnailUrl: string;
@@ -57,13 +57,12 @@ const screenshot = async () => {
         name: test.spec.component.displayName.replace("-", ""),
         url: test.thumbnailUrl,
       }))
-      .forEach((screenshot) => {
+      .forEach(async (screenshot) => {
         const fileExtension = screenshot.url.split(".").pop();
         const fileName = `${screenshot.name}.${fileExtension}`;
         const file = createWriteStream(join(docsFolder, fileName));
-        get(screenshot.url, function (response) {
-          response.pipe(file);
-        });
+        const response = await fetch(screenshot.url);
+        response.body.pipe(file);
         console.log(`${green("Created screenshot :")} > ${yellow(fileName)}`);
       });
   } catch (err) {
