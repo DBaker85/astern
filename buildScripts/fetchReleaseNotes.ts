@@ -1,8 +1,8 @@
 import { red, green, yellow } from "chalk";
-import { createWriteStream } from "fs-extra";
+import { outputFile } from "fs-extra";
 import { resolve, join } from "path";
-import fetch, { Response } from "node-fetch";
-
+import fetch from "node-fetch";
+import { format } from "prettier";
 declare module gitHubRelease {
   export interface Author {
     login: string;
@@ -88,23 +88,26 @@ const docsFolder = resolve(__dirname, "..", "src", "docs");
 
 const screenshot = async () => {
   try {
-    let fileTemplate = " Release notes";
+    let fileTemplate = "# Changelog" + "\n";
     const response = await fetch(
       "https://api.github.com/repos/dbaker85/astern/releases"
     );
     const githubData = (await response.json()) as gitHubRelease.RootObject[];
 
     githubData.forEach((release) => {
-      const releaseString = `
-        Version ${release.tag_name}
-        Release Notes:
-          ${release.body}
-        `;
-      fileTemplate += releaseString;
-      console.log(release.body);
+      fileTemplate += "## Version " + release.tag_name + "\n";
+      fileTemplate += "**Release Notes**:" + "\n";
+      fileTemplate += "\n" + release.body + "\n";
     });
-    console.log(fileTemplate);
-    // console.log(`${green("Created screenshot :")} > ${yellow(fileName)}`);
+    await outputFile(
+      join(docsFolder, "Changelog.md"),
+      format(fileTemplate, { parser: "markdown" }),
+      "utf8"
+    );
+
+    console.log(
+      `${green("Created Release notes in :")} > ${yellow(docsFolder)}`
+    );
   } catch (err) {
     console.log(red(JSON.stringify(err)));
   }
