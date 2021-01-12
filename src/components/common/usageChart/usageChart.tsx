@@ -2,7 +2,8 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 import { Chart } from "../../common/usageChart/chart";
-import { UsageType, arrayUpdater } from "../../common/usageChart/utils";
+import { UsageType } from "../../common/usageChart/utils";
+
 import {
   StyledUsage,
   StyledChartWrapper,
@@ -10,17 +11,12 @@ import {
 } from "./usageChart.style";
 
 export interface usageChartProps {
-  usage: number;
+  usage: UsageType[];
 }
 
 export const UsageChart: FunctionComponent<usageChartProps> = ({ usage }) => {
-  const [usageArray, setUsageArray] = useState<UsageType[]>([]);
-
-  const formatUsage = (usage: number) => Math.round(usage);
-
-  useEffect(() => {
-    setUsageArray((usageArray) => arrayUpdater(usageArray, usage));
-  }, [usage]);
+  const formatUsage = (usage: UsageType[]) =>
+    usage.length ? Math.round(usage[usage.length - 1].usage) : 0;
 
   return (
     <StyledChartContainer>
@@ -30,7 +26,7 @@ export const UsageChart: FunctionComponent<usageChartProps> = ({ usage }) => {
       <StyledChartWrapper>
         <ParentSize>
           {({ width, height }) => (
-            <Chart usageArray={usageArray} width={width} height={height} />
+            <Chart usageArray={usage} width={width} height={height} />
           )}
         </ParentSize>
       </StyledChartWrapper>
