@@ -65,6 +65,24 @@ export const gpuNameSelector = createSelector(
   }
 );
 
+export const hasGpuSelector = createSelector(
+  (state: RootStateType) => state.moBro.sensors as SensorList.RootObject,
+  (hardware) => {
+    let hasGpu = false;
+    const hardwareValues = Object.values(hardware);
+    for (let index = 0; index < hardwareValues.length; index++) {
+      const gpuData = hardwareValues[index].data.filter(
+        (data: SensorList.Datum) => data.hardwaretype === GPU_TYPE
+      ) as string[];
+      if (gpuData.length) {
+        hasGpu = true;
+        break;
+      }
+    }
+    return hasGpu;
+  }
+);
+
 export const processorLimitsSelector = createSelector(
   (state: RootStateType) =>
     (state.moBro.settings as Helper.Settings).hardware.temperature,
@@ -86,5 +104,7 @@ export const totalRamSelector = (state: RootStateType) =>
   (state.moBro.hardware as FullHardwareList).memory.totalcapacityGb;
 
 export const initSelector = (state: RootStateType) => state.moBro.init;
+export const windowSizeSelector = (state: RootStateType) =>
+  state.moBro.windowSize;
 export const tempAsFarenHeightSelector = (state: RootStateType) =>
   (state.moBro.settings as Helper.Settings).temperatureAsFahrenheit;

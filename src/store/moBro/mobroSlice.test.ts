@@ -1,7 +1,3 @@
-// it('should set the correct campaign', () => {
-//     expect(campaignReducer(state, setCurrent('ketelComfort'))).toEqual(expectedResult);
-//   });
-
 import reducer, { initMobroClient, MobroState } from "./mobroSlice";
 
 const initialMobroState: MobroState = {
@@ -10,6 +6,10 @@ const initialMobroState: MobroState = {
   settings: {},
   loading: false,
   init: false,
+  windowSize: {
+    width: 0,
+    height: 0,
+  },
 };
 
 describe("Mobro Slice", () => {
@@ -36,11 +36,16 @@ describe("Mobro Slice", () => {
       graphics,
       memory,
     };
+    const windowSize = {
+      width: 800,
+      height: 480,
+    };
 
     const payload = {
       sensorList,
       hardwareList,
       settings,
+      windowSize,
     };
     const action = { type: initMobroClient.fulfilled, payload };
     const newState = reducer(initialMobroState, action);
@@ -54,6 +59,10 @@ describe("Mobro Slice", () => {
         memory: { ...memory, ...{ totalcapacityGb: 16 } },
       },
       settings,
+      windowSize: {
+        width: 800,
+        height: 480,
+      },
     };
 
     expect(newState).toEqual(expectedState);

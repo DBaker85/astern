@@ -1,7 +1,7 @@
 ![](https://img.shields.io/travis/DBaker85/astern?style=flat-square) [![Coverage Status](https://img.shields.io/coveralls/github/DBaker85/astern?style=flat-square)](https://coveralls.io/github/DBaker85/astern?branch=main)
 
 <p align="center"> 
-    <img src="https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/astern_logo.png" alt="astern logo">
+    <img src="https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/FullLogo.png" alt="astern logo">
  </p>
 
 # fAST modERN mobro theme
@@ -19,7 +19,7 @@ I wanted this theme to be modern and show some relevant stats like Core clock an
 
 ## Screenshot
 
-![astern screenshot](https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/screenshot.JPG)
+![astern screenshot](https://raw.githubusercontent.com/DBaker85/astern/main/src/docs/Main.png)
 
 ## Installation
 

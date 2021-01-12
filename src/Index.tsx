@@ -9,6 +9,9 @@ import { App } from "./App";
 if (process.env.NODE_ENV === "development") {
   require("./sdk/sdk");
 }
+if (process.env.NODE_ENV === "disconnected") {
+  require("./sdk/mock");
+}
 
 render(
   <Provider store={store}>

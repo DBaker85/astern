@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const StyledChartContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
+
 export const StyledChartWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -31,8 +38,8 @@ export const StyledUsage = styled.div`
       display: flex;
       width: 100%;
       height: 100%;
-      background-color: ${(props) => props.theme.darkBackground};
-      opacity: 0.8;
+      background-color: ${(props) => props.theme.dark};
+      opacity: 0.6;
     }
   }
 `;

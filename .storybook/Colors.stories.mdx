@@ -1,0 +1,23 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+import { dark } from "../src/styles/theme";
+
+<Meta title="UI/Colors" />
+
+export const getColors = (theme) =>
+  Object.keys(theme).map((key) => ({ name: key, value: theme[key] }));
+
+# Colors
+
+<div id="dark" title="Dark mode">
+  <ColorPalette>
+    {getColors(dark).map(({ name, value }) => (
+      <ColorItem
+        key={name}
+        title={`theme.${name}`}
+        subtitle={name}
+        colors={[value]}
+      />
+    ))}
+  </ColorPalette>
+</div>

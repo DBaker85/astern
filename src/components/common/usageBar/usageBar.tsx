@@ -9,7 +9,7 @@ import {
 
 import { StyledSymbolText } from "./usageBar.style";
 
-interface BarChartProps {
+export interface BarChartProps {
   value: number;
   used: number;
   total: number;

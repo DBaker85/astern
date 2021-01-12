@@ -7,8 +7,10 @@ export const StyledLoader = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  .title {
-    font-size: 40px;
-    margin: 10px;
+  .logo {
+    width: 20vw;
+  }
+  .loading {
+    margin-top: 20px;
   }
 `;

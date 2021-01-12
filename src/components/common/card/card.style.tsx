@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCard = styled.div`
-  background-color: ${(props) => props.theme.background};
+  background-color: ${(props) => props.theme.dark};
   padding: 1vw;
   border-radius: 1vw;
   position: relative;

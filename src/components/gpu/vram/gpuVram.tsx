@@ -1,13 +1,8 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
-import styled from "styled-components";
 
 import { channels } from "../../../config/themeChannels";
 import { Card } from "../../common/card/card";
 import { UsageBar } from "../../common/usageBar/usageBar";
-
-const StyledVramCard = styled(Card)`
-  grid-column-start: 4;
-`;
 
 export const GpuVram: FunctionComponent = () => {
   const name = "Vram";
@@ -18,10 +13,10 @@ export const GpuVram: FunctionComponent = () => {
 
   useEffect(() => {
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM, (data) => {
-      setRam(data.payload.value / 1000);
+      setRam(data.payload.value / 1024);
     });
     window.MobroSDK.addChannelListener(channels.GRAPHICS.VRAM_TOTAL, (data) => {
-      setRamTotal(data.payload.value / 1000);
+      setRamTotal(data.payload.value / 1024);
     });
     window.MobroSDK.addChannelListener(
       channels.GRAPHICS.VRAM_PERCENTAGE,
@@ -31,8 +26,8 @@ export const GpuVram: FunctionComponent = () => {
     );
   }, []);
   return (
-    <StyledVramCard title={name}>
+    <Card title={name}>
       <UsageBar value={usage} used={ram} total={ramTotal} unit={"GB"} />
-    </StyledVramCard>
+    </Card>
   );
 };

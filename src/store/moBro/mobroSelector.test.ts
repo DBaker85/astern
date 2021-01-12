@@ -1,3 +1,7 @@
+import { produce } from "immer";
+
+import { HardwareList, Helper, SensorList } from "../../sdk/types";
+
 import {
   processorNameSelector,
   processorCoreCountSelector,
@@ -7,6 +11,7 @@ import {
   totalRamSelector,
   initSelector,
   tempAsFarenHeightSelector,
+  hasGpuSelector,
 } from "./mobroSelectors";
 
 import {
@@ -28,6 +33,40 @@ describe("Mobro selectors", () => {
   });
   it("should get gpu name", () => {
     expect(gpuNameSelector(mocks)).toBe(gpuName);
+  });
+  it("should see if there is a gpu present", () => {
+    expect(hasGpuSelector(mocks)).toBe(true);
+  });
+  it("should see if there is no gpu present", () => {
+    const noGpuMocks = produce(mocks, (draft) => {
+      const ohData = (draft.moBro.sensors as SensorList.RootObject)
+        .openhardwaremonitor?.data;
+      if (ohData) {
+        (draft.moBro
+          .sensors as SensorList.RootObject).openhardwaremonitor.data = ohData.filter(
+          (obj) => obj.hardwaretype !== "Graphics"
+        );
+      }
+
+      const lhData = (draft.moBro.sensors as SensorList.RootObject)
+        .librehardwaremonitor?.data;
+      if (lhData) {
+        (draft.moBro
+          .sensors as SensorList.RootObject).librehardwaremonitor.data = lhData.filter(
+          (obj) => obj.hardwaretype !== "Graphics"
+        );
+      }
+
+      const hwiData = (draft.moBro.sensors as SensorList.RootObject).hwinfo
+        ?.data;
+      if (hwiData) {
+        (draft.moBro
+          .sensors as SensorList.RootObject).hwinfo.data = hwiData.filter(
+          (obj) => obj.hardwaretype !== "Graphics"
+        );
+      }
+    });
+    expect(hasGpuSelector(noGpuMocks)).toBe(false);
   });
   it("should get processor limits", () => {
     expect(processorLimitsSelector(mocks)).toBe(cpuLimits);

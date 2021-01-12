@@ -23,7 +23,7 @@ export const RamUsage = () => {
         let payload;
         payload =
           data.payload.unit === "MB"
-            ? data.payload.value / 1000
+            ? data.payload.value / 1024
             : data.payload.value;
         setRam(payload);
       }
