@@ -15,13 +15,14 @@ export interface usageChartProps {
 }
 
 export const UsageChart: FunctionComponent<usageChartProps> = ({ usage }) => {
-  const formatUsage = (usage: UsageType[]) =>
-    usage.length ? Math.round(usage[usage.length - 1].usage) : 0;
+  const formattedUsage = usage.length
+    ? Math.round(usage[usage.length - 1].usage)
+    : 0;
 
   return (
     <StyledChartContainer>
       <StyledUsage>
-        <div>{formatUsage(usage)}%</div>
+        <div>{formattedUsage}%</div>
       </StyledUsage>
       <StyledChartWrapper>
         <ParentSize>
