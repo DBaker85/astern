@@ -11,10 +11,23 @@ import { TextLogo } from "../common/logo/logo";
 import { TemperatureChart } from "../common/temperatureChart/temperatureChart";
 import { UsageBar } from "../common/usageBar/usageBar";
 import { UsageChart } from "../common/usageChart/usageChart";
+import { UsageType, arrayUpdater } from "../common/usageChart/utils";
 import { Clock } from "../common/clock/clock";
 
+const initialData: UsageType[] = [];
+
+for (let index = -100; index < 0; index++) {
+  const time = new Date();
+
+  const dataPoint: UsageType = {
+    usage: Math.random() * 60,
+    time: new Date(time.setSeconds(time.getSeconds() + index)),
+  };
+  initialData.push(dataPoint);
+}
+
 const Template: Story<{ hasGpu: boolean }> = (args) => {
-  const [usageData, setUsageData] = useState(0);
+  const [usageData, setUsageData] = useState<UsageType[]>(initialData);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -22,7 +35,9 @@ const Template: Story<{ hasGpu: boolean }> = (args) => {
 
   useEffect(() => {
     const int = setInterval(() => {
-      setUsageData(Math.random() * 50);
+      setUsageData((usageArray) =>
+        arrayUpdater(usageArray, Math.random() * 60)
+      );
     }, 1000);
     const handleResize = () => {
       // Set window width/height to state

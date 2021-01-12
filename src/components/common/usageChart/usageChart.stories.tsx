@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Story, Meta } from "@storybook/react";
 import { withContainer } from "../../../../.storybook/decorators";
 import { UsageChart, usageChartProps } from "./usageChart";
+import { UsageType, arrayUpdater } from "../../common/usageChart/utils";
 
 const Template: Story<usageChartProps> = (args) => {
-  const [usageData, setUsageData] = useState(0);
+  const [usageData, setUsageData] = useState<UsageType[]>([]);
   useEffect(() => {
     const int = setInterval(() => {
-      setUsageData(Math.random() * 100);
+      setUsageData((usageArray) =>
+        arrayUpdater(usageArray, Math.random() * 100)
+      );
     }, 1000);
     return () => clearInterval(int);
   }, []);
