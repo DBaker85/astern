@@ -10,7 +10,7 @@ coverage
 .www
 theme
 dist
-
+docs
 # Mac stuff
 .DS_Store
 
