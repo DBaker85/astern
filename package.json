@@ -10,6 +10,7 @@
     "build:app": "parcel build src/index.pug --out-dir ./theme",
     "build:docs": "parcel build src/docs/index.pug --out-dir ./docs",
     "start": "parcel src/index.pug --open --out-dir ./.www",
+    "start:docs": "parcel src/docs/index.pug --open --out-dir ./.docs",
     "start:disconnected": "NODE_ENV=disconnected parcel src/index.pug --open --out-dir ./.www",
     "sdk:path": "ts-node --skip-project buildScripts/addSdk.ts",
     "assets:copy": "ts-node --skip-project buildScripts/addMobroAssets.ts",
