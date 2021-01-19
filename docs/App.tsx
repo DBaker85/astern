@@ -3,8 +3,8 @@ import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useSelector } from "react-redux";
 
 import { RootStateType } from "./store/index";
-import { dark } from "../styles/theme";
-import { globalStyle } from "../styles";
+import { dark } from "../src/styles/theme";
+import { globalStyle } from "../src/styles";
 import { Toggle } from "./components/toggle/toggle";
 
 const GlobalStyle = createGlobalStyle`${globalStyle}`;
