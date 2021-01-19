@@ -25,4 +25,4 @@ deploy:
     keep_history: true
     local_dir: docs
     on:
-      branch: gh_pages
+      branch: dev
