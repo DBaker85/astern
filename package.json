@@ -17,10 +17,11 @@
     "assets:bundle": "ts-node --skip-project buildScripts/bundleMobroAssets.ts",
     "fetch:screenshots": "ts-node --skip-project buildScripts/fetchScreenshots.ts",
     "fetch:releasenotes": "ts-node --skip-project buildScripts/fetchReleaseNotes.ts",
-    "clean": "run-p clean:theme clean:cache clean:devbuild",
+    "clean": "run-p clean:theme clean:cache clean:devbuild clean:docs",
     "clean:theme": "del-cli theme",
     "clean:cache": "del-cli .cache",
     "clean:devbuild": "del-cli .www",
+    "clean:docs": "del-cli .docs",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token n7wizm09peq"
