@@ -4,7 +4,16 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 import { Store } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import themeReducer from "./theme/themeSlice";
@@ -26,7 +35,9 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store: Store<RootStateType> = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware({
-    serializableCheck: false,
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
   }),
 });
 
