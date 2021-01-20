@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Story, Meta } from "@storybook/react";
 import { withContainer } from "../../../.storybook/decorators";
 
 import { SunMoon, SunMoonType } from "./sunMoon";
 
-const Template: Story<SunMoonType> = (args) => <SunMoon {...args} />;
+const Template: Story<SunMoonType> = (args) => {
+  const [isMoon, setIsMoon] = useState(false);
+  return (
+    <div
+      onClick={() => {
+        setIsMoon((isMoon) => !isMoon);
+      }}
+    >
+      <SunMoon {...args} moon={isMoon} />
+    </div>
+  );
+};
 
 export default {
   title: "Docs/Components/SunMoon",

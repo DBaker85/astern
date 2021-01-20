@@ -9,6 +9,7 @@ export interface ToggleProps {
 const Toggle: FunctionComponent<ToggleProps> = ({
   onClick,
   checked = false,
+  children,
 }) => {
   const [isChecked, setIsChecked] = useState<boolean>(checked);
 
@@ -25,7 +26,7 @@ const Toggle: FunctionComponent<ToggleProps> = ({
         readOnly
         onClick={handleClick}
       />
-      <StyledSwitch checked={isChecked}></StyledSwitch>
+      <StyledSwitch checked={isChecked}>{children}</StyledSwitch>
     </StyledWrapper>
   );
 };

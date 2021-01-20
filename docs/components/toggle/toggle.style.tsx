@@ -22,6 +22,7 @@ export const StyledSwitch = styled.div<SwitchProps>`
   display: flex;
   width: 50px;
   height: 50px;
+  padding: 5px;
   border-radius: 50px;
   background-color: ${(props) => props.theme.green};
   transition: transform 400ms cubic-bezier(0.68, -0.55, 0.27, 1.4);

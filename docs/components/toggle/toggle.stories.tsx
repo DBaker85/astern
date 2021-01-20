@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Story, Meta } from "@storybook/react";
 import { withContainer } from "../../../.storybook/decorators";
 
 import { Toggle, ToggleProps } from "./toggle";
+import { SunMoon } from "../sunMoon/sunMoon";
 
-const Template: Story<ToggleProps> = (args) => (
-  <Toggle {...args} onClick={() => null} />
-);
+const Template: Story<ToggleProps> = (args) => {
+  const [isMoon, setIsMoon] = useState(false);
+  return (
+    <div>
+      <Toggle {...args} onClick={() => null} />
+      <br />
+      <Toggle
+        {...args}
+        onClick={() => {
+          setIsMoon((isMoon) => !isMoon);
+        }}
+      >
+        <SunMoon {...args} moon={isMoon} />
+      </Toggle>
+    </div>
+  );
+};
 
 export default {
   title: "Docs/Components/Toggle",
@@ -20,7 +35,7 @@ export default {
     onClick: {
       description:
         "The toggle only works if there is a corresponding onClick handler attached.",
-      controls: null,
+      control: null,
     },
   },
 } as Meta;
