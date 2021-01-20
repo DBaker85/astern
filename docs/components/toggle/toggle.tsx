@@ -1,38 +1,16 @@
 import React, { MouseEvent, useState, FunctionComponent } from "react";
-import styled from "styled-components";
+import {
+  StyledInput,
+  StyledSwitch,
+  StyledWrapper,
+  StyledBase,
+  StyledCutout,
+} from "./toggle.style";
 
 interface ToggleProps {
   onClick?: any;
   checked?: boolean;
 }
-
-interface SwitchProps {
-  checked: boolean;
-}
-
-const StyledWrapper = styled.label`
-  display: flex;
-  width: 120px;
-  height: 60px;
-  overflow: hidden;
-  border-radius: 60px;
-  background-color: ${(props) => props.theme.background};
-  padding: 5px;
-`;
-const StyledInput = styled.input`
-  display: none;
-`;
-
-const StyledSwitch = styled.div<SwitchProps>`
-  display: flex;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background-color: ${(props) => props.theme.green};
-  transition: transform 300ms ease-in-out;
-  transform: ${(props) =>
-    props.checked ? `translateX(60px)` : `translateX(0)`};
-`;
 
 const Toggle: FunctionComponent<ToggleProps> = ({
   onClick,
@@ -52,7 +30,12 @@ const Toggle: FunctionComponent<ToggleProps> = ({
         defaultChecked={checked}
         onClick={handleClick}
       />
-      <StyledSwitch checked={checked} />
+      <StyledSwitch checked={checked}>
+        <svg viewBox="0 0 42 42" width="100%" height="100%">
+          <StyledBase cx="21" cy="21" r="18" moon={checked} />
+          <StyledCutout cx="17" cy="17" r="14" moon={checked} />
+        </svg>
+      </StyledSwitch>
     </StyledWrapper>
   );
 };

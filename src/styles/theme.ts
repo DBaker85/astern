@@ -23,4 +23,15 @@ const dark: DefaultTheme = {
   light: "hsla(60, 24%, 96%, 1)", //$baby-powder
 };
 
-export { dark };
+const light: DefaultTheme = {
+  yellow: "hsla(29, 96%, 56%, 1)", //dark-orange
+
+  green: "hsla(162, 95%, 34%, 1)", //green-munsell
+
+  red: "hsla(332, 97%, 43%, 1)", //dogwood-rose   red: "hsla(4, 66%, 41%, 1)", //firebrick
+  dark: "hsla(300, 33%, 2%, 1)", //rich-black-fogra
+  background: "hsla(60, 24%, 96%, 1)", //$baby-powder
+  light: "hsla(250, 12%, 20%, 1)", // cadet
+};
+
+export { dark, light };
