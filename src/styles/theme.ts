@@ -14,12 +14,12 @@ import { DefaultTheme } from "styled-components";
 
 const colors = {
   light: {
-    yellow: "hsla(29, 96%, 56%, 1)", //dark-orange
-    green: "hsla(162, 95%, 34%, 1)", //green-munsell
-    red: "hsla(332, 97%, 43%, 1)", //dogwood-rose   red: "hsla(4, 66%, 41%, 1)", //firebrick
-    darkest: "hsla(300, 33%, 2%, 1)", //rich-black-fogra
-    dark: "hsla(250, 12%, 20%, 1)", // cadet
-    light: "hsla(60, 24%, 96%, 1)", //$baby-powder
+    yellow: "hsla(29, 96%, 60%, 1)", //deep saffron
+    green: "hsla(71, 57%, 30%, 1)", //avocado
+    red: "hsla(360, 72%, 45%, 1)", //lava
+    darkest: "hsla(293, 8%, 40%, 1)", //custom
+    dark: "hsla(293, 8%, 23%)", // black coffee
+    light: "hsla(0, 5%, 83%, 1)", //$light gray
   },
   dark: {
     yellow: "hsla(29, 96%, 56%, 1)", //dark-orange
@@ -46,9 +46,9 @@ const light: DefaultTheme = {
   green: colors.light.green,
   red: colors.light.red,
   dark: colors.light.darkest,
-  background: colors.light.dark,
+  background: colors.light.light,
   light: colors.light.light,
-  text: colors.light.light,
+  text: colors.light.dark,
 };
 
 export { dark, light };
