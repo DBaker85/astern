@@ -1,42 +1,50 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-export const StyledBase = styled.circle<{ moon?: boolean }>`
-  fill: ${(props) => (props.moon ? props.theme.light : props.theme.yellow)};
+type Colors = {
+  background?: string;
+  sun?: string;
+  moon?: string;
+};
+export interface SunMoonType {
+  moon?: boolean;
+  colors?: Colors;
+}
+
+export const StyledBackground = styled.circle<{ colors: Colors }>`
+  fill: ${(props) => props.colors.background};
+  transition: fill 0.4s ease-in-out;
 `;
-export const StyledCutout = styled.circle<{ moon?: boolean }>`
-  fill: ${(props) => props.theme.green};
-  transition: transform 300ms ease-in-out;
+export const StyledBase = styled.circle<{ moon?: boolean; colors: Colors }>`
+  fill: ${(props) => (props.moon ? props.colors.moon : props.colors.sun)};
+  transition: fill 0.4s ease-in-out;
+`;
+export const StyledCutout = styled.circle<{ moon?: boolean; colors: Colors }>`
+  fill: ${(props) => props.colors.background};
+  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
   transform: ${(props) => (props.moon ? "scale(1)" : "scale(0)")};
 `;
 
-export interface SunMoonType {
-  moon?: boolean;
-}
+const defaultColors = {
+  background: "hsl(184, 20%, 34%)",
+  sun: "hsl(42, 100%, 60%)",
+  moon: "hsl(42, 100%, 91%)",
+};
 
-const numberOfBars = 8;
-const items = Array(numberOfBars).fill(numberOfBars);
-
-export const SunMoon: FunctionComponent<SunMoonType> = ({ moon = false }) => {
+export const SunMoon: FunctionComponent<SunMoonType> = ({
+  moon = false,
+  colors = defaultColors,
+}) => {
   return (
     <svg viewBox="0 0 42 42" width="100%" height="100%">
       <mask id="cutout-mask">
         <rect x="0" y="0" width="100" height="100" fill="black" />
         <circle cx="21" cy="21" r="21" fill="white"></circle>
       </mask>
-      <circle cx="21" cy="21" r="21" fill="hsla(162,95%,34%,1)"></circle>
-      <circle cx="21" cy="21" r="15" fill="hsla(29,96%,56%,1)" />
+      <StyledBackground cx="21" cy="21" r="21" colors={colors} />
+      <StyledBase cx="21" cy="21" r="15" moon={moon} colors={colors} />
       <g mask="url(#cutout-mask)">
-        <circle
-          cx="15"
-          cy="15"
-          r="13"
-          fill="hsla(162,95%,34%,1)"
-          style={{
-            transition: "transform 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55)",
-            transform: moon ? "scale(1)" : "scale(0)",
-          }}
-        />
+        <StyledCutout cx="15" cy="15" r="13" moon={moon} colors={colors} />
       </g>
     </svg>
   );
