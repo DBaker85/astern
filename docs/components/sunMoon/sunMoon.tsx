@@ -18,12 +18,21 @@ export const StyledBase = styled.circle<{
   moonColor: string;
 }>`
   fill: ${(props) => (props.moon ? props.moonColor : props.sunColor)};
-  transition: fill 0.4s ease-in-out;
+  transition: fill 0.4s ease-in-out, transform 0.4s ease-in-out;
+  transform: ${(props) => (props.moon ? "scale(1)" : "scale(0.8)")};
+  transform-origin: center;
 `;
 export const StyledCutout = styled.circle<{ moon?: boolean; color: string }>`
   fill: ${(props) => props.color};
   transition: transform 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
   transform: ${(props) => (props.moon ? "scale(1)" : "scale(0)")};
+`;
+
+export const StyledRay = styled.polygon<{ moon?: boolean; color: string }>`
+  fill: ${(props) => props.color};
+  transition: opacity 0.4s ease-in-out;
+  opacity: ${(props) => (props.moon ? 0 : 1)};
+  transform-origin: center;
 `;
 
 export const SunMoon: FunctionComponent<SunMoonType> = ({
@@ -47,6 +56,56 @@ export const SunMoon: FunctionComponent<SunMoonType> = ({
         sunColor={sunColor}
         moonColor={moonColor}
       />
+
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(0deg)" }}
+      />
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(45deg)" }}
+      />
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(90deg)" }}
+      />
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(135deg)" }}
+      />
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(180deg)" }}
+      />
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(225deg)" }}
+      />
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(270deg)" }}
+      />
+      <StyledRay
+        color={sunColor}
+        moon={moon}
+        points="19,7.4 21,5.4 23,7.4"
+        style={{ transform: "rotate(315deg)" }}
+      />
+
       <g mask="url(#cutout-mask)">
         <StyledCutout
           cx="15"
