@@ -8,17 +8,35 @@ import { globalStyle } from "../src/styles";
 import { getThemeSelector } from "./store/theme/themeSelectors";
 import { toggleTheme } from "./store/theme/themeSlice";
 import { Toggle } from "./components/toggle/toggle";
+import { SunMoon } from "./components/sunMoon/sunMoon";
 
 const GlobalStyle = createGlobalStyle`${globalStyle}`;
 
+interface Theme {
+  background: string;
+  light: string;
+  red: string;
+  green: string;
+  yellow: string;
+  dark: string;
+}
+
 const App: FunctionComponent = () => {
   const theme = useSelector(getThemeSelector);
+  const activeTheme = (theme.isDark ? dark : light) as Theme;
   const dispatch = useDispatch();
   return (
-    <ThemeProvider theme={theme.dark ? dark : light}>
+    <ThemeProvider theme={activeTheme}>
       <GlobalStyle />
       <div>
-        <Toggle onClick={() => dispatch(toggleTheme())} checked={theme.dark} />
+        <Toggle onClick={() => dispatch(toggleTheme())} checked={theme.isDark}>
+          <SunMoon
+            moon={theme.isDark}
+            backgroundColor={activeTheme.green}
+            sunColor={activeTheme.yellow}
+            moonColor={activeTheme.light}
+          />
+        </Toggle>
       </div>
       <div>Astern</div>
       <div>Downloads</div>
