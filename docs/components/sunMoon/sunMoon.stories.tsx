@@ -25,6 +25,15 @@ export default {
     moon: {
       description: "Change the icon to a moon",
     },
+    backgroundColor: {
+      control: "color",
+    },
+    sunColor: {
+      control: "color",
+    },
+    moonColor: {
+      control: "color",
+    },
   },
 } as Meta;
 
@@ -32,4 +41,7 @@ export const Default = Template.bind({});
 
 Default.args = {
   moon: false,
+  backgroundColor: "hsl(184, 20%, 34%)",
+  sunColor: "hsl(42, 100%, 60%)",
+  moonColor: "hsl(42, 100%, 91%)",
 };
