@@ -13,7 +13,7 @@ export const StyledLogo = styled.div`
 `;
 
 export const StyledFullLogo = styled.svg`
-  fill: ${(props) => props.theme.light};
+  fill: ${(props) => props.theme.text};
   .ast {
     fill: ${(props) => props.theme.yellow};
     text-transform: uppercase;

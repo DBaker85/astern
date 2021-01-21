@@ -22,7 +22,7 @@ export const StyledUsage = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  color: ${(props) => props.theme.light};
+  color: ${(props) => props.theme.text};
 
   div {
     padding: 10px;

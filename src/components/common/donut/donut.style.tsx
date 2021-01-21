@@ -48,6 +48,6 @@ export const StyledDonutText = styled.text<{
     if (props.critical && props.value >= props.critical) {
       return props.theme.red;
     }
-    return props.theme.light;
+    return props.theme.text;
   }};
 `;

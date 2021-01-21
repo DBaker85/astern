@@ -12,22 +12,43 @@ import { DefaultTheme } from "styled-components";
 // light: "hsla(212, 9%, 88%, 1)",
 // };
 
+const colors = {
+  light: {
+    yellow: "hsla(29, 96%, 56%, 1)", //dark-orange
+    green: "hsla(162, 95%, 34%, 1)", //green-munsell
+    red: "hsla(332, 97%, 43%, 1)", //dogwood-rose   red: "hsla(4, 66%, 41%, 1)", //firebrick
+    darkest: "hsla(300, 33%, 2%, 1)", //rich-black-fogra
+    dark: "hsla(250, 12%, 20%, 1)", // cadet
+    light: "hsla(60, 24%, 96%, 1)", //$baby-powder
+  },
+  dark: {
+    yellow: "hsla(29, 96%, 56%, 1)", //dark-orange
+    green: "hsla(162, 95%, 34%, 1)", //green-munsell
+    red: "hsla(332, 97%, 43%, 1)", //dogwood-rose   red: "hsla(4, 66%, 41%, 1)", //firebrick
+    darkest: "hsla(300, 33%, 2%, 1)", //rich-black-fogra
+    dark: "hsla(250, 12%, 20%, 1)", // cadet
+    light: "hsla(60, 24%, 96%, 1)", //$baby-powder
+  },
+};
+
 const dark: DefaultTheme = {
-  yellow: "hsla(29, 96%, 56%, 1)", //dark-orange
-  green: "hsla(162, 95%, 34%, 1)", //green-munsell
-  red: "hsla(332, 97%, 43%, 1)", //dogwood-rose   red: "hsla(4, 66%, 41%, 1)", //firebrick
-  dark: "hsla(300, 33%, 2%, 1)", //rich-black-fogra
-  background: "hsla(250, 12%, 20%, 1)", // cadet
-  light: "hsla(60, 24%, 96%, 1)", //$baby-powder
+  yellow: colors.dark.yellow,
+  green: colors.dark.green,
+  red: colors.dark.red,
+  dark: colors.dark.darkest,
+  background: colors.dark.dark,
+  light: colors.dark.light,
+  text: colors.dark.light,
 };
 
 const light: DefaultTheme = {
-  yellow: "hsla(29, 96%, 56%, 1)", //dark-orange
-  green: "hsla(162, 95%, 34%, 1)", //green-munsell
-  red: "hsla(332, 97%, 43%, 1)", //dogwood-rose   red: "hsla(4, 66%, 41%, 1)", //firebrick
-  dark: "hsla(300, 33%, 2%, 1)", //rich-black-fogra
-  background: "hsla(60, 24%, 96%, 1)", //$baby-powder
-  light: "hsla(250, 12%, 20%, 1)", // cadet
+  yellow: colors.light.yellow,
+  green: colors.light.green,
+  red: colors.light.red,
+  dark: colors.light.darkest,
+  background: colors.light.dark,
+  light: colors.light.light,
+  text: colors.light.light,
 };
 
 export { dark, light };
