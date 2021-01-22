@@ -22,7 +22,7 @@ export const StyledCutout = styled.circle<{ moon?: boolean; color: string }>`
   transform: ${(props) => (props.moon ? "scale(1)" : "scale(0)")};
 `;
 
-export const StyledRay = styled.polygon<{ moon?: boolean; color: string }>`
+export const StyledRays = styled.path<{ moon?: boolean; color: string }>`
   fill: ${(props) => props.color};
   transition: opacity 0.4s ease-in-out;
   opacity: ${(props) => (props.moon ? 0 : 1)};
