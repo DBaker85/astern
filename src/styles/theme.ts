@@ -12,6 +12,16 @@ import { DefaultTheme } from "styled-components";
 // light: "hsla(212, 9%, 88%, 1)",
 // };
 
+export interface Theme {
+  background: string;
+  light: string;
+  red: string;
+  green: string;
+  yellow: string;
+  dark: string;
+  text: string;
+}
+
 const colors = {
   light: {
     yellow: "hsla(29, 96%, 60%, 1)", //deep saffron
@@ -31,7 +41,7 @@ const colors = {
   },
 };
 
-const dark: DefaultTheme = {
+const dark: Theme = {
   yellow: colors.dark.yellow,
   green: colors.dark.green,
   red: colors.dark.red,
@@ -41,7 +51,7 @@ const dark: DefaultTheme = {
   text: colors.dark.light,
 };
 
-const light: DefaultTheme = {
+const light: Theme = {
   yellow: colors.light.yellow,
   green: colors.light.green,
   red: colors.light.red,
