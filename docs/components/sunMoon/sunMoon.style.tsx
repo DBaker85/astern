@@ -10,7 +10,8 @@ export const StyledBase = styled.circle<{
   moonColor: string;
 }>`
   fill: ${(props) => (props.moon ? props.moonColor : props.sunColor)};
-  transition: fill 0.4s ease-in-out, transform 0.4s ease-in-out;
+  transition: fill 0.4s ease-in-out,
+    transform 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
   transform: ${(props) => (props.moon ? "scale(1)" : "scale(0.8)")};
   transform-origin: center;
 `;

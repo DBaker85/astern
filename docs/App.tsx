@@ -1,9 +1,12 @@
 import React, { FunctionComponent } from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 import { dark, light, Theme } from "../src/styles/theme";
 import { globalStyle } from "../src/styles";
+import { FullLogo } from "../src/components/common/logo/fullLogo";
+
+import mainImage from "../src/assets/images/Main.png";
 
 import { getThemeSelector } from "./store/theme/themeSelectors";
 import { toggleTheme } from "./store/theme/themeSlice";
@@ -12,6 +15,32 @@ import { SunMoon } from "./components/sunMoon/sunMoon";
 
 const GlobalStyle = createGlobalStyle`${globalStyle}`;
 
+const StyledToggleWrapper = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: flex-end;
+`;
+
+const StyledLogoWrapper = styled.div`
+  display: flex;
+  padding: 60px;
+  height: 300px;
+  justify-content: center;
+  background-color: ${(props) => props.theme.dark};
+  svg {
+    height: 100%;
+    width: auto;
+  }
+`;
+
+const StyledMainWrapper = styled.div`
+  display: flex;
+  padding: 40px;
+  div {
+    width: 50%;
+  }
+`;
+
 const App: FunctionComponent = () => {
   const theme = useSelector(getThemeSelector);
   const activeTheme = (theme.isDark ? dark : light) as Theme;
@@ -19,7 +48,7 @@ const App: FunctionComponent = () => {
   return (
     <ThemeProvider theme={activeTheme}>
       <GlobalStyle />
-      <div>
+      <StyledToggleWrapper>
         <Toggle onClick={() => dispatch(toggleTheme())} checked={theme.isDark}>
           <SunMoon
             moon={theme.isDark}
@@ -28,9 +57,16 @@ const App: FunctionComponent = () => {
             moonColor={activeTheme.light}
           />
         </Toggle>
-      </div>
-      <div>Astern</div>
-      <div>Downloads</div>
+      </StyledToggleWrapper>
+      <StyledLogoWrapper>
+        <FullLogo />
+      </StyledLogoWrapper>
+      <StyledMainWrapper>
+        <div>{/* <img src={mainImage} /> */}</div>
+        <div>
+          <a href="" />
+        </div>
+      </StyledMainWrapper>
     </ThemeProvider>
   );
 };
