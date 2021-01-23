@@ -25,7 +25,7 @@ export const StyledCutout = styled.circle<{ moon?: boolean; color: string }>`
 
 export const StyledRays = styled.path<{ moon?: boolean; color: string }>`
   fill: ${(props) => props.color};
-  transition: opacity 0.4s ease-in-out;
-  opacity: ${(props) => (props.moon ? 0 : 1)};
+  transition: transform 0.4s ease-in-out;
+  transform: ${(props) => (props.moon ? "scale(0)" : "scale(1)")};
   transform-origin: center;
 `;
