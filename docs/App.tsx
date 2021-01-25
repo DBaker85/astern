@@ -1,17 +1,22 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 import { dark, light, Theme } from "../src/styles/theme";
 import { globalStyle } from "../src/styles";
 import { FullLogo } from "../src/components/common/logo/fullLogo";
-
 import mainImage from "../src/assets/images/Main.png";
 
 import { getThemeSelector } from "./store/theme/themeSelectors";
 import { toggleTheme } from "./store/theme/themeSlice";
 import { Toggle } from "./components/toggle/toggle";
 import { SunMoon } from "./components/sunMoon/sunMoon";
+import {
+  pageView,
+  analyticsEvent,
+  eventActions,
+  eventCategories,
+} from "./utils/analytics/analytics";
 
 const GlobalStyle = createGlobalStyle`${globalStyle}`;
 
@@ -45,11 +50,25 @@ const App: FunctionComponent = () => {
   const theme = useSelector(getThemeSelector);
   const activeTheme = (theme.isDark ? dark : light) as Theme;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    pageView("Home");
+  }, []);
+
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
+    analyticsEvent({
+      category: eventCategories.user,
+      action: eventActions.toggled("Theme"),
+      label: theme.isDark ? "light" : "dark",
+    });
+  };
+
   return (
     <ThemeProvider theme={activeTheme}>
       <GlobalStyle />
       <StyledToggleWrapper>
-        <Toggle onClick={() => dispatch(toggleTheme())} checked={theme.isDark}>
+        <Toggle onClick={handleToggleTheme} checked={theme.isDark}>
           <SunMoon
             moon={theme.isDark}
             backgroundColor={activeTheme.green}

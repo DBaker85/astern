@@ -5,6 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import { store, persistor } from "./store";
 import { App } from "./App";
+import { initialize } from "./utils/analytics/analytics";
 
 render(
   <StrictMode>
@@ -16,3 +17,5 @@ render(
   </StrictMode>,
   document.getElementById("doc-root")
 );
+
+initialize();
