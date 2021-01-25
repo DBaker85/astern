@@ -3,7 +3,7 @@ import { Story, Meta } from "@storybook/react";
 import { withContainer } from "../../../.storybook/decorators";
 
 import { Toggle, ToggleProps } from "./toggle";
-import { SunMoon } from "../sunMoon/sunMoon";
+import { SunMoon } from "../icons/sunMoon/sunMoon";
 
 const Template: Story<ToggleProps> = (args) => {
   const [isMoon, setIsMoon] = useState(false);

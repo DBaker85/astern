@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Story, Meta } from "@storybook/react";
-import { withContainer } from "../../../.storybook/decorators";
+import { withContainer } from "../../../../.storybook/decorators";
 
 import { SunMoon, SunMoonType } from "./sunMoon";
 

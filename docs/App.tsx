@@ -1,16 +1,18 @@
 import React, { FunctionComponent, useEffect } from "react";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
+import { StylesProvider } from "@material-ui/core/styles";
 
 import { dark, light, Theme } from "../src/styles/theme";
-import { globalStyle } from "../src/styles";
+
 import { FullLogo } from "../src/components/common/logo/fullLogo";
 import mainImage from "../src/assets/images/Main.png";
 
 import { getThemeSelector } from "./store/theme/themeSelectors";
 import { toggleTheme } from "./store/theme/themeSlice";
 import { Toggle } from "./components/toggle/toggle";
-import { SunMoon } from "./components/sunMoon/sunMoon";
+import { SunMoon } from "./components/icons/sunMoon/sunMoon";
+import { Button } from "./components/button/button";
 import {
   pageView,
   analyticsEvent,
@@ -18,33 +20,14 @@ import {
   eventCategories,
 } from "./utils/analytics/analytics";
 
-const GlobalStyle = createGlobalStyle`${globalStyle}`;
+import {
+  GlobalStyle,
+  StyledLogoWrapper,
+  StyledMainWrapper,
+  StyledToggleWrapper,
+} from "./App.style";
 
-const StyledToggleWrapper = styled.div`
-  display: flex;
-  padding: 20px;
-  justify-content: flex-end;
-`;
-
-const StyledLogoWrapper = styled.div`
-  display: flex;
-  padding: 60px;
-  height: 300px;
-  justify-content: center;
-  background-color: ${(props) => props.theme.dark};
-  svg {
-    height: 100%;
-    width: auto;
-  }
-`;
-
-const StyledMainWrapper = styled.div`
-  display: flex;
-  padding: 40px;
-  div {
-    width: 50%;
-  }
-`;
+import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 
 const App: FunctionComponent = () => {
   const theme = useSelector(getThemeSelector);
@@ -65,28 +48,31 @@ const App: FunctionComponent = () => {
   };
 
   return (
-    <ThemeProvider theme={activeTheme}>
-      <GlobalStyle />
-      <StyledToggleWrapper>
-        <Toggle onClick={handleToggleTheme} checked={theme.isDark}>
-          <SunMoon
-            moon={theme.isDark}
-            backgroundColor={activeTheme.green}
-            sunColor={activeTheme.yellow}
-            moonColor={activeTheme.light}
-          />
-        </Toggle>
-      </StyledToggleWrapper>
-      <StyledLogoWrapper>
-        <FullLogo />
-      </StyledLogoWrapper>
-      <StyledMainWrapper>
-        <div>{/* <img src={mainImage} /> */}</div>
-        <div>
-          <a href="" />
-        </div>
-      </StyledMainWrapper>
-    </ThemeProvider>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={activeTheme}>
+        <GlobalStyle />
+        <StyledToggleWrapper>
+          <Toggle onClick={handleToggleTheme} checked={theme.isDark}>
+            <SunMoon
+              moon={theme.isDark}
+              backgroundColor={activeTheme.green}
+              sunColor={activeTheme.yellow}
+              moonColor={activeTheme.light}
+            />
+          </Toggle>
+        </StyledToggleWrapper>
+        <StyledLogoWrapper>
+          <FullLogo />
+        </StyledLogoWrapper>
+        <StyledMainWrapper>
+          <div>{/* <img src={mainImage} /> */}</div>
+          <div>
+            <a href="" />
+          </div>
+          <Button startIcon={<CloudDownloadIcon />}>Download</Button>
+        </StyledMainWrapper>
+      </ThemeProvider>
+    </StylesProvider>
   );
 };
 
