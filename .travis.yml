@@ -2,9 +2,7 @@ language: node_js
 node_js:
   - node
 os: osx
-install:
-  - npm ci
-  - travis_wait mvn install
+install: npm ci
 cache:
   directories:
     - "$HOME/.npm"
@@ -31,4 +29,4 @@ deploy:
 jobs:
   include:
     - name: "Publish to Chromatic"
-      script: npx chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
+      script: travis_wait npx chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
