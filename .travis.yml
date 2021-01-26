@@ -10,7 +10,6 @@ script:
   - npm run build
   - npm run test:coverage:publish
   - npm run build:docs
-  - npm run chromatic
 deploy:
   - provider: releases
     draft: true
