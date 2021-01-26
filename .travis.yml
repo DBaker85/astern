@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - node
 os: osx
-install: npm ci
+install: npm i
 cache:
   directories:
     - "$HOME/.npm"
