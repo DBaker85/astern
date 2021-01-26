@@ -26,3 +26,7 @@ deploy:
     local_dir: .docs/astern
     on:
       branch: dev
+jobs:
+  include:
+    - name: "Publish to Chromatic"
+      script: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes
