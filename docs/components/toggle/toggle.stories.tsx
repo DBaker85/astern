@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Story, Meta } from "@storybook/react";
-import { withContainer } from "../../../.storybook/decorators";
+import { withDocsContainer } from "../../../.storybook/decorators";
 
 import { Toggle, ToggleProps } from "./toggle";
 import { SunMoon } from "../icons/sunMoon/sunMoon";
@@ -26,7 +26,7 @@ const Template: Story<ToggleProps> = (args) => {
 export default {
   title: "Docs/Components/Toggle",
   component: Toggle,
-  decorators: [withContainer],
+  decorators: [withDocsContainer],
   argTypes: {
     checked: {
       description:

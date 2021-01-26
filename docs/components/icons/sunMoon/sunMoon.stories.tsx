@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Story, Meta } from "@storybook/react";
-import { withContainer } from "../../../../.storybook/decorators";
+import { withDocsContainer } from "../../../../.storybook/decorators";
 
 import { SunMoon, SunMoonType } from "./sunMoon";
 
@@ -20,7 +20,7 @@ const Template: Story<SunMoonType> = (args) => {
 export default {
   title: "Docs/Components/SunMoon",
   component: SunMoon,
-  decorators: [withContainer],
+  decorators: [withDocsContainer],
   argTypes: {
     moon: {
       description: "Change the icon to a moon",

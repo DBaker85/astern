@@ -1,6 +1,6 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { withContainer } from "../../../.storybook/decorators";
+import { withDocsContainer } from "../../../.storybook/decorators";
 
 import { Button } from "./button";
 
@@ -9,7 +9,7 @@ const Template: Story = () => <Button>Button</Button>;
 export default {
   title: "Docs/Components/Button",
   component: Button,
-  decorators: [withContainer],
+  decorators: [withDocsContainer],
 } as Meta;
 
 export const Default = Template.bind({});

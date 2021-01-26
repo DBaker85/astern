@@ -6,7 +6,7 @@ import { StylesProvider } from "@material-ui/core/styles";
 import { dark, light, Theme } from "../src/styles/theme";
 
 import { FullLogo } from "../src/components/common/logo/fullLogo";
-import mainImage from "../src/assets/images/Main.png";
+import mainImage from "../src/assets/images/main.png";
 
 import { getThemeSelector } from "./store/theme/themeSelectors";
 import { toggleTheme } from "./store/theme/themeSlice";

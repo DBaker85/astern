@@ -5,10 +5,11 @@ import { Button as UiButton, darken, ButtonProps } from "@material-ui/core";
 const StyledButton = styled(UiButton)`
   ${({ theme }) => `
   background-color: ${theme.dark};
-  color: ${theme.light};
+  color: ${theme.text};
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 4px 10px;
-  font-size: 13px;
+  padding: 8px 20px;
+  font-size: 20px;
+  font-family: 'Abel-Regular';
   &:hover {
     background-color: ${darken(theme.dark, 0.2)};
   }
@@ -18,7 +19,7 @@ const StyledButton = styled(UiButton)`
 
 export const Button: FunctionComponent<ButtonProps> = ({
   children,
-  startIcon,
+  ...rest
 }) => {
-  return <StyledButton startIcon={startIcon}>{children}</StyledButton>;
+  return <StyledButton {...rest}>{children}</StyledButton>;
 };
