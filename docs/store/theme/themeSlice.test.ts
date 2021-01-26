@@ -8,5 +8,5 @@ it("should handle toggle theme", () => {
         type: toggleTheme.type,
       }
     )
-  ).toEqual({ dark: true });
+  ).toEqual({ isDark: true });
 });
