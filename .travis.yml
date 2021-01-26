@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - node
 os: osx
-install: npm i
+install: npm ci
 cache:
   directories:
     - "$HOME/.npm"
@@ -10,6 +10,7 @@ script:
   - npm run build
   - npm run test:coverage:publish
   - npm run build:docs
+  - npm run chromatic
 deploy:
   - provider: releases
     draft: true
@@ -26,7 +27,3 @@ deploy:
     local_dir: .docs/astern
     on:
       branch: dev
-jobs:
-  include:
-    - name: "Publish to Chromatic"
-      script: travis_wait npx chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes

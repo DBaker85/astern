@@ -11,6 +11,7 @@ coverage
 .docs
 /theme
 dist
+storybook-static
 # Mac stuff
 .DS_Store
 
