@@ -12,7 +12,7 @@ import { getThemeSelector } from "./store/theme/themeSelectors";
 import { toggleTheme } from "./store/theme/themeSlice";
 import { Toggle } from "./components/toggle/toggle";
 import { SunMoon } from "./components/icons/sunMoon/sunMoon";
-import { Button } from "./components/button/button";
+import { DownloadButton } from "./components/button/downloadButton";
 import {
   pageView,
   analyticsEvent,
@@ -26,8 +26,6 @@ import {
   StyledMainWrapper,
   StyledToggleWrapper,
 } from "./App.style";
-
-import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 
 const App: FunctionComponent = () => {
   const theme = useSelector(getThemeSelector);
@@ -65,11 +63,10 @@ const App: FunctionComponent = () => {
           <FullLogo />
         </StyledLogoWrapper>
         <StyledMainWrapper>
-          <div>{/* <img src={mainImage} /> */}</div>
-          <div>
-            <a href="" />
-          </div>
-          <Button startIcon={<CloudDownloadIcon />}>Download</Button>
+          <DownloadButton
+            version="1.0.0"
+            subtext="for use with version 1x to 1.3x"
+          />
         </StyledMainWrapper>
       </ThemeProvider>
     </StylesProvider>
