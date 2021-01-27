@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 interface SwitchProps {
   checked: boolean;
+  height?: number;
 }
 
-export const StyledWrapper = styled.label`
+export const StyledWrapper = styled.label<{ height: number }>`
   display: flex;
-  width: 120px;
-  height: 60px;
+  width: ${(props) => `${props.height * 2}px`};
+  height: ${(props) => `${props.height}px`};
   overflow: hidden;
-  border-radius: 60px;
-  background-color: ${(props) => props.theme.dark};
-  padding: 5px;
+  border-radius: ${(props) => `${props.height}px`};
+  background-color: ${(props) => props.theme.background};
+  align-items: center;
+  padding: ${(props) => `${(props.height - props.height / 1.2) / 2}px`};
   cursor: pointer;
 `;
 export const StyledInput = styled.input`
@@ -20,12 +22,12 @@ export const StyledInput = styled.input`
 
 export const StyledSwitch = styled.div<SwitchProps>`
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: ${(props) => `${props.height / 1.2}px`};
+  height: ${(props) => `${props.height / 1.2}px`};
 
-  border-radius: 50px;
+  border-radius: ${(props) => `${props.height / 1.2}px`};
   background-color: ${(props) => props.theme.green};
   transition: transform 400ms cubic-bezier(0.68, -0.55, 0.27, 1.4);
   transform: ${(props) =>
-    props.checked ? `translateX(60px)` : `translateX(0)`};
+    props.checked ? `translateX(${props.height}px)` : `translateX(0)`};
 `;
