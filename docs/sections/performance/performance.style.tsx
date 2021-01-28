@@ -12,7 +12,7 @@ export const StyledTable = styled(Table)`
 `;
 
 export const StyledTableCell = styled(TableCell)`
-  color: ${(props) => props.theme.light};
+  color: ${(props) => props.theme.text};
   border-bottom: ${(props) => `2px solid ${props.theme.dark}`};
 `;
 
