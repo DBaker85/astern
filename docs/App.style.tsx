@@ -8,6 +8,10 @@ export const globalDocsStyle = css`
   body {
     font-size: 20px !important;
   }
+  a {
+    color: ${(props) => props.theme.text};
+    font-weight: bold;
+  }
 `;
 
 export const GlobalStyle = createGlobalStyle`${globalDocsStyle}`;
@@ -17,5 +21,6 @@ export const StyledMain = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 0 20px;
   padding: 20px 0;
 `;

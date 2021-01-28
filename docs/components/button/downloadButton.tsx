@@ -20,9 +20,8 @@ export const DownloadButton: FunctionComponent<DownloadButtonProps> = ({
 }) => {
   const handleOnCLick = () => {
     analyticsEvent({
-      action: eventActions.downloaded("package"),
+      action: eventActions.downloaded(`package v${version}`),
       category: eventCategories.user,
-      label: version,
     });
   };
   return (
