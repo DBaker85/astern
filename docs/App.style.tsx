@@ -1,7 +1,13 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 import { globalStyle } from "../src/styles";
+import { fonts } from "./styles/fonts";
 
-export const GlobalStyle = createGlobalStyle`${globalStyle}`;
+export const globalDocsStyle = css`
+  ${globalStyle}
+  ${fonts}
+`;
+
+export const GlobalStyle = createGlobalStyle`${globalDocsStyle}`;
 
 export const StyledToggleWrapper = styled.div`
   display: flex;
@@ -43,8 +49,17 @@ export const StyledContent = styled.div`
   max-width: 1024px;
   display: grid;
   gap: 20px;
-  grid-template-columns: 60% 40%;
-  ${StyledMain} &:nth-child(even) {
-    grid-template-columns: 40% 60%;
+  grid-template-columns: 100%;
+  padding: 0 20px;
+  ${StyledMain} &.split {
+    grid-template-columns: 60% 40%;
   }
+`;
+
+export const StyledHeading = styled.h1`
+  font-family: "Roboto-Light";
+  padding: 20px 0 10px 0;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: ${(props) => props.theme.green};
 `;

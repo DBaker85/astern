@@ -1,4 +1,5 @@
 /// <reference path='../src/images.d.ts'/>
+/// <reference path='../src/fonts.d.ts'/>
 
 import "requestidlecallback-polyfill";
 import React, { StrictMode } from "react";

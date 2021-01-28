@@ -6,7 +6,7 @@ import { StylesProvider } from "@material-ui/core/styles";
 import { dark, light, Theme } from "../src/styles/theme";
 
 import { FullLogo } from "../src/components/common/logo/fullLogo";
-import mainImage from "../src/assets/images/main.png";
+import mainImage from "../assets/images/main.png";
 
 import { getThemeSelector } from "./store/theme/themeSelectors";
 import { toggleTheme } from "./store/theme/themeSlice";
@@ -27,6 +27,7 @@ import {
   StyledLogoWrapper,
   StyledMain,
   StyledToggleWrapper,
+  StyledHeading,
 } from "./App.style";
 
 const App: FunctionComponent = () => {
@@ -74,12 +75,9 @@ const App: FunctionComponent = () => {
           </div>
         </StyledHeader>
         <StyledMain>
-          <StyledContent>
-            <div>
-              <img src={mainImage} style={{ width: "100%", height: "auto" }} />#
-              fAST modERN mobro theme I wanted this theme to be modern and show
-              some relevant stats like Core clock and Gpu stats but also very
-              easy to run on less capable hardware.
+          <StyledContent className="split">
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src={mainImage} style={{ width: "80%", height: "auto" }} />
             </div>
             <div
               style={{
@@ -95,27 +93,31 @@ const App: FunctionComponent = () => {
               />
             </div>
           </StyledContent>
-
           <StyledContent>
+            <StyledHeading as={"h2"}>Instalation</StyledHeading>
             {`
-## Installation
+windows
 
-Go to the [latest release](https://github.com/DBaker85/astern/releases)
-Download file 'astern.zip' it contains all files required
-
-### windows
-
-- Navigate to 'C:\Users\<username>\AppData\Local\MoBro\app-<version-number>\resources\resources\public\theme'
+- Navigate to C:\Users\<username>\AppData\Local\MoBro\app-<version-number>\resources\resources\public\theme
 - Extract the all contents of the package there
 - Restart MoBro server on your machine.
 - The Theme should now be available
 
-For more detailed instructions [click here](https://www.mod-bros.com/en/blog/b/configure-themes~916)`}
+For more detailed instructions [click here](https://www.mod-bros.com/en/blog/b/configure-themes~916)
+`}
           </StyledContent>
           <StyledContent>
-            ## Tested on | Board | 15min load avg | | --------------- |
-            -------------- | | Raspberry pi 3B | 0.60 ~ 15% | | Raspberry pi A+
-            | |
+            <StyledHeading as={"h2"}>Motivation</StyledHeading>I wanted this
+            theme to be modern and show some relevant stats like Core clock and
+            Gpu stats but also very easy to run on less capable hardware.
+          </StyledContent>
+
+          <StyledContent className="split">
+            <div>
+              <StyledHeading as={"h2"}>Performance</StyledHeading>| Board |
+              15min load avg | | --------------- | -------------- | | Raspberry
+              pi 3B | 0.60 ~ 15% | | Raspberry pi A+ | |
+            </div>
           </StyledContent>
         </StyledMain>
       </ThemeProvider>
