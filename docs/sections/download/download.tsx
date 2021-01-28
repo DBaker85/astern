@@ -20,7 +20,7 @@ export const Download: FunctionComponent = () => (
     >
       <DownloadButton
         version="1.0.0"
-        subtext="for use with version 1x to 1.3x"
+        subtext="For use with version 1x to 1.3x"
       />
     </div>
   </StyledContent>
