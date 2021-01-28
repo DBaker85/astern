@@ -61,5 +61,6 @@ export const StyledHeading = styled.h1`
   padding: 20px 0 10px 0;
   border-bottom: 1px;
   border-style: solid;
+  text-transform: uppercase;
   border-color: ${(props) => props.theme.green};
 `;

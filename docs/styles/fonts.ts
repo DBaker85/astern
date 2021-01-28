@@ -1,3 +1,5 @@
+/// <reference path='../../src/fonts.d.ts'/>
+
 import { css } from "styled-components";
 import Roboto from "../../assets/fonts/Roboto-Light.ttf";
 
