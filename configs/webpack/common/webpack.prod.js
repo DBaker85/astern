@@ -1,16 +1,12 @@
 const { merge } = require("webpack-merge");
-const { resolve } = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
-const commonConfig = require("./common");
+const excludedFolders = /(__mocks__|node_modules)/;
+
+const commonConfig = require("./webpack.common");
 
 module.exports = merge(commonConfig, {
   mode: "production",
-  entry: "./index.tsx",
-  output: {
-    filename: "astern/js/bundle.[hash].min.js",
-    path: resolve(__dirname, "../.docs"),
-    publicPath: "/",
-  },
   module: {
     rules: [
       {
@@ -25,6 +21,15 @@ module.exports = merge(commonConfig, {
       },
     ],
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        extractComments: true,
+        exclude: excludedFolders,
+      }),
+    ],
+  },
   devtool: "source-map",
-  plugins: [],
 });
