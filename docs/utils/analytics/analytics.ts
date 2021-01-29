@@ -5,7 +5,7 @@ export const initialize = () => {
     const config = [
       {
         trackingId: "UA-141677330-2",
-        debug: process.env.DEBUG ? true : false,
+        debug: false,
       },
     ];
 

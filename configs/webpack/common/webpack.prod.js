@@ -1,6 +1,6 @@
 const { merge } = require("webpack-merge");
 const TerserPlugin = require("terser-webpack-plugin");
-
+const webpack = require("webpack");
 const excludedFolders = /(__mocks__|node_modules)/;
 
 const commonConfig = require("./webpack.common");
@@ -31,5 +31,12 @@ module.exports = merge(commonConfig, {
       }),
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production"),
+      },
+    }),
+  ],
   devtool: "source-map",
 });
