@@ -7,7 +7,7 @@
     "test:coverage": "jest --coverage",
     "test:coverage:publish": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "run-s clean build:app && run-p sdk:path assets:copy && run-s assets:bundle",
-    "build:app": "parcel build src/index.pug --experimental-scope-hoisting --out-dir ./theme",
+    "build:app": "parcel build src/index.pug --out-dir ./theme",
     "build:docs": "run-p clean:docs clean:cache && run-s compile:docs replace:docpaths",
     "compile:docs": "webpack --config=configs/prod.js",
     "start": "parcel src/index.pug --open --out-dir ./.www",
