@@ -18,7 +18,7 @@ module.exports = merge(commonConfig, {
         use: {
           loader: "file-loader",
           options: {
-            name: "[name].[fullhash].[ext]",
+            name: "[name].[hash].[ext]",
             outputPath: "astern/fonts/",
           },
         },
