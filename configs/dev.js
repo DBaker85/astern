@@ -11,6 +11,14 @@ module.exports = merge(commonConfig, {
     "webpack/hot/only-dev-server", // bundle the client for hot reloading, only- means to only hot reload for successful updates
     "./index.tsx", // the entry point of our app
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: ["file-loader"],
+      },
+    ],
+  },
   devServer: {
     hot: true, // enable HMR on the server
   },
