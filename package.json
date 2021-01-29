@@ -8,7 +8,7 @@
     "test:coverage:publish": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "run-s clean build:app && run-p sdk:path assets:copy && run-s assets:bundle",
     "build:app": "parcel build src/index.pug --experimental-scope-hoisting --out-dir ./theme",
-    "build:docs": "run-s clean:docs compile:docs replace:docpaths",
+    "build:docs": "run-p clean:docs clean:cache && run-s compile:docs replace:docpaths",
     "compile:docs": "parcel build docs/index.pug --experimental-scope-hoisting --out-dir ./.docs",
     "start": "parcel src/index.pug --open --out-dir ./.www",
     "start:docs": "parcel docs/index.pug --open --out-dir ./.docs",
