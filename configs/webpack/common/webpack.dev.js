@@ -2,6 +2,7 @@
 const { merge } = require("webpack-merge");
 const webpack = require("webpack");
 const commonConfig = require("./webpack.common");
+const PACKAGE = require("../../../package.json");
 
 module.exports = merge(commonConfig, {
   mode: "development",
@@ -27,6 +28,7 @@ module.exports = merge(commonConfig, {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("development"),
+        APP_VERSION: PACKAGE.version,
       },
     }),
   ],

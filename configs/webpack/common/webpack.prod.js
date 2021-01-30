@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const excludedFolders = /(__mocks__|node_modules)/;
 
 const commonConfig = require("./webpack.common");
+const PACKAGE = require("../../../package.json");
 
 module.exports = merge(commonConfig, {
   mode: "production",
@@ -35,6 +36,7 @@ module.exports = merge(commonConfig, {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production"),
+        APP_VERSION: PACKAGE.version,
       },
     }),
   ],
