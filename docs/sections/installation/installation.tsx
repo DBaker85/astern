@@ -24,8 +24,7 @@ export const Installation: FunctionComponent = () => {
       <p>On Windows:</p>
       <StyledList>
         <li>
-          Navigate to
-          C:\Users\[username]\AppData\Local\MoBro\app-[version-number]\resources\resources\public\theme
+          Navigate to C:\Users\[username]\AppData\Local\MoBro_Local\public\theme
         </li>
         <li>Extract the all contents of the package there</li>
         <li>Restart MoBro server on your machine.</li>
