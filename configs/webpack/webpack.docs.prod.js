@@ -11,6 +11,20 @@ module.exports = merge(commonProdConfig, {
     path: resolve(__dirname, "..", "..", ".docs"),
     publicPath: "/",
   },
+  module: {
+    rules: [
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[hash].[ext]",
+            outputPath: "astern/fonts/",
+          },
+        },
+      },
+    ],
+  },
 
   devtool: "source-map",
   plugins: [

@@ -8,20 +8,7 @@ const PACKAGE = require("../../../package.json");
 
 module.exports = merge(commonConfig, {
   mode: "production",
-  module: {
-    rules: [
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[hash].[ext]",
-            outputPath: "astern/fonts/",
-          },
-        },
-      },
-    ],
-  },
+
   optimization: {
     minimize: true,
     minimizer: [
@@ -40,5 +27,4 @@ module.exports = merge(commonConfig, {
       },
     }),
   ],
-  devtool: "source-map",
 });
