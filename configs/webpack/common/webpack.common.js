@@ -32,7 +32,23 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "index.pug" })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "index.pug",
+      templateParameters(compilation, assets, options) {
+        return {
+          compilation: compilation,
+          webpack: compilation.getStats().toJson(),
+          webpackConfig: compilation.options,
+          htmlWebpackPlugin: {
+            files: assets,
+            options: options,
+          },
+          process,
+        };
+      },
+    }),
+  ],
 
   performance: {
     hints: false,
