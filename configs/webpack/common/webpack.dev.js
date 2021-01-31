@@ -1,6 +1,7 @@
 // development config
 const { merge } = require("webpack-merge");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const commonConfig = require("./webpack.common");
 const PACKAGE = require("../../../package.json");
 
@@ -29,6 +30,25 @@ module.exports = merge(commonConfig, {
       "process.env": {
         NODE_ENV: JSON.stringify("development"),
         APP_VERSION: JSON.stringify(PACKAGE.version),
+      },
+    }),
+
+    new HtmlWebpackPlugin({
+      template: "index.pug",
+      templateParameters(compilation, assets, options) {
+        return {
+          compilation: compilation,
+          webpack: compilation.getStats().toJson(),
+          webpackConfig: compilation.options,
+          htmlWebpackPlugin: {
+            files: assets,
+            options: options,
+          },
+          process: {
+            ...process,
+            env: { ...process.env, NODE_ENV: "development" },
+          },
+        };
       },
     }),
   ],

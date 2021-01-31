@@ -5,7 +5,7 @@ const commonProdConfig = require("./common/webpack.prod");
 
 module.exports = merge(commonProdConfig, {
   context: resolve(__dirname, "..", "..", "src"),
-  entry: "./Index.tsx",
+  entry: ["./Index.tsx", "./config/theme-config.json"],
   output: {
     filename: "bundle.[hash].min.js",
     path: resolve(__dirname, "..", "..", "theme"),
@@ -21,6 +21,14 @@ module.exports = merge(commonProdConfig, {
             name: "[name].[hash].[ext]",
             outputPath: "/",
           },
+        },
+      },
+
+      {
+        test: /\.json/,
+        type: "asset/resource",
+        generator: {
+          filename: "[name].[ext]",
         },
       },
     ],

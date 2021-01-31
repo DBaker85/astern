@@ -11,7 +11,7 @@ const bundle = async () => {
   try {
     var zip = new AdmZip();
 
-    zip.addLocalFolder(`${themePath}/astern`);
+    zip.addLocalFolder(`${themePath}`);
 
     zip.writeZip(`${themePath}/astern.zip`);
     console.log(`${green("Created theme bundle")} > ${yellow("astern.zip")}`);
