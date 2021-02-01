@@ -8,7 +8,7 @@ module.exports = merge(commonProdConfig, {
   entry: ["./Index.tsx", "./config/theme-config.json"],
   output: {
     filename: "bundle.[hash].min.js",
-    path: resolve(__dirname, "..", "..", "theme"),
+    path: resolve(__dirname, "..", "..", "theme", "astern"),
     publicPath: "/",
   },
   module: {
@@ -37,7 +37,13 @@ module.exports = merge(commonProdConfig, {
   plugins: [
     new BundleAnalyzerPlugin({
       analyzerMode: "static",
-      reportFilename: "../reports/app-analysis-report.html",
+      reportFilename: resolve(
+        __dirname,
+        "..",
+        "..",
+        "reports",
+        "app-analysis-report.html"
+      ),
       openAnalyzer: false,
     }),
   ],
