@@ -1,6 +1,8 @@
 const { merge } = require("webpack-merge");
 const { resolve } = require("path");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const CopyPlugin = require("copy-webpack-plugin");
+
 const commonProdConfig = require("./common/webpack.prod");
 
 module.exports = merge(commonProdConfig, {
@@ -32,6 +34,14 @@ module.exports = merge(commonProdConfig, {
       analyzerMode: "static",
       reportFilename: "../reports/docs-analysis-report.html",
       openAnalyzer: false,
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "public",
+          to: resolve(__dirname, "..", "..", ".docs", "astern", "favicons"),
+        },
+      ],
     }),
   ],
 });
