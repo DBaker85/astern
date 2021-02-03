@@ -11,9 +11,6 @@ import { pageView } from "./utils/analytics/analytics";
 
 import { GlobalStyle, StyledMain } from "./App.style";
 
-import { StyledHeading } from "./components/heading/heading.style";
-import { StyledContent } from "./components/content/content.style";
-
 import { Header } from "./sections/header/header";
 import { Download } from "./sections/download/download";
 import { Installation } from "./sections/installation/installation";

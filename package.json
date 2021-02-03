@@ -23,7 +23,8 @@
     "clean:docs": "del-cli .docs",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token n7wizm09peq"
+    "chromatic": "npx chromatic --project-token n7wizm09peq",
+    "test:ssg": "webpack --config=configs/webpack/webpack.ssg.js && node buildScripts/temp/ssg.js"
   },
   "author": "",
   "license": "ISC",
