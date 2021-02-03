@@ -1,15 +1,18 @@
 import "regenerator-runtime/runtime.js";
 import React from "react";
-import { renderToString, renderToStaticMarkup } from "react-dom/server";
+import { renderToString } from "react-dom/server";
 import { Provider } from "react-redux";
 import { ServerStyleSheet } from "styled-components";
+import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/core/styles";
 import { resolve } from "path";
 import { readFile, writeFile } from "fs-extra";
+import { red } from "chalk";
 
 import { App } from "../docs/App";
 import { store } from "../docs/store";
 
 const sheet = new ServerStyleSheet();
+const muiSheet = new MuiServerStyleSheets();
 
 const ssg = async () => {
   try {
@@ -25,16 +28,19 @@ const ssg = async () => {
 
     const html = renderToString(
       sheet.collectStyles(
-        <Provider store={store}>
-          <App />
-        </Provider>
+        muiSheet.collect(
+          <Provider store={store}>
+            <App />
+          </Provider>
+        )
       )
     );
-    const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
+    const styleTags = sheet.getStyleTags();
+    const muiStyles = muiSheet.toString();
 
     const replacedStyles = indexFile.replace(
       '<style id="ssr-styles"></style>',
-      `${styleTags}`
+      `<style id="mui-ssr-styles">${muiStyles}</style>${styleTags}`
     );
 
     const replacedIndex = replacedStyles.replace(
@@ -43,8 +49,8 @@ const ssg = async () => {
     );
 
     await writeFile(indexPath, replacedIndex);
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.log(red(err));
   } finally {
     sheet.seal();
   }
