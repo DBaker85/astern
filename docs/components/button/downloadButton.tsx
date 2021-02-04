@@ -32,6 +32,7 @@ export const DownloadButton: FunctionComponent<DownloadButtonProps> = ({
         onClick={handleOnCLick}
         href={`https://github.com/DBaker85/astern/releases/download/${version}/astern.zip`}
         download
+        rel="noreferrer"
       >
         Download v{version}
       </Link>

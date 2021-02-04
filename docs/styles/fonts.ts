@@ -9,5 +9,6 @@ export const fonts = css`
     font-style: normal;
     font-weight: 400;
     src: local("Oswald-Medium"), url(${Oswald}) format("truetype");
+    font-display: fallback;
   }
 `;
