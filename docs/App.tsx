@@ -23,6 +23,11 @@ const App: FunctionComponent = () => {
 
   useEffect(() => {
     pageView("Home");
+
+    const jssStyles = document.querySelector("#mui-ssr-styles");
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
   }, []);
 
   return (

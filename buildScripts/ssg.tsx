@@ -7,6 +7,7 @@ import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/core/sty
 import { resolve } from "path";
 import { readFile, writeFile } from "fs-extra";
 import { red } from "chalk";
+import { minify } from "html-minifier-terser";
 
 import { App } from "../docs/App";
 import { store } from "../docs/store";
@@ -48,7 +49,12 @@ const ssg = async () => {
       `<div id="doc-root">${html}</div>`
     );
 
-    await writeFile(indexPath, replacedIndex);
+    const minifiedReplacedIndex = minify(replacedIndex, {
+      collapseWhitespace: true,
+      minifyCSS: true,
+    });
+
+    await writeFile(indexPath, minifiedReplacedIndex);
   } catch (err) {
     console.log(red(err));
   } finally {
