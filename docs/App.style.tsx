@@ -7,6 +7,7 @@ export const globalDocsStyle = css`
   ${fonts}
   body {
     font-size: 20px !important;
+    width: auto;
   }
   a {
     color: ${(props) => props.theme.text};
