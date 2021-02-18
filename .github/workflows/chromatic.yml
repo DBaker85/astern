@@ -10,7 +10,7 @@ on: push
 jobs:
   chromatic-deployment:
     # Operating System
-    runs-on: macos-11.0
+    runs-on: macos-latest
     # Job steps
     steps:
       - uses: actions/checkout@v1
