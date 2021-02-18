@@ -11,4 +11,14 @@ module.exports = {
     "@storybook/addon-viewport",
     "storybook-addon-performance/register",
   ],
+  babel: async (options) => ({
+    ...options,
+    presets: [
+     ...options.presets,
+      ['minify', {
+          'builtIns': false
+      }]
+  ]
+    // any extra options you want to set
+  }),
 };
