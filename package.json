@@ -8,7 +8,7 @@
     "test:coverage:publish": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "run-s clean build:app && run-p sdk:path && run-s assets:bundle",
     "build:app": "webpack --config=configs/webpack/webpack.app.prod.js",
-    "build:docs": "run-p clean:docs && run-s compile:docs replace:docpaths",
+    "build:docs": "run-p clean:docs clean:buildscripts && run-p compile:docs compile:ssg && run-s replace:docpaths run:ssg",
     "compile:docs": "webpack --config=configs/webpack/webpack.docs.prod.js",
     "compile:ssg": "webpack --config=configs/webpack/webpack.ssg.js",
     "start": "webpack serve --config=configs/webpack/webpack.app.js",
@@ -26,8 +26,7 @@
     "clean:buildscripts": "del-cli buildScripts/temp",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token n7wizm09peq",
-    "build:docs:test": "run-p clean:docs clean:buildscripts && run-p compile:docs compile:ssg && run-s replace:docpaths run:ssg"
+    "chromatic": "npx chromatic --project-token n7wizm09peq"
   },
   "author": "",
   "license": "ISC",
