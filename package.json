@@ -99,7 +99,7 @@
     "@reduxjs/toolkit": "1.5.0",
     "@visx/curve": "1.7.0",
     "@visx/responsive": "1.6.1",
-    "@visx/scale": "1.6.1",
+    "@visx/scale": "1.7.0",
     "@visx/shape": "1.6.1",
     "bytes": "3.1.0",
     "d3-array": "2.12.0",
