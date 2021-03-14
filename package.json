@@ -106,7 +106,7 @@
     "html-minifier-terser": "5.1.1",
     "immer": "8.0.1",
     "lodash.debounce": "4.0.8",
-    "preact": "10.5.12",
+    "preact": "10.5.13",
     "react-ga": "3.3.0",
     "react-redux": "7.2.2",
     "redux": "4.0.5",
